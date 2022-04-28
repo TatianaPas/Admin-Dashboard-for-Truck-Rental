@@ -292,71 +292,7 @@
     </ControlTemplate>
 
 
-    <!--// Maximize / Minimize App Button Style //-->
-
-    <ImageBrush x:Key="max_def"
-                ImageSource="Assets/customer.png"
-                Stretch="None" />
-
-    <ImageBrush x:Key="max_mo"
-                ImageSource="Assets/customer.png"
-                Stretch="None" />
-
-    <Style x:Key="MaxBtnStyle"
-           TargetType="{x:Type Button}">
-
-        <Setter Property="Height"
-                Value="35" />
-        <Setter Property="Width"
-                Value="35" />
-        <Setter Property="HorizontalAlignment"
-                Value="Right" />
-        <Setter Property="VerticalAlignment"
-                Value="Top" />
-        <Setter Property="Margin"
-                Value="0,20,60,0" />
-
-        <Setter Property="Template">
-
-            <Setter.Value>
-
-                <ControlTemplate TargetType="{x:Type Button}">
-
-                    <Border x:Name="border"
-                            BorderThickness="0"
-                            Background="{StaticResource max_def}" />
-
-                    <ControlTemplate.Triggers>
-
-                        <Trigger Property="IsMouseOver"
-                                 Value="True">
-
-                            <Setter Property="Background"
-                                    TargetName="border"
-                                    Value="{StaticResource max_mo}" />
-
-                        </Trigger>
-
-                        <Trigger Property="IsPressed"
-                                 Value="True">
-
-                            <Setter Property="Background"
-                                    TargetName="border"
-                                    Value="{StaticResource max_mo}" />
-
-                        </Trigger>
-
-                    </ControlTemplate.Triggers>
-
-                </ControlTemplate>
-
-            </Setter.Value>
-
-        </Setter>
-
-
-    </Style>
-
+   
 
 
 </ResourceDictionary>
