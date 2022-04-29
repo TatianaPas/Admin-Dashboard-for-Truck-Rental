@@ -10,9 +10,18 @@
         Width="900"
         WindowStyle="None"
         AllowsTransparency="True"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResizeWithGrip"
+        MinWidth="360">
 
-    <Grid Background="#406882">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                <GradientStop Color="#B8B5FF" Offset="0.0"/>
+                <GradientStop Color="#22577E" Offset="0.4"/>
+                <GradientStop Color="#B8B5FF" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
@@ -21,7 +30,14 @@
 
 
         <Border Grid.ColumnSpan="2"
-                Background="#1A374D" MouseDown="GridMouseDown">
+                 MouseDown="GridMouseDown">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                    <GradientStop Color="#084594" Offset="0.0"/>
+                    <GradientStop Color="#1A132F" Offset="0.5"/>
+                    <GradientStop Color="#1A374D" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
 
 
             <Grid HorizontalAlignment="Stretch">
@@ -77,7 +93,7 @@
 
                 <StackPanel Orientation="Horizontal"
                             Margin="0,0,0,20">
-                    <Image Width="50" Height="50" 
+                    <Image Width="60" Height="60" 
                        Source="/Assets/logo_new1.png"
                        RenderOptions.BitmapScalingMode="Fant"/>
                     <TextBlock Text="Auckland Movers"
@@ -91,7 +107,7 @@
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Username"
-                    Foreground="white"
+                    Foreground="WhiteSmoke"
                        FontSize="14"
                        FontWeight="Medium"
                        FontFamily="Fonts/#Poppins"/>
@@ -106,7 +122,7 @@
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Password"
-                    Foreground="white"
+                    Foreground="WhiteSmoke"
                        FontSize="14"
                        FontWeight="Medium"
                        FontFamily="Fonts/#Poppins"/>
@@ -136,14 +152,12 @@
                             <Setter Property="TextElement.FontFamily" Value="Fonts/#Poppins"/>
                             <Setter Property="Background" Value="#E1C16E"/>
                             <Setter Property="Cursor" Value="Hand"></Setter>
-
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" Value="#FCF55F"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
-
                     </Button.Style>
 
                     <Button.Template>
@@ -152,15 +166,10 @@
                                     CornerRadius="5"
                                     Background="{TemplateBinding Background}">
                                 <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center">
-
-                                </ContentPresenter>
-
+                                                  HorizontalAlignment="Center"/>
                             </Border>
-
                         </ControlTemplate>
                     </Button.Template>
-
                 </Button>
 
 
@@ -181,7 +190,7 @@
 
         <Grid
               Grid.RowSpan="2"
-              Margin="555,-383,-1005,103"
+              Margin="20,-43,-470,-237"
               Panel.ZIndex="-1">
 
             <Grid.RenderTransform>
@@ -194,7 +203,7 @@
                     <Border Width="700"
                             Height="10"
                             Background="#041C32"
-                            Margin="20,0,0,0"
+                            Margin="80,0,0,0"
                             CornerRadius="5"/>
                     <Border Width="700"
                             Height="10"
