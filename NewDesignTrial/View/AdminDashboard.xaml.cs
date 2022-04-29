@@ -52,6 +52,15 @@ namespace NewDesignTrial.View
                 DragMove();
             }
         }
+
+        private void LogoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow form = new MainWindow();
+            this.Hide();
+            form.Show();
+        }
+
+        
     }
 }
 

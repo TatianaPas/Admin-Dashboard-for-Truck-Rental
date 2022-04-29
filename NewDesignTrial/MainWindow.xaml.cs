@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NewDesignTrial.View;
 
 namespace NewDesignTrial
 {
@@ -51,6 +52,17 @@ namespace NewDesignTrial
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 DragMove();
+            }
+        }
+
+        private void loginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AdminDashboard form = new AdminDashboard();
+
+            if(usernameTextBox.Text =="admin")
+            {
+                form.Show();
+                this.Hide();
             }
         }
     }

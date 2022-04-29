@@ -26,7 +26,16 @@
 
 
         <Border Grid.ColumnSpan="2"
-                Background="#1A374D" MouseDown="GridMouseDown">
+                 MouseDown="GridMouseDown"
+                >
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                    <GradientStop Color="#2d4c66" Offset="0.0"/>
+                    <GradientStop Color="#1A132F" Offset="0.5"/>
+                    <GradientStop Color="#2d4c66" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            
 
 
             <Grid HorizontalAlignment="Stretch">
@@ -42,7 +51,8 @@
 
 
                 <StackPanel HorizontalAlignment="Right"
-                            Orientation="Horizontal">
+                            Orientation="Horizontal"
+                            Margin="0,0,10,0">
 
                     <Button Width="35" Height="35" 
                             Content="🗕"
@@ -78,11 +88,18 @@
 
         <!--Menu Panel-->
 
-        <StackPanel Background="#406882"
+        <StackPanel
                     Width="230"
                     Orientation="Vertical"
                     HorizontalAlignment="Left"
-                    Grid.Row="1">
+                    Grid.Row="1"
+            Margin="0,2,0,0">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#3b5f7c" Offset="0.0"/>
+                    <GradientStop Color="#2d77a0" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
 
             <Grid Height="150"
                   VerticalAlignment="Top"
@@ -92,24 +109,24 @@
                 <StackPanel Orientation="Vertical">
 
                     <Image 
-                        Width="100" 
+                        Width="65" 
                        Source="/Assets/logo_new1.png"
                        RenderOptions.BitmapScalingMode="Fant"/>
                     <TextBlock Text="Hello admin"
                            Foreground="#fbec5d"
                            FontSize="20"
                            FontWeight="Medium"                         
-                           Margin="20,10,0,0"/>
+                           Margin="0,10,0,0" TextAlignment="Center"/>
 
                 </StackPanel>
 
             </Grid>
 
-            <!--aAin Menu-->
+            <!--Main Menu-->
 
-            <Menu Height="405"
+            <Menu Height="430"
                   Background="Transparent"
-                  Margin="0,40,0,0">
+                  Margin="0,10,0,0">
                 <Menu.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel Orientation="Vertical"/>
@@ -244,8 +261,10 @@
 
 
 
-                <MenuItem Header="Log Out"
-                          Template="{StaticResource Menu_Template}"
+                <MenuItem x:Name="LogoutBtn"  
+                          Header="Log Out"
+                          Template="{StaticResource Menu_Template}" 
+                          Click="LogoutBtn_Click"
                           
                           >
                     <MenuItem.Icon>

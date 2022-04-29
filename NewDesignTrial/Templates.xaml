@@ -6,12 +6,13 @@
     <ControlTemplate x:Key="Menu_SubMenu_Template"
                      TargetType="{x:Type MenuItem}">
 
-        <Border x:Name="border"
-                Background="#406882"
-                BorderBrush="#406882"
+        <Border x:Name="border"               
+                BorderBrush="#1A374D"
                 BorderThickness="0"
                 Height="50"
-                Width="230">
+                Width="230"
+                >
+            
 
             <Grid>
 
@@ -66,9 +67,9 @@
                        PopupAnimation="{DynamicResource {x:Static SystemParameters.MenuPopupAnimationKey}}"
                        VerticalOffset="0">
 
-                    <Border x:Name="SubMenuBorder"
-                            Background="#406882"
-                            BorderBrush="#406882">
+                    <Border x:Name="SubMenuBorder"                          
+                            BorderBrush="#1A374D">
+                        
 
                         <ScrollViewer x:Name="SubMenuScrollViewer"
                                       Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}}">
@@ -118,10 +119,10 @@
                      Value="True">
                 <Setter Property="Background"
                         TargetName="border"
-                        Value="#404D5B" />
+                        Value="#1A374D" />
                 <Setter Property="BorderBrush"
                         TargetName="border"
-                        Value="#404D5B" />
+                        Value="#1A374D" />
             </Trigger>
 
         </ControlTemplate.Triggers>
@@ -133,13 +134,12 @@
                      TargetType="{x:Type MenuItem}">
 
         <Border x:Name="border"
-                Background="#406882"
-                BorderBrush="#406882"
+                BorderBrush="#1A374D"
                 BorderThickness="0"
                 Height="50"
-                Width="230"                
-                >
-
+                Width="230"
+                Background="#40a8d4">
+            
             <Grid>
 
                 <Grid.ColumnDefinitions>
@@ -166,10 +166,10 @@
 
                 <ContentPresenter ContentSource="Header"
                                   Grid.Column="2"
-                                  TextBlock.Foreground="#ff7070"
+                                  TextBlock.Foreground="#E1C16E"
                                   TextBlock.FontFamily="Fonts/#Poppins"
                                   TextBlock.FontSize="20"
-                                  TextBlock.FontWeight="Bold"
+                                  TextBlock.FontWeight="Medium"
                                   HorizontalAlignment="Left"
                                   RecognizesAccessKey="True"
                                   Margin="3,0,0,0"
@@ -200,10 +200,10 @@
                      Value="True">
                 <Setter Property="Background"
                         TargetName="border"
-                        Value="#404D5B" />
+                        Value="#1A374D" />
                 <Setter Property="BorderBrush"
                         TargetName="border"
-                        Value="#404D5B" />
+                        Value="#1A374D" />
             </Trigger>
 
 
@@ -216,13 +216,12 @@
                      TargetType="{x:Type MenuItem}">
 
         <Border x:Name="border"
-                Background="#406882"
-                BorderBrush="#406882"
+                BorderBrush="#1A374D"
                 BorderThickness="{TemplateBinding BorderThickness}"
                 Height="50"
                 Width="300"
-               >
-
+                Background="#22577E">
+     
             <Grid>
 
                 <Grid.ColumnDefinitions>
@@ -282,10 +281,10 @@
                      Value="True">
                 <Setter Property="Background"
                         TargetName="border"
-                        Value="#404D5B" />
+                        Value="#1A374D" />
                 <Setter Property="BorderBrush"
                         TargetName="border"
-                        Value="#404D5B" />
+                        Value="#1A374D" />
             </Trigger>
 
         </ControlTemplate.Triggers>

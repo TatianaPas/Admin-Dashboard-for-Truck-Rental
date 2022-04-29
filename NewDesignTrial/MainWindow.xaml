@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NewDesignTrial"
         mc:Ignorable="d"
-        Title="MainWindow" 
+        Title="Auckland Movers" 
         Height="700" 
         Width="900"
         WindowStyle="None"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanResizeWithGrip"
-        MinWidth="360">
+        MinWidth="360"
+        MinHeight="450"
+        Icon="Assets/logo_new1.png">
 
     <Grid>
         <Grid.Background>
@@ -33,9 +35,9 @@
                  MouseDown="GridMouseDown">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                    <GradientStop Color="#084594" Offset="0.0"/>
+                    <GradientStop Color="#2d4c66" Offset="0.0"/>
                     <GradientStop Color="#1A132F" Offset="0.5"/>
-                    <GradientStop Color="#1A374D" Offset="1"/>
+                    <GradientStop Color="#2d4c66" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -53,7 +55,8 @@
 
 
                 <StackPanel HorizontalAlignment="Right"
-                            Orientation="Horizontal">
+                            Orientation="Horizontal"
+                            Margin="0,0,10,0">
 
                     <Button Width="35" Height="35" 
                             Content="🗕"
@@ -89,7 +92,7 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     >
-            <StackPanel Height="200" Width="290" >
+            <StackPanel Height="230" Width="290" >
 
                 <StackPanel Orientation="Horizontal"
                             Margin="0,0,0,20">
@@ -107,15 +110,16 @@
                 </StackPanel>
                 <StackPanel>
                     <Label Content="Username"
-                    Foreground="WhiteSmoke"
-                       FontSize="14"
-                       FontWeight="Medium"
-                       FontFamily="Fonts/#Poppins"/>
+                        Foreground="WhiteSmoke"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        FontFamily="Fonts/#Poppins"/>
                     <TextBox 
-                    Foreground="Black"
-                       FontSize="14"
-                       FontWeight="Medium"
-                       FontFamily="Fonts/#Poppins"
+                        x:Name="usernameTextBox"
+                        Foreground="Black"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        FontFamily="Fonts/#Poppins"
                         Height="35"
                         Padding="10"/>
 
@@ -126,11 +130,13 @@
                        FontSize="14"
                        FontWeight="Medium"
                        FontFamily="Fonts/#Poppins"/>
+                    
                     <PasswordBox 
-                    Foreground="Black"
-                       FontSize="14"
-                       FontWeight="Medium"
-                       FontFamily="Fonts/#Poppins"
+                        x:Name="passwordBox"
+                        Foreground="Black"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        FontFamily="Fonts/#Poppins"
                         Height="35"
                         Padding="10"/>
 
@@ -141,11 +147,13 @@
 
             <StackPanel Orientation="Horizontal"
                         Margin="0,0,0,0">
-                <Button Content="Login"
-                        Foreground="black"
+                
+                <Button x:Name="loginBtn"
+                        Content="Login"
+                        Foreground="#041C32"
                         FontSize="14"
-                        FontWeight="Medium"
-                        Margin="0,20,0,0">
+                        FontWeight="Bold"
+                        Margin="0,10,0,0" Click="loginBtn_Click">
 
                     <Button.Style>
                         <Style TargetType="Button">
