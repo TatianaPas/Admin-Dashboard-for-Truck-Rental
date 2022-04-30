@@ -12,10 +12,7 @@
                 Height="50"
                 Width="230"
                 >
-            
-
             <Grid>
-
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition MinWidth="22"
                                       Width="Auto" />
@@ -138,7 +135,7 @@
                 BorderThickness="0"
                 Height="50"
                 Width="230"
-                Background="#40a8d4">
+                Background="#69bcda">
             
             <Grid>
 
@@ -166,7 +163,7 @@
 
                 <ContentPresenter ContentSource="Header"
                                   Grid.Column="2"
-                                  TextBlock.Foreground="#E1C16E"
+                                  TextBlock.Foreground="#bf5e00"
                                   TextBlock.FontFamily="Fonts/#Poppins"
                                   TextBlock.FontSize="20"
                                   TextBlock.FontWeight="Medium"

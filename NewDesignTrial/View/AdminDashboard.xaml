@@ -12,7 +12,14 @@
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen">
 
-    <Grid Background="#B1D0E0">
+    <Grid >
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                <GradientStop Color="#DFF6FF" Offset="0.0"/>
+                <GradientStop Color="#B1D0E0" Offset="0.4"/>
+                <GradientStop Color="#EFFFFD" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
@@ -134,8 +141,8 @@
                 </Menu.ItemsPanel>
 
                 <!--Main Menu - Rental Records-->
-                <MenuItem Header="Rentals"
-                          Template="{StaticResource Menu_SubMenu_Template}">
+                <MenuItem x:Name="rentals_menu" Header="Rentals"
+                          Template="{StaticResource Menu_SubMenu_Template}" Click="rentals_menu_Click">
                     <MenuItem.Icon>
                         <Image Source="/Assets/records.png"/>
                     </MenuItem.Icon>
@@ -143,6 +150,8 @@
 
 
                     <MenuItem Header="Records by Date"
+                              x:Name="records_by_date_menu"
+                              Click="records_by_date_menu_Click"
                               Template="{StaticResource Item_Template}">
                         <MenuItem.Icon>
                             <Image Source="/Assets/search.png"/>
@@ -150,6 +159,8 @@
 
                     </MenuItem>
                     <MenuItem Header="Records by Customer"
+                              x:Name="records_by_customer_menu"
+                              Click="records_by_customer_menu_Click"
                               Template="{StaticResource Item_Template}">
                         <MenuItem.Icon>
                             <Image Source="/Assets/search.png"/>
@@ -168,6 +179,8 @@
                     <!--Customers sub menus-->
 
                     <MenuItem Header="Add  New Truck"
+                              x:Name="add_truck_menu"
+                              Click="add_truck_menu_Click"
                               Template="{StaticResource Item_Template}">
                         <MenuItem.Icon>
                             <Image Source="/Assets/plus.png"/>
@@ -175,6 +188,8 @@
 
                     </MenuItem>
                     <MenuItem Header="Search Truck"
+                              x:Name="search_truck_menu"
+                              Click="search_truck_menu_Click"
                               Template="{StaticResource Item_Template}">
                         <MenuItem.Icon>
                             <Image Source="/Assets/search.png"/>
@@ -182,6 +197,8 @@
 
                     </MenuItem>
                     <MenuItem Header="Update Truck"
+                              x:Name="update_truck_menu"
+                              Click="update_truck_menu_Click"
                               Template="{StaticResource Item_Template}">
                         <MenuItem.Icon>
                             <Image Source="/Assets/update.png"/>
@@ -255,12 +272,6 @@
                     </MenuItem>
                 </MenuItem>
 
-
-
-
-
-
-
                 <MenuItem x:Name="LogoutBtn"  
                           Header="Log Out"
                           Template="{StaticResource Menu_Template}" 
@@ -273,10 +284,20 @@
                 </MenuItem>
             </Menu>
 
+        </StackPanel>
+        <StackPanel/>
+        <StackPanel Grid.Column="1"
+                    Grid.Row="1">
+            <TextBlock x:Name="window_textBox" Text="This is the main window"
+                       FontSize="20"
+                       FontFamily="Poppins"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0"
+                       
+                />
 
 
         </StackPanel>
-        <StackPanel/>
 
         <!--Maximize Minimize app-->
 

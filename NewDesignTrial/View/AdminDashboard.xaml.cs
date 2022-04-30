@@ -60,7 +60,35 @@ namespace NewDesignTrial.View
             form.Show();
         }
 
-        
+        private void rentals_menu_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void records_by_date_menu_Click(object sender, RoutedEventArgs e)
+        {
+            this.window_textBox.Text = "Here is records by date window";
+        }
+
+        private void records_by_customer_menu_Click(object sender, RoutedEventArgs e)
+        {
+            this.window_textBox.Text = "Here is records by customer window";
+        }
+
+        private void add_truck_menu_Click(object sender, RoutedEventArgs e)
+        {
+            this.window_textBox.Text = "Add a new truck window";
+        }
+
+        private void search_truck_menu_Click(object sender, RoutedEventArgs e)
+        {
+            this.window_textBox.Text = "Search a truck window";
+        }
+
+        private void update_truck_menu_Click(object sender, RoutedEventArgs e)
+        {
+            this.window_textBox.Text = "Update truck window";
+        }
     }
 }
 
