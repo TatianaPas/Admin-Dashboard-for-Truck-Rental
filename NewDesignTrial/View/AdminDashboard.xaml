@@ -286,17 +286,40 @@
 
         </StackPanel>
         <StackPanel/>
-        <StackPanel Grid.Column="1"
-                    Grid.Row="1">
+        <StackPanel x:Name="main_window_panel"
+            Grid.Column="1"
+                    Grid.Row="1"
+                    >
             <TextBlock x:Name="window_textBox" Text="This is the main window"
                        FontSize="20"
                        FontFamily="Poppins"
                        HorizontalAlignment="Center"
-                       VerticalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0"
-                       
+                       VerticalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0"                      
                 />
-
-
+        </StackPanel>
+        <StackPanel x:Name="rentals_window_panel"
+            Grid.Column="1"
+                    Grid.Row="1"
+                    Background="#B1D0E0"
+                    Visibility="Hidden">
+            <TextBlock x:Name="window_textBoxRentals" Text="This is the rentals by date window"
+                       FontSize="20"
+                       FontFamily="Poppins"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0"                      
+                />
+        </StackPanel>
+        <StackPanel x:Name="rentals_window_panelC"
+            Grid.Column="1"
+                    Grid.Row="1"
+                    Background="#6998AB"
+                    Visibility="Hidden">
+            <TextBlock x:Name="window_textBoxRentalsC" Text="This is the rentals by customer window"
+                       FontSize="20"
+                       FontFamily="Poppins"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0"                      
+                />
         </StackPanel>
 
         <!--Maximize Minimize app-->

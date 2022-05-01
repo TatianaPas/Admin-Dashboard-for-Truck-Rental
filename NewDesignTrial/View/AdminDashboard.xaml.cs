@@ -67,12 +67,16 @@ namespace NewDesignTrial.View
 
         private void records_by_date_menu_Click(object sender, RoutedEventArgs e)
         {
-            this.window_textBox.Text = "Here is records by date window";
+            main_window_panel.Visibility = Visibility.Hidden;
+            rentals_window_panelC.Visibility = Visibility.Hidden;
+            rentals_window_panel.Visibility = Visibility.Visible;
         }
 
         private void records_by_customer_menu_Click(object sender, RoutedEventArgs e)
         {
-            this.window_textBox.Text = "Here is records by customer window";
+            main_window_panel.Visibility = Visibility.Hidden;
+            rentals_window_panel.Visibility = Visibility.Hidden;
+            rentals_window_panelC.Visibility = Visibility.Visible;
         }
 
         private void add_truck_menu_Click(object sender, RoutedEventArgs e)
