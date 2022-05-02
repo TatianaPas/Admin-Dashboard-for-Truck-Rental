@@ -25,18 +25,18 @@ namespace NewDesignTrial.View
         }
         private void buttonMinimise_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.MainWindow.WindowState = WindowState.Minimized;
+            this.WindowState = WindowState.Minimized;
         }
 
         private void WindowStateBtnClick(object sender, RoutedEventArgs e)
         {
-            if (Application.Current.MainWindow.WindowState != WindowState.Maximized)
+            if (this.WindowState != WindowState.Maximized)
             {
-                Application.Current.MainWindow.WindowState = WindowState.Maximized;
+                this.WindowState = WindowState.Maximized;
             }
             else
             {
-                Application.Current.MainWindow.WindowState = WindowState.Normal;
+                this.WindowState = WindowState.Normal;
             }
         }
 
@@ -92,6 +92,14 @@ namespace NewDesignTrial.View
         private void update_truck_menu_Click(object sender, RoutedEventArgs e)
         {
             this.window_textBox.Text = "Update truck window";
+        }
+
+        private void add_customer_menu_Click(object sender, RoutedEventArgs e)
+        {
+            main_window_panel.Visibility = Visibility.Hidden;
+            rentals_window_panelC.Visibility = Visibility.Hidden;
+            rentals_window_panel.Visibility = Visibility.Hidden;
+            add_customer_panel.Visibility=Visibility.Visible;
         }
     }
 }
