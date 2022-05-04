@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NewDesignTrial.View;
 
 namespace NewDesignTrial.View
 {
@@ -67,21 +68,18 @@ namespace NewDesignTrial.View
 
         private void records_by_date_menu_Click(object sender, RoutedEventArgs e)
         {
-            main_window_panel.Visibility = Visibility.Hidden;
-            rentals_window_panelC.Visibility = Visibility.Hidden;
-            rentals_window_panel.Visibility = Visibility.Visible;
+            
+           
         }
 
         private void records_by_customer_menu_Click(object sender, RoutedEventArgs e)
         {
-            main_window_panel.Visibility = Visibility.Hidden;
-            rentals_window_panel.Visibility = Visibility.Hidden;
-            rentals_window_panelC.Visibility = Visibility.Visible;
+            
         }
 
         private void add_truck_menu_Click(object sender, RoutedEventArgs e)
         {
-            this.window_textBox.Text = "Add a new truck window";
+           
         }
 
         private void search_truck_menu_Click(object sender, RoutedEventArgs e)
@@ -96,10 +94,8 @@ namespace NewDesignTrial.View
 
         private void add_customer_menu_Click(object sender, RoutedEventArgs e)
         {
-            main_window_panel.Visibility = Visibility.Hidden;
-            rentals_window_panelC.Visibility = Visibility.Hidden;
-            rentals_window_panel.Visibility = Visibility.Hidden;
-            add_customer_panel.Visibility=Visibility.Visible;
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new addCustomer());
         }
     }
 }

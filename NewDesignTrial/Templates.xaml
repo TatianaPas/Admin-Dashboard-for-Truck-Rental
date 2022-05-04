@@ -287,5 +287,103 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
+    <Style x:Key="buttonBlack" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Width" Value="35"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Margin" Value="0 0 0 3"/>
+        <Setter Property="Foreground" Value="#EFFFFD"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="8" Padding="5">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#1A132F"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+        <Style x:Key="submitButton" TargetType="Button">
+            <Setter Property="TextElement.FontFamily" Value="Fonts/#Poppins"/>
+            <Setter Property="Background" Value="#E1C16E"/>
+        <Setter Property="Foreground" Value="#041C32"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Width" Value="290"/>
+            <Setter Property="Height" Value="35"/>
+        <Setter Property="Margin" Value="0 10 0 0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="5" Padding="7">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#FCF55F"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="text" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="#363636"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextElement.FontFamily" Value="Fonts/#Poppins"/>
+
+    </Style>
+
+
+    <Style x:Key="inputTextBox" TargetType="TextBox">
+        <Setter Property="Background" Value="#f5f7f9"/>
+        <Setter Property="Foreground" Value="black"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="#f5f7f9"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Text" Value="Test"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Margin" Value="0 10"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border CornerRadius="3"
+                                         Background="{TemplateBinding Background}"
+                                         BorderThickness="{TemplateBinding BorderThickness}"
+                                         BorderBrush="{TemplateBinding BorderBrush}"
+                                         SnapsToDevicePixels="True">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#d9d9d9"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="#d9d9d9"/>
+                        </Trigger>
+                    </Style.Triggers>              
+      
+    </Style>
+    
+
+
 
 </ResourceDictionary>

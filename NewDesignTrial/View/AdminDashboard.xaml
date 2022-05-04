@@ -65,29 +65,18 @@
                             Margin="0,0,10,0">
 
                     <Button x:Name="minimise_btn"
-                            Width="35" Height="35" 
-                            Content="🗕"
-                            Background="Transparent"
-                            BorderThickness="0"
-                            Foreground="WhiteSmoke"
-                            FontWeight="Bold"
-                            Margin="0,0,0,3"
+                            Style="{StaticResource buttonBlack}"
+                            Content="🗕"                           
                             Click="buttonMinimise_Click" />
 
-                    <Button Width="35" Height="35" 
+                    <Button 
                             Content="☐"
-                            Background="Transparent"
-                            BorderThickness="0"
-                            Foreground="WhiteSmoke"
-                            FontWeight="Bold"
+                           Style="{StaticResource buttonBlack}"
                             Click="WindowStateBtnClick"/>
 
-                    <Button Width="35" Height="35" 
+                    <Button 
                             Content="🞬"
-                            Background="Transparent"
-                            BorderThickness="0"
-                            Foreground="WhiteSmoke"
-                            FontWeight="Bold"
+                            Style="{StaticResource buttonBlack}"
                             Click="CloseBtnClick"/>
 
                 </StackPanel>
@@ -301,194 +290,7 @@
                        VerticalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0"                      
                 />
         </StackPanel>
-        <StackPanel x:Name="rentals_window_panel"
-            Grid.Column="1"
-                    Grid.Row="1"
-                    Background="#B1D0E0"
-                    Visibility="Hidden">
-            <TextBlock x:Name="window_textBoxRentals" Text="This is the rentals by date window"
-                       FontSize="20"
-                       FontFamily="Poppins"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0"                      
-                />
-        </StackPanel>
-        <StackPanel x:Name="rentals_window_panelC"
-            Grid.Column="1"
-                    Grid.Row="1"
-                    Background="#6998AB"
-                    Visibility="Hidden">
-            <TextBlock x:Name="window_textBoxRentalsC" Text="This is the rentals by customer window"
-                       FontSize="20"
-                       FontFamily="Poppins"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0"                      
-                />
-        </StackPanel>
-        <StackPanel x:Name="add_customer_panel"
-            Grid.Column="1"
-                    Grid.Row="1"
-                
-                    Visibility="Hidden">
-            <StackPanel Width="300
-                        " Margin="0,20,0,0">
-                <Label Content="Firstname"
-                        Foreground="Black"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        FontFamily="Fonts/#Poppins"/>
-                <TextBox 
-                        x:Name="firstNameTextBox"
-                        Foreground="Black"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        FontFamily="Fonts/#Poppins"
-                        Height="35"
-                        Padding="10" BorderThickness="0,0,0,0"/>
-            </StackPanel>
-            <StackPanel Width="300">
-                <Label Content="Lastame"
-                        Foreground="Black"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        FontFamily="Fonts/#Poppins"/>
-                <TextBox 
-                        x:Name="lastNameTextBox"
-                        Foreground="Black"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        FontFamily="Fonts/#Poppins"
-                        Height="35"
-                        Padding="10" BorderThickness="0,0,0,0"/>
-            </StackPanel>
-            <StackPanel Width="300">
-                <Label Content="Address"
-                        Foreground="Black"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        FontFamily="Fonts/#Poppins"/>
-                <TextBox 
-                        x:Name="addressTextBox"
-                        Foreground="Black"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        FontFamily="Fonts/#Poppins"
-                        Height="35"
-                        Padding="10" BorderThickness="0,0,0,0"/>
-            </StackPanel>
-            <StackPanel Width="300">
-                <Label Content="Telephone"
-                        Foreground="Black"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        FontFamily="Fonts/#Poppins"/>
-                <TextBox 
-                        x:Name="phneTextBox"
-                        Foreground="Black"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        FontFamily="Fonts/#Poppins"
-                        Height="35"
-                        Padding="10" BorderThickness="0,0,0,0"/>
-            </StackPanel>
-            <StackPanel Width="300">
-                <Label Content="License Number"
-                        Foreground="Black"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        FontFamily="Fonts/#Poppins"/>
-                <TextBox 
-                        x:Name="licenseNrTextBox"
-                        Foreground="Black"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        FontFamily="Fonts/#Poppins"
-                        Height="35"
-                        Padding="10" BorderThickness="0,0,0,0"/>
-            </StackPanel>
-            <StackPanel Width="300">
-                <Label Content="Date of Birth"
-                        Foreground="Black"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        FontFamily="Fonts/#Poppins"/>
-                <DatePicker 
-                        x:Name="birthDatePicker"
-                        Foreground="Black"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        FontFamily="Fonts/#Poppins"
-                        Height="50"
-                        Padding="10">
-                    <DatePicker.BorderBrush>
-                        <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
-                          
-                            <GradientStop Color="#FFB8F4F5" Offset="1"/>
-                        </LinearGradientBrush>
-                    </DatePicker.BorderBrush>
-                </DatePicker>
-                <Label Content="age"
-                        Foreground="Black"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        FontFamily="Fonts/#Poppins" 
-                       IsEnabled="False"/>
-            </StackPanel>
-            <StackPanel Width="300">
-                <Label Content="License Expiry Date"
-                        Foreground="Black"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        FontFamily="Fonts/#Poppins"/>
-                <DatePicker 
-                        x:Name="expiryDatePicker"
-                        Foreground="Black"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        FontFamily="Fonts/#Poppins"
-                        Height="50"
-                        Padding="10"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal"
-                        Width="300"
-                        Margin="0,15,0,0">
-
-                <Button x:Name="addCustomerBtn"
-                        Content="Add Customer"
-                        Foreground="#041C32"
-                        FontSize="14"
-                        FontWeight="Bold"
-                        Margin="0,10,0,0">
-
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Poppins"/>
-                            <Setter Property="Background" Value="#E1C16E"/>
-                            <Setter Property="Cursor" Value="Hand"></Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#FCF55F"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="300" Height="35"
-                                    CornerRadius="5"
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
-
-
-            </StackPanel>
-
-        </StackPanel>
+        
 
         <!--Maximize Minimize app-->
 

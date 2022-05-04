@@ -10,18 +10,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace NewDesignTrial.View
 {
     /// <summary>
-    /// Interaction logic for customers.xaml
+    /// Interaction logic for addCustomer.xaml
     /// </summary>
-    public partial class customers : Window
+    public partial class addCustomer : UserControl
     {
-        public customers()
+        public addCustomer()
         {
             InitializeComponent();
         }
+
+       
     }
 }
