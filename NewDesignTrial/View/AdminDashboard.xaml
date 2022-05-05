@@ -8,6 +8,8 @@
         Title="MainWindow" 
         Height="700" 
         Width="900"
+        MinHeight="520"
+        MinWidth="690"
         WindowStyle="None"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
@@ -26,12 +28,12 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
-            <RowDefinition/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="230"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
 
@@ -45,7 +47,7 @@
                     <GradientStop Color="#2d4c66" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
-            
+
 
 
             <Grid HorizontalAlignment="Stretch">
@@ -243,8 +245,10 @@
 
                     <!--Employees sub menus-->
 
-                    <MenuItem Header="Add Employee"
-                              Template="{StaticResource Item_Template}">
+                    <MenuItem x:Name="addEmployeeBtn"
+                        Header="Add Employee"
+                              Template="{StaticResource Item_Template}"
+                              Click="addEmployeeBtn_Click">
                         <MenuItem.Icon>
                             <Image Source="/Assets/plus.png"/>
                         </MenuItem.Icon>
@@ -279,18 +283,19 @@
 
         </StackPanel>
         <StackPanel/>
-        <StackPanel x:Name="main_window_panel"
-                    Grid.Column="1"
-                    Grid.Row="1"
-                    >
+        <Grid x:Name="main_window_panel" Grid.Column="1"
+                    Grid.Row="1"  Width="Auto" HorizontalAlignment="Stretch"
+              Margin="2">
+           
             <TextBlock x:Name="window_textBox" Text="This is the main window"
                        FontSize="20"
                        FontFamily="Poppins"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0"                      
                 />
-        </StackPanel>
-        
+       
+        </Grid>
+
 
         <!--Maximize Minimize app-->
 

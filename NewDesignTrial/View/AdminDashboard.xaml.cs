@@ -97,6 +97,14 @@ namespace NewDesignTrial.View
             main_window_panel.Children.Clear();
             main_window_panel.Children.Add(new addCustomer());
         }
+     
+
+        private void addEmployeeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new addEmployee());
+
+        }
     }
 }
 
