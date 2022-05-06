@@ -312,14 +312,16 @@
         </Style.Triggers>
     </Style>
     
+    <!--Yellow button-->
+    
         <Style x:Key="submitButton" TargetType="Button">
             <Setter Property="TextElement.FontFamily" Value="Fonts/#Poppins"/>
             <Setter Property="Background" Value="#E1C16E"/>
         <Setter Property="Foreground" Value="#041C32"/>
         <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="MinWidth" Value="200"/>
         <Setter Property="FontSize" Value="16"/>
-        <Setter Property="Width" Value="290"/>
-            <Setter Property="Height" Value="35"/>
+        <Setter Property="Height" Value="35"/>
         <Setter Property="Margin" Value="0 10 0 0"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
@@ -337,7 +339,9 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
+    
+    
+<!--label-->
     <Style x:Key="text" TargetType="TextBlock">
         <Setter Property="Foreground" Value="#1A132F"/>
         <Setter Property="FontWeight" Value="SemiBold"/>

@@ -140,6 +140,7 @@
                 <Button x:Name="loginBtn"
                         Style="{StaticResource submitButton}"
                         Content="Login"
+                        Width="290"
                         Click="loginBtn_Click">
 
                    
