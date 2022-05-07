@@ -22,6 +22,7 @@ namespace NewDesignTrial.View
     /// </summary>
     public partial class addCustomer : UserControl
     {
+        
         public addCustomer()
         {
             InitializeComponent();
@@ -29,10 +30,10 @@ namespace NewDesignTrial.View
         private string fullName = "";
         private string address = "";
         private string telephone = "";
-        string licenseNumber = "";
-        string age = "";
+        string licenseNumber = "";        
         string licenseExpiryDate = "";
-        int CustomerAge = 0;
+        int age = 0;
+
 
         private void addCustomerBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -73,37 +74,47 @@ namespace NewDesignTrial.View
             {
                 licenseNumber = licenseNumberTextBox.Text;
             }
-            if (ageTextBox.Text.Length <=1 )
-            {
-                MessageBox.Show("Please enter Customer's Age ");
-                return;
-            }
-            else
-            {
-                int ageCheck = int.Parse(ageTextBox.Text);
-                if (ageCheck < 18)
+
+            //check if age entered as number
+
+            string checkAge = ageTextBox.Text;
+            int value;
+            if(int.TryParse(checkAge, out value))
+            {     
+                int age=int.Parse(checkAge);
+                if (age <18)
                 {
                     MessageBox.Show("Only Customers over 18 years old can rent a truck");
                     return;
                 }
-                else
-                {
-                    int CustomerAge = int.Parse(ageTextBox.Text);
-                }
             }
+            else
+            {
+                MessageBox.Show("Please enter correct Age ");
+                return;
+            }
+
 
             if (licenseExpiryDatePicker.Text.Length <= 0)
             {
                 MessageBox.Show("Please enter License Expiry Date ");
                 return;
-            }
-            else
+            }else
             {
                 licenseExpiryDate = licenseExpiryDatePicker.Text;
+
+                //check if license is not expired
+
+                DateTime date1= DateTime.Parse(licenseExpiryDate);
+                DateTime date2 = DateTime.Today;
+                int result = DateTime.Compare(date1, date2);
+                if(result<=0)
+                {
+                    MessageBox.Show ("License is not valid. Please provide enother license ");
+                    return;
+                }
+
             }
-
-
-          
 
             TruckPerson tp= new TruckPerson();
             tp.Name = fullName;
@@ -113,7 +124,7 @@ namespace NewDesignTrial.View
             TruckCustomer tc = new TruckCustomer();
             tc.LicenseNumber = licenseNumber;
             tc.LicenseExpiryDate =DateTime.Parse(licenseExpiryDate);
-            tc.Age = CustomerAge;
+            tc.Age = age;
             tc.Customer = tp;
 
             try
