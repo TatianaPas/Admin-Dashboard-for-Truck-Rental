@@ -24,5 +24,10 @@ namespace NewDesignTrial.View
         {
             InitializeComponent();
         }
+
+        private void addEmployeeBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

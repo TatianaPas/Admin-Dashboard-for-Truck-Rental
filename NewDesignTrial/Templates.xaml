@@ -395,13 +395,13 @@
         <Setter Property="Foreground" Value="#1A132F"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="Padding" Value="5"/>
-        <Setter Property="BorderBrush" Value="#FFF5F7F9"/>
+        <Setter Property="BorderBrush" Value="#f5f7f9"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="FirstDayOfWeek" Value="Monday"/>
         <Setter Property="MinHeight" Value="35"/>
         <Setter Property="Height" Value="35"/>
         <Setter Property="MinWidth" Value="200"/>
-        <Setter Property="Background" Value="#FFF5F7F9"/>
+        <Setter Property="Background" Value="#f5f7f9"/>
         <Setter Property="DisplayDate" Value="2022-05-05"/>
         <Setter Property="SelectedDateFormat" Value="Short"/>
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -409,5 +409,41 @@
         <Setter Property="TextElement.FontFamily" Value="Fonts/#Poppins"/>       
         
     </Style>
+    
+    <!--Combobox style-->
+    <Style x:Key="comboboxInput" TargetType="ComboBox">
+        <Setter Property="Foreground" Value="#1A132F"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="BorderBrush" Value="#f5f7f9"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="MinHeight" Value="35"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="MinWidth" Value="200"/>
+        <Setter Property="Background" Value="#f5f7f9"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="TextElement.FontFamily" Value="Fonts/#Poppins"/>
+        
+    </Style>
+
+    <!--Combobox item style-->
+    <Style x:Key="combobox ItemInput" TargetType="ComboBoxItem">
+        <Setter Property="Foreground" Value="#1A132F"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="BorderBrush" Value="#f5f7f9"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="MinHeight" Value="35"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="MinWidth" Value="200"/>
+        <Setter Property="Background" Value="#f5f7f9"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="TextElement.FontFamily" Value="Fonts/#Poppins"/>
+    </Style>
+
+
+
 
 </ResourceDictionary>
