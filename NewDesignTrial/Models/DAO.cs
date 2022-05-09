@@ -18,6 +18,15 @@ namespace NewDesignTrial.Models
             }
         }
 
+        public static void addEmployee(TruckEmployee te)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                ctx.TruckEmployees.Add(te);
+                ctx.SaveChanges();
+            }
+        }
+
 
 
     }

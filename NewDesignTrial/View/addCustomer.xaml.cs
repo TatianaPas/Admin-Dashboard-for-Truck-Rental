@@ -108,9 +108,9 @@ namespace NewDesignTrial.View
                 DateTime date1= DateTime.Parse(licenseExpiryDate);
                 DateTime date2 = DateTime.Today;
                 int result = DateTime.Compare(date1, date2);
-                if(result<=0)
+                if(result<0)
                 {
-                    MessageBox.Show ("License is not valid. Please provide enother license ");
+                    MessageBox.Show ("License is not valid. Please provide another license ");
                     return;
                 }
 

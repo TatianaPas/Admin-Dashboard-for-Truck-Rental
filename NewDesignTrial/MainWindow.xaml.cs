@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NewDesignTrial.View;
+using NewDesignTrial.Models.DB;
 
 namespace NewDesignTrial
 {
@@ -57,13 +58,36 @@ namespace NewDesignTrial
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-            AdminDashboard form = new AdminDashboard();
-
-            if(usernameTextBox.Text =="admin")
+  
+            string username = usernameTextBox.Text;
+            string password = passwordTextBox.Password.ToString();
+            if (username == null || password == null)
             {
-                form.Show();
-                this.Hide();
+                MessageBox.Show("Please enter login details");
             }
+            else
+            {
+                using(DAD_TatianaContext ctx = new DAD_TatianaContext())
+                {
+                    TruckEmployee emp = (TruckEmployee)ctx.TruckEmployees.Where(emp => emp.Username == username && emp.Password==password).FirstOrDefault();
+                    if(emp == null)
+                    {
+                        MessageBox.Show("Please enter correct login details");
+                    }
+                    else if(emp.Role=="admin")
+                    {
+                        AdminDashboard form = new AdminDashboard();
+                        MessageBox.Show("Welcome " + emp.Username);
+                        form.Show();
+                        this.Hide();
+                    }
+                }
+            }
+
+
+
+
+            
         }
     }
 }

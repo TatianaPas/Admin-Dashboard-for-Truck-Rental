@@ -121,7 +121,7 @@
                        FontFamily="Fonts/#Poppins"/>
                     
                     <PasswordBox 
-                        x:Name="passwordBox"
+                        x:Name="passwordTextBox"
                         Foreground="Black"
                         FontSize="14"
                         FontWeight="Medium"
