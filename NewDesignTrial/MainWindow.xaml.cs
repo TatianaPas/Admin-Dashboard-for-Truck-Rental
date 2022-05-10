@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NewDesignTrial.View;
 using NewDesignTrial.Models.DB;
+using NewDesignTrial.Models;
 
 namespace NewDesignTrial
 {
@@ -67,14 +68,15 @@ namespace NewDesignTrial
             }
             else
             {
-                using(DAD_TatianaContext ctx = new DAD_TatianaContext())
+
+                try
                 {
-                    TruckEmployee emp = (TruckEmployee)ctx.TruckEmployees.Where(emp => emp.Username == username && emp.Password==password).FirstOrDefault();
-                    if(emp == null)
+                    TruckEmployee emp = DAO.loginValidation(username, password);
+                    if (emp == null)
                     {
                         MessageBox.Show("Please enter correct login details");
                     }
-                    else if(emp.Role=="admin")
+                    else if (emp.Role == "admin")
                     {
                         AdminDashboard form = new AdminDashboard();
                         MessageBox.Show("Welcome " + emp.Username);
@@ -82,11 +84,12 @@ namespace NewDesignTrial
                         this.Hide();
                     }
                 }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-
-
-
-
             
         }
     }

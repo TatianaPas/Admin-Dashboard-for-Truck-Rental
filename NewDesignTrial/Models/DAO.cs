@@ -27,7 +27,13 @@ namespace NewDesignTrial.Models
             }
         }
 
-
+        public static TruckEmployee loginValidation(string username, string password)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.TruckEmployees.Where(emp => emp.Username == username && emp.Password == password).FirstOrDefault();
+            }
+        }
 
     }
 }
