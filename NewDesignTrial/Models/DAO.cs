@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using NewDesignTrial.Models.DB;
 
 namespace NewDesignTrial.Models
@@ -34,6 +35,23 @@ namespace NewDesignTrial.Models
                 return ctx.TruckEmployees.Where(emp => emp.Username == username && emp.Password == password).FirstOrDefault();
             }
         }
+
+        public static List<TruckCustomer> showAllCustomers()
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.TruckCustomers.ToList();
+            }
+        }
+
+        public static TruckPerson searchContact(int id)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.TruckPeople.Where(p=> p.PersonId == id).FirstOrDefault();
+            }
+        }
+   
 
     }
 }

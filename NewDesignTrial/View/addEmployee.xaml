@@ -6,9 +6,10 @@
              xmlns:local="clr-namespace:NewDesignTrial.View"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DesignHeight="625" Width="480">
+             d:DesignHeight="480" d:DesignWidth="625">
     <Grid  Margin="5,5,5,5">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.25*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="0.25*"/>
@@ -25,23 +26,23 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Style="{StaticResource text}" Text="Full Name" Grid.Column="0"/>
-        <TextBlock Style="{StaticResource text}" Text="Address" Grid.Row="1" Grid.Column="0"  />
-        <TextBlock Style="{StaticResource text}" Text="Telephone" Grid.Row="2" Grid.Column="0"  />
-        <TextBlock Style="{StaticResource text}" Text="Office Address" Grid.Row="3" Grid.Column="0"  />
-        <TextBlock Style="{StaticResource text}" Text="Phone Extension" Grid.Row="4" Grid.Column="0" />
-        <TextBlock Style="{StaticResource text}" Text="Role" Grid.Row="5" Grid.Column="0"   />
-        <TextBlock Style="{StaticResource text}" Text="Username" Grid.Row="6" Grid.Column="0"  />
-        <TextBlock Style="{StaticResource text}" Text="Password" Grid.Row="7" Grid.Column="0"  />
-        <TextBox Name="nameTextBox" Style="{StaticResource inputTextBox}" Grid.Column="1" />
-        <TextBox Name="addressTextBox" Style="{StaticResource inputTextBox}" Grid.Row="1" Grid.Column="1" />
-        <TextBox Name="telephoneTextBox" Style="{StaticResource inputTextBox}" Grid.Row="2" Grid.Column="1" />
-        <TextBox Name="officeAddressTextBox" Style="{StaticResource inputTextBox}" Grid.Row="3" Grid.Column="1" />
-        <TextBox Name="phoneExtensionTextBox" Style="{StaticResource inputTextBox}" Grid.Row="4" Grid.Column="1" />
+        <TextBlock Style="{StaticResource text}" Text="Full Name" Grid.Column="1"/>
+        <TextBlock Style="{StaticResource text}" Text="Address" Grid.Row="1" Grid.Column="1"  />
+        <TextBlock Style="{StaticResource text}" Text="Telephone" Grid.Row="2" Grid.Column="1"  />
+        <TextBlock Style="{StaticResource text}" Text="Office Address" Grid.Row="3" Grid.Column="1"  />
+        <TextBlock Style="{StaticResource text}" Text="Phone Extension" Grid.Row="4" Grid.Column="1" />
+        <TextBlock Style="{StaticResource text}" Text="Role" Grid.Row="5" Grid.Column="1"   />
+        <TextBlock Style="{StaticResource text}" Text="Username" Grid.Row="6" Grid.Column="1"  />
+        <TextBlock Style="{StaticResource text}" Text="Password" Grid.Row="7" Grid.Column="1"  />
+        <TextBox Name="nameTextBox" Style="{StaticResource inputTextBox}" Grid.Column="2" />
+        <TextBox Name="addressTextBox" Style="{StaticResource inputTextBox}" Grid.Row="1" Grid.Column="2" />
+        <TextBox Name="telephoneTextBox" Style="{StaticResource inputTextBox}" Grid.Row="2" Grid.Column="2" />
+        <TextBox Name="officeAddressTextBox" Style="{StaticResource inputTextBox}" Grid.Row="3" Grid.Column="2" />
+        <TextBox Name="phoneExtensionTextBox" Style="{StaticResource inputTextBox}" Grid.Row="4" Grid.Column="2" />
         <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
                   Name="roleComboBox" 
                   Grid.Row="5" 
-                  Grid.Column="1"
+                  Grid.Column="2"
                   MinHeight="35" 
                   Height="35"
                   Margin="5"
@@ -49,11 +50,11 @@
             <ComboBoxItem Style="{StaticResource combobox ItemInput}" Content="staff" Cursor="Hand" IsSelected="True"/>
             <ComboBoxItem Style="{StaticResource combobox ItemInput}" Content="admin" Cursor="Hand"/>
         </ComboBox>
-        <TextBox Name="usernameTextBox" Style="{StaticResource inputTextBox}" Grid.Row="6" Grid.Column="1" />
-        <TextBox Name="passwordTextBox" Style="{StaticResource inputTextBox}" Grid.Row="7" Grid.Column="1" />
+        <TextBox Name="usernameTextBox" Style="{StaticResource inputTextBox}" Grid.Row="6" Grid.Column="2" />
+        <TextBox Name="passwordTextBox" Style="{StaticResource inputTextBox}" Grid.Row="7" Grid.Column="2" />
        
 
-        <Button Grid.Row="8" Grid.Column="1" x:Name="addEmployeeBtn"
+        <Button Grid.Row="8" Grid.Column="2" x:Name="addEmployeeBtn"
                         Style="{StaticResource submitButton}"
                         Content="Add Employee" Click="addEmployeeBtn_Click">
         </Button>

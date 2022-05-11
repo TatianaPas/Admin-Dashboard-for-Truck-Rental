@@ -141,6 +141,7 @@
                         Style="{StaticResource submitButton}"
                         Content="Login"
                         Width="290"
+                        IsDefault="True"
                         Click="loginBtn_Click">
 
                    

@@ -79,7 +79,8 @@ namespace NewDesignTrial.View
 
         private void add_truck_menu_Click(object sender, RoutedEventArgs e)
         {
-           
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new AddTruckUC());
         }
 
         private void search_truck_menu_Click(object sender, RoutedEventArgs e)
@@ -104,6 +105,17 @@ namespace NewDesignTrial.View
             main_window_panel.Children.Clear();
             main_window_panel.Children.Add(new addEmployee());
 
+        }
+        private void searchCustomer_menu_Click(object sender, RoutedEventArgs e)
+        {
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new showCustomersUC());
+        }
+
+        private void contactsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new ContactDetailsUC());
         }
     }
 }

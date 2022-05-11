@@ -8,7 +8,7 @@
         Title="MainWindow" 
         Height="700" 
         Width="900"
-        MinHeight="520"
+        MinHeight="560"
         MinWidth="690"
         WindowStyle="None"
         AllowsTransparency="True"
@@ -16,6 +16,7 @@
         ResizeMode="CanResizeWithGrip" 
         Icon="/Assets/logo_new1.png"
         >
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" >
 
     <Grid >
         <Grid.Background>
@@ -219,8 +220,10 @@
                         </MenuItem.Icon>
 
                     </MenuItem>
-                    <MenuItem Header="Search Customer"
-                              Template="{StaticResource Item_Template}">
+                    <MenuItem x:Name="searchCustomer_menu"
+                        Header="Search Customer"
+                              Template="{StaticResource Item_Template}"
+                              Click="searchCustomer_menu_Click">
                         <MenuItem.Icon>
                             <Image Source="/Assets/search.png"/>
                         </MenuItem.Icon>
@@ -268,12 +271,22 @@
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
+                
+                    <!--Main Menu - Contacts-->
+                    <MenuItem x:Name="contactsBtn"
+                        Header="Contacts"
+                              Click="contactsBtn_Click"
+                          Template="{StaticResource Menu_SubMenu_Template}">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/phone.png"/>
+                        </MenuItem.Icon>
+                        
+                    </MenuItem>
 
-                <MenuItem x:Name="LogoutBtn"  
+                    <MenuItem x:Name="LogoutBtn"  
                           Header="Log Out"
                           Template="{StaticResource Menu_Template}" 
                           Click="LogoutBtn_Click"
-                          
                           >
                     <MenuItem.Icon>
                         <Image Source="/Assets/Logout.png"/>
@@ -301,4 +314,5 @@
 
 
     </Grid>
+    </ScrollViewer>
 </Window>

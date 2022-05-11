@@ -13,6 +13,7 @@
     <None Remove="Assets\home.png" />
     <None Remove="Assets\Logout.png" />
     <None Remove="Assets\logo_new1.png" />
+    <None Remove="Assets\phone.png" />
     <None Remove="Assets\play.png" />
     <None Remove="Assets\plus.png" />
     <None Remove="Assets\records.png" />
@@ -35,6 +36,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\logo_new1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\phone.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\play.png">
