@@ -29,20 +29,54 @@ namespace NewDesignTrial.View
 
         private void showPersonBtn_Click(object sender, RoutedEventArgs e)
         {
-            int id = int.Parse(inputTextBox.Text);
-            try
+            //Check if ID is type of Int
+
+            string CheckId = inputTextBox.Text;
+            int value;
+            if (int.TryParse(CheckId, out value))
             {
-               TruckPerson tp = DAO.searchContact(id);
-                nameTextBox.Text = tp.Name;
-                telephoneTextBox.Text = tp.Telephone;
-                addressTextBox.Text = tp.Address;
+                int id = int.Parse(inputTextBox.Text);
+                try
+                {
+                    //find Contact Details in the TruckPerson database
+                    TruckPerson tp = DAO.searchContact(id);
+                    if (tp != null)
+                    {
+                        nameTextBox.Text = tp.Name;
+                        telephoneTextBox.Text = tp.Telephone;
+                        addressTextBox.Text = tp.Address;
+                        contactDetailsGrid.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        //if information not found
+                        MessageBox.Show("Sorry, no information found");
+                        return;
+                    }
 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch
+            else
             {
-
+                //if entered not integer
+                MessageBox.Show("Please enter correct ID");
+                return;
             }
-
         }
-    }
+
+
+        //clear fields button function, remove data from fiends, set contact details invisible
+            private void clearBtn_Click(object sender, RoutedEventArgs e)
+            {
+                nameTextBox.Text = "";
+                telephoneTextBox.Text = "";
+                addressTextBox.Text = "";
+                inputTextBox.Text = "";
+                contactDetailsGrid.Visibility = Visibility.Hidden;
+            }
+        }
 }

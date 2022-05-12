@@ -120,8 +120,19 @@
                            FontSize="20"
                            FontWeight="Medium"                         
                            Margin="0,10,0,0" TextAlignment="Center"/>
+                        <Button               
+                            x:Name="updateDetailsBtn"
+                            Style="{StaticResource submitButton}"
+                            Content="Update Profile" 
+                            Background="{x:Null}" 
+                            BorderBrush="#FF1A132F"
+                            Foreground="#DFF6FF" 
+                            FontWeight="Normal" 
+                            FontStyle="Italic" 
+                            FontSize="12" Click="updateDetailsBtn_Click">
+                        </Button>
 
-                </StackPanel>
+                    </StackPanel>
 
             </Grid>
 
@@ -185,7 +196,6 @@
                     </MenuItem>
                     <MenuItem Header="Search Truck"
                               x:Name="search_truck_menu"
-                              Click="search_truck_menu_Click"
                               Template="{StaticResource Item_Template}">
                         <MenuItem.Icon>
                             <Image Source="/Assets/search.png"/>
@@ -194,7 +204,6 @@
                     </MenuItem>
                     <MenuItem Header="Update Truck"
                               x:Name="update_truck_menu"
-                              Click="update_truck_menu_Click"
                               Template="{StaticResource Item_Template}">
                         <MenuItem.Icon>
                             <Image Source="/Assets/update.png"/>

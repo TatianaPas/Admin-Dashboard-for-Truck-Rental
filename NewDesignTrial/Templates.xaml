@@ -389,7 +389,46 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
+
+    <!--Read only text box-->
+
+    <Style x:Key="readOnlyTextBox" TargetType="TextBox">
+        <Setter Property="Foreground" Value="#1A132F"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="MinHeight" Value="35"/>
+        <Setter Property="MaxHeight" Value="55"/>
+        <Setter Property="MinWidth" Value="120"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border x:Name="border"
+                            CornerRadius="5"
+                            BorderBrush="#DFF6FF"
+                            BorderThickness="1"
+                            Background="#DFF6FF">
+                        <ScrollViewer x:Name="PART_ContentHost"
+                                      Focusable="False"
+                                      HorizontalScrollBarVisibility="Hidden"
+                                      VerticalScrollBarVisibility="Hidden"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" TargetName="border" Value="#DFF6FF"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="BorderBrush" TargetName="border" Value="#DFF6FF"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <!--Date Picker-->
 
     <Style x:Key="inputDatePicker" TargetType="DatePicker">

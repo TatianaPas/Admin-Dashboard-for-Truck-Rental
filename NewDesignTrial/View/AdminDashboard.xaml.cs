@@ -81,17 +81,7 @@ namespace NewDesignTrial.View
         {
             main_window_panel.Children.Clear();
             main_window_panel.Children.Add(new AddTruckUC());
-        }
-
-        private void search_truck_menu_Click(object sender, RoutedEventArgs e)
-        {
-            this.window_textBox.Text = "Search a truck window";
-        }
-
-        private void update_truck_menu_Click(object sender, RoutedEventArgs e)
-        {
-            this.window_textBox.Text = "Update truck window";
-        }
+        }   
 
         private void add_customer_menu_Click(object sender, RoutedEventArgs e)
         {
@@ -116,6 +106,12 @@ namespace NewDesignTrial.View
         {
             main_window_panel.Children.Clear();
             main_window_panel.Children.Add(new ContactDetailsUC());
+        }
+
+        private void updateDetailsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new UpdatePersonalDetailsUC());
         }
     }
 }

@@ -40,7 +40,7 @@ namespace NewDesignTrial.Models
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
             {
-                return ctx.TruckCustomers.ToList();
+                return ctx.TruckCustomers.Include(p=> p.Customer).ToList();
             }
         }
 
