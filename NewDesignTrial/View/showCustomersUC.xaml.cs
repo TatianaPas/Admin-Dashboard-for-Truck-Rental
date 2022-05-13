@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NewDesignTrial.Models;
+using NewDesignTrial.Models.DB;
 
 namespace NewDesignTrial.View
 {
@@ -21,32 +22,16 @@ namespace NewDesignTrial.View
     /// </summary>
     public partial class showCustomersUC : UserControl
     {
-      
+
         public showCustomersUC()
         {
             InitializeComponent();
         }
+       
 
-        private void showCustomerBtn_Click(object sender, RoutedEventArgs e)
+        private void allCusotmersWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            string input = inputTextBox.Text;
-            string choice = searchComboBox.Text;
-            if(input.Length==0)
-            {
-                if(choice!="SHOW ALL")
-                {
-                    MessageBox.Show("Please enter search criteria");
-                }
-                else
-                {
-                    gridCustomers.ItemsSource = DAO.showAllCustomers();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Search by specific criteria");
-            }
-            
+            gridCustomers.ItemsSource = DAO.getCustomers();
         }
-    }
+    }   
 }

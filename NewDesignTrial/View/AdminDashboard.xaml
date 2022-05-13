@@ -115,7 +115,7 @@
                         Width="65" 
                        Source="/Assets/logo_new1.png"
                        RenderOptions.BitmapScalingMode="Fant"/>
-                    <TextBlock Text="Hello admin"
+                    <TextBlock x:Name="helloTextBox"                        
                            Foreground="#fbec5d"
                            FontSize="20"
                            FontWeight="Medium"                         
@@ -238,7 +238,16 @@
                         </MenuItem.Icon>
 
                     </MenuItem>
-                    <MenuItem Header="Update Customer"
+                        <MenuItem x:Name="showAllCustomers_menu"
+                        Header="Show All Customer"
+                              Template="{StaticResource Item_Template}"
+                              Click="showAllCustomers_menu_Click">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/search.png"/>
+                            </MenuItem.Icon>
+
+                        </MenuItem>
+                        <MenuItem Header="Update Customer"
                               Template="{StaticResource Item_Template}">
                         <MenuItem.Icon>
                             <Image Source="/Assets/update.png"/>

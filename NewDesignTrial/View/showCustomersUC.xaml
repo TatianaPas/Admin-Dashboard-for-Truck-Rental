@@ -1,11 +1,12 @@
-﻿<UserControl x:Class="NewDesignTrial.View.showCustomersUC"
+﻿<UserControl x:Name="allCusotmersWindow"
+    x:Class="NewDesignTrial.View.showCustomersUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NewDesignTrial.View"
              mc:Ignorable="d" 
-             d:DesignHeight="480" d:DesignWidth="625">
+             d:DesignHeight="480" d:DesignWidth="625" Loaded="allCusotmersWindow_Loaded">
 
         <Grid  Margin="5,5,5,5">
             <Grid.ColumnDefinitions>
@@ -25,51 +26,18 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Style="{StaticResource text}" 
-                   Text="Search by:" 
-                   Grid.Column="0"/>
-        <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
-                  Name="searchComboBox" 
-                  Grid.Row="0" 
-                  Grid.Column="1"
-                  MinHeight="35" 
-                  Height="35"
-                  Margin="5"
-                  Padding="10">
-            <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
-                          Content="ID" 
-                          Cursor="Hand" 
-                          IsSelected="True"/>
-            <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
-                          Content="Full Name" 
-                          Cursor="Hand"/>
-            <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
-                          Content="License Number" 
-                          Cursor="Hand"/>
-            <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
-                          Content="SHOW ALL" 
-                          Cursor="Hand"/>
-        </ComboBox>
-        <TextBox Name="inputTextBox" 
-                 Style="{StaticResource inputTextBox}" 
-                 Grid.Row="0" 
-                 Grid.Column="2" 
-                 />
-        <Button Grid.Row="1" 
-                Grid.Column="1" 
-                Grid.ColumnSpan="2"
-                x:Name="showCustomerBtn"                       
-                Style="{StaticResource submitButton}"
-                        Content="Show" 
-                Click="showCustomerBtn_Click">
-        </Button>
-        <DataGrid x:Name="gridCustomers" 
-                  Grid.Row="2" 
-                  Grid.Column="0" 
-                  Grid.RowSpan="4" 
-                  Grid.ColumnSpan="3" 
-                  Margin="5,5,5,5"
-                  />
+              
+        <Grid Name="custmersGrid"
+            Grid.ColumnSpan="4" 
+              Margin="5,5,5,5" 
+              Grid.RowSpan="5" 
+              Grid.Row="1">
+
+            <DataGrid x:Name="gridCustomers" 
+                Grid.Column="0">
+            </DataGrid>
+
+        </Grid>
 
     </Grid>
 </UserControl>

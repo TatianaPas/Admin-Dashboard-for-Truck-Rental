@@ -79,7 +79,8 @@ namespace NewDesignTrial
                     else if (emp.Role == "admin")
                     {
                         AdminDashboard form = new AdminDashboard();
-                        MessageBox.Show("Welcome " + emp.Username);
+                        MessageBox.Show("Hello " + emp.Username);
+                        form.helloTextBox.Text = "Welcome " + emp.Role;
                         form.Show();
                         this.Hide();
                     }

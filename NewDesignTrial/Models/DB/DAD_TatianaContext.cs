@@ -15,7 +15,8 @@ namespace NewDesignTrial.Models.DB
             : base(options)
         {
         }
-
+        public virtual DbSet<TruckCustomerWithName> TruckCustomerWithNames { get; set; } = null!;
+        public virtual DbSet<TruckEmployeeWithName> TruckEmployeeWithNames { get; set; } = null!;
         public virtual DbSet<IndividualTruck> IndividualTrucks { get; set; } = null!;
         public virtual DbSet<TruckCustomer> TruckCustomers { get; set; } = null!;
         public virtual DbSet<TruckEmployee> TruckEmployees { get; set; } = null!;
@@ -23,6 +24,7 @@ namespace NewDesignTrial.Models.DB
         public virtual DbSet<TruckModel> TruckModels { get; set; } = null!;
         public virtual DbSet<TruckPerson> TruckPeople { get; set; } = null!;
         public virtual DbSet<TruckRental> TruckRentals { get; set; } = null!;
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

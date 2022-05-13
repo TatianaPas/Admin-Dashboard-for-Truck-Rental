@@ -22,8 +22,11 @@ namespace NewDesignTrial.View
     {
         public AdminDashboard()
         {
-            InitializeComponent();
+            InitializeComponent();           
         }
+
+
+       
         private void buttonMinimise_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
@@ -99,7 +102,7 @@ namespace NewDesignTrial.View
         private void searchCustomer_menu_Click(object sender, RoutedEventArgs e)
         {
             main_window_panel.Children.Clear();
-            main_window_panel.Children.Add(new showCustomersUC());
+            main_window_panel.Children.Add(new SearchCustomerUC());
         }
 
         private void contactsBtn_Click(object sender, RoutedEventArgs e)
@@ -112,6 +115,12 @@ namespace NewDesignTrial.View
         {
             main_window_panel.Children.Clear();
             main_window_panel.Children.Add(new UpdatePersonalDetailsUC());
+        }
+
+        private void showAllCustomers_menu_Click(object sender, RoutedEventArgs e)
+        {
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new showCustomersUC());
         }
     }
 }
