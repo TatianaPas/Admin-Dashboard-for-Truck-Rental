@@ -32,9 +32,11 @@ namespace NewDesignTrial.Models
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
             {
-                return ctx.TruckEmployees.Where(emp => emp.Username == username && emp.Password == password).FirstOrDefault();
+                return ctx.TruckEmployees.Include(p => p.Employee).Where(emp => emp.Username == username && emp.Password == password).FirstOrDefault();
             }
         }
+
+      
 
 
         public static TruckPerson searchContact(int id)

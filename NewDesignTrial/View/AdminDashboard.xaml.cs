@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using NewDesignTrial.View;
+using NewDesignTrial.Models.DB;
+using NewDesignTrial.Models;
 
 namespace NewDesignTrial.View
 {
@@ -20,9 +22,13 @@ namespace NewDesignTrial.View
     /// </summary>
     public partial class AdminDashboard : Window
     {
-        public AdminDashboard()
+        //save Login Employee data for use in Update Personal details form
+
+        TruckEmployee emp;
+        public AdminDashboard(TruckEmployee emp)
         {
-            InitializeComponent();           
+            InitializeComponent();       
+            this.emp = emp;
         }
 
 
@@ -113,8 +119,10 @@ namespace NewDesignTrial.View
 
         private void updateDetailsBtn_Click(object sender, RoutedEventArgs e)
         {
+            //send Employee data to Update details window
+            TruckEmployee emp = this.emp;
             main_window_panel.Children.Clear();
-            main_window_panel.Children.Add(new UpdatePersonalDetailsUC());
+            main_window_panel.Children.Add(new UpdatePersonalDetailsUC(emp));
         }
 
         private void showAllCustomers_menu_Click(object sender, RoutedEventArgs e)

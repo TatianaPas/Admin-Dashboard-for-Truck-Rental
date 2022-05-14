@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NewDesignTrial.Models.DB;
 
 namespace NewDesignTrial.View
 {
@@ -20,9 +21,26 @@ namespace NewDesignTrial.View
     /// </summary>
     public partial class UpdatePersonalDetailsUC : UserControl
     {
-        public UpdatePersonalDetailsUC()
+        //pass Employee data from Main window
+
+        TruckEmployee emp;
+        public UpdatePersonalDetailsUC(TruckEmployee _emp)
         {
             InitializeComponent();
+            emp = _emp;
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            //set data to the text boxes
+            nameTextBox.Text = emp.Employee.Name;
+            addressTextBox.Text = emp.Employee.Address;
+            telephoneTextBox.Text = emp.Employee.Telephone;
+            officeAddressTextBox.Text = emp.OfficeAddress;
+            phoneExtensionTextBox.Text = emp.PhoneExtensionNumber;
+            roleTextBox.Text = emp.Role;
+            usernameTextBox.Text = emp.Username;
+            passwordTextBox.Text = emp.Password;
         }
     }
 }

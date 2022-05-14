@@ -27,6 +27,8 @@ namespace NewDesignTrial
         {
             InitializeComponent();
         }
+
+        
         private void buttonMinimise_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.WindowState = WindowState.Minimized;
@@ -57,6 +59,8 @@ namespace NewDesignTrial
             }
         }
 
+
+
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
   
@@ -72,17 +76,23 @@ namespace NewDesignTrial
                 try
                 {
                     TruckEmployee emp = DAO.loginValidation(username, password);
+                   
+
                     if (emp == null)
                     {
                         MessageBox.Show("Please enter correct login details");
                     }
                     else if (emp.Role == "admin")
                     {
-                        AdminDashboard form = new AdminDashboard();
-                        MessageBox.Show("Hello " + emp.Username);
-                        form.helloTextBox.Text = "Welcome " + emp.Role;
+                        AdminDashboard form = new AdminDashboard(emp);
+                        MessageBox.Show("Hello " + emp.Employee.Name);
+                        form.helloTextBox.Text = "Welcome " + emp.Employee.Name;
                         form.Show();
                         this.Hide();
+
+                      
+                        
+
                     }
                 }
 
@@ -93,5 +103,7 @@ namespace NewDesignTrial
             }
             
         }
+       
     }
+
 }
