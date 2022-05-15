@@ -8,6 +8,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Templates.xaml" />
                 <ResourceDictionary Source="ComboBoxTemplate.xaml"/>
+                <ResourceDictionary Source="ScrollViewerTemplate.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

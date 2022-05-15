@@ -34,7 +34,7 @@
               Grid.Row="1">
 
             <DataGrid x:Name="gridCustomers" 
-                Grid.Column="0">
+                Grid.Column="0" FontFamily="Poppins" FontSize="12" GridLinesVisibility="Horizontal" Padding="3,3,3,3">
             </DataGrid>
 
         </Grid>

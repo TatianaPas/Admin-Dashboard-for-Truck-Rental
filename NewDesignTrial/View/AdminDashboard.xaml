@@ -16,44 +16,49 @@
         ResizeMode="CanResizeWithGrip" 
         Icon="/Assets/logo_new1.png"
         >
-    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" >
+    <Window.Resources>
+        <Style TargetType="ScrollBar">
+            <Setter Property="Background" Value="#2d4c66"/>
+        </Style>
+    </Window.Resources>
+    <ScrollViewer  CanContentScroll="True" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" Background="#FFB1D0E0" >
 
-    <Grid >
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                <GradientStop Color="#DFF6FF" Offset="0.0"/>
-                <GradientStop Color="#B1D0E0" Offset="0.4"/>
-                <GradientStop Color="#EFFFFD" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+        <Grid >
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                    <GradientStop Color="#DFF6FF" Offset="0.0"/>
+                    <GradientStop Color="#B1D0E0" Offset="0.4"/>
+                    <GradientStop Color="#EFFFFD" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="230"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="230"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
 
-        <Border Grid.ColumnSpan="2"
+            <Border Grid.ColumnSpan="2"
                  MouseDown="GridMouseDown"
                 >
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                    <GradientStop Color="#2d4c66" Offset="0.0"/>
-                    <GradientStop Color="#1A132F" Offset="0.5"/>
-                    <GradientStop Color="#2d4c66" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#2d4c66" Offset="0.0"/>
+                        <GradientStop Color="#1A132F" Offset="0.5"/>
+                        <GradientStop Color="#2d4c66" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
 
 
 
-            <Grid HorizontalAlignment="Stretch">
+                <Grid HorizontalAlignment="Stretch">
 
-                <TextBlock Text="Auckland Movers"
+                    <TextBlock Text="Auckland Movers"
                        Foreground="WhiteSmoke"
                        FontWeight="SemiBold"
                            FontSize="22"
@@ -63,59 +68,60 @@
                            Margin="20,0,0,0"/>
 
 
-                <StackPanel HorizontalAlignment="Right"
+                    <StackPanel HorizontalAlignment="Right"
                             Orientation="Horizontal"
                             Margin="0,0,10,0">
 
-                    <Button x:Name="minimise_btn"
+                        <Button x:Name="minimise_btn"
                             Style="{StaticResource buttonBlack}"
                             Content="🗕"                           
                             Click="buttonMinimise_Click" />
 
-                    <Button 
+                        <Button 
                             Content="☐"
                            Style="{StaticResource buttonBlack}"
                             Click="WindowStateBtnClick"/>
 
-                    <Button 
+                        <Button 
                             Content="🞬"
                             Style="{StaticResource buttonBlack}"
                             Click="CloseBtnClick"/>
 
-                </StackPanel>
-            </Grid>
+                    </StackPanel>
+                </Grid>
 
-        </Border>
+            </Border>
 
 
 
-        <!--Menu Panel-->
+            <!--Maximize Minimize app-->
+            <!--Menu Panel-->
 
-        <StackPanel
+            <StackPanel
                     Width="230"
                     Orientation="Vertical"
                     HorizontalAlignment="Left"
                     Grid.Row="1"
             Margin="0,2,0,0">
-            <StackPanel.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#3b5f7c" Offset="0.0"/>
-                    <GradientStop Color="#2d77a0" Offset="1"/>
-                </LinearGradientBrush>
-            </StackPanel.Background>
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#3b5f7c" Offset="0.0"/>
+                        <GradientStop Color="#2d77a0" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
 
-            <Grid Height="150"
+                <Grid Height="150"
                   VerticalAlignment="Top"
                   Margin="0,30,0,0">
 
 
-                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Vertical">
 
-                    <Image
+                        <Image
                         Width="65" 
                        Source="/Assets/logo_new1.png"
                        RenderOptions.BitmapScalingMode="Fant"/>
-                    <TextBlock x:Name="helloTextBox"                        
+                        <TextBlock x:Name="helloTextBox"                        
                            Foreground="#fbec5d"
                            FontSize="14"
                            FontWeight="Medium"                         
@@ -130,115 +136,114 @@
                             Foreground="#DFF6FF" 
                             FontWeight="Normal" 
                             FontStyle="Italic" 
-                            FontSize="12" Click="updateDetailsBtn_Click">
-                        </Button>
+                            FontSize="12" Click="updateDetailsBtn_Click"/>
 
                     </StackPanel>
 
-            </Grid>
+                </Grid>
 
-            <!--Main Menu-->
+                <!--Main Menu-->
 
-            <Menu Height="430"
+                <Menu Height="430"
                   Background="Transparent"
                   Margin="0,10,0,0">
-                <Menu.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <VirtualizingStackPanel Orientation="Vertical"/>
-                    </ItemsPanelTemplate>
-                </Menu.ItemsPanel>
+                    <Menu.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </Menu.ItemsPanel>
 
-                <!--Main Menu - Rental Records-->
-                <MenuItem x:Name="rentals_menu" Header="Rentals"
+                    <!--Main Menu - Rental Records-->
+                    <MenuItem x:Name="rentals_menu" Header="Rentals"
                           Template="{StaticResource Menu_SubMenu_Template}" Click="rentals_menu_Click">
-                    <MenuItem.Icon>
-                        <Image Source="/Assets/records.png"/>
-                    </MenuItem.Icon>
-                    <!--Customers sub menus-->
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/records.png"/>
+                        </MenuItem.Icon>
+                        <!--Customers sub menus-->
 
 
-                    <MenuItem Header="Records by Date"
+                        <MenuItem Header="Records by Date"
                               x:Name="records_by_date_menu"
                               Click="records_by_date_menu_Click"
                               Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <Image Source="/Assets/search.png"/>
-                        </MenuItem.Icon>
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/search.png"/>
+                            </MenuItem.Icon>
 
-                    </MenuItem>
-                    <MenuItem Header="Records by Customer"
+                        </MenuItem>
+                        <MenuItem Header="Records by Customer"
                               x:Name="records_by_customer_menu"
                               Click="records_by_customer_menu_Click"
                               Template="{StaticResource Item_Template}">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/search.png"/>
+                            </MenuItem.Icon>
+
+                        </MenuItem>
+                    </MenuItem>
+
+                    <!--Main Menu - Trucks-->
+                    <MenuItem Header="Trucks"
+                          Template="{StaticResource Menu_SubMenu_Template}">
                         <MenuItem.Icon>
-                            <Image Source="/Assets/search.png"/>
+                            <Image Source="/Assets/truck.png"/>
                         </MenuItem.Icon>
 
-                    </MenuItem>
-                </MenuItem>
+                        <!--Customers sub menus-->
 
-                <!--Main Menu - Trucks-->
-                <MenuItem Header="Trucks"
-                          Template="{StaticResource Menu_SubMenu_Template}">
-                    <MenuItem.Icon>
-                        <Image Source="/Assets/truck.png"/>
-                    </MenuItem.Icon>
-
-                    <!--Customers sub menus-->
-
-                    <MenuItem Header="Add  New Truck"
+                        <MenuItem Header="Add  New Truck"
                               x:Name="add_truck_menu"
                               Click="add_truck_menu_Click"
                               Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <Image Source="/Assets/plus.png"/>
-                        </MenuItem.Icon>
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/plus.png"/>
+                            </MenuItem.Icon>
 
-                    </MenuItem>
-                    <MenuItem Header="Search Truck"
+                        </MenuItem>
+                        <MenuItem Header="Search Truck"
                               x:Name="search_truck_menu"
                               Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <Image Source="/Assets/search.png"/>
-                        </MenuItem.Icon>
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/search.png"/>
+                            </MenuItem.Icon>
 
-                    </MenuItem>
-                    <MenuItem Header="Update Truck"
+                        </MenuItem>
+                        <MenuItem Header="Update Truck"
                               x:Name="update_truck_menu"
                               Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <Image Source="/Assets/update.png"/>
-                        </MenuItem.Icon>
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/update.png"/>
+                            </MenuItem.Icon>
 
+                        </MenuItem>
                     </MenuItem>
-                </MenuItem>
 
 
-                <!--Main Menu - Customers-->
-                <MenuItem Header="Customers"
+                    <!--Main Menu - Customers-->
+                    <MenuItem Header="Customers"
                           Template="{StaticResource Menu_SubMenu_Template}">
-                    <MenuItem.Icon>
-                        <Image Source="/Assets/customer.png"/>
-                    </MenuItem.Icon>
-
-                    <!--Customers sub menus-->
-
-                    <MenuItem x:Name="add_customer_menu" Header="Add Customer"
-                              Template="{StaticResource Item_Template}" Click="add_customer_menu_Click">
                         <MenuItem.Icon>
-                            <Image Source="/Assets/plus.png"/>
+                            <Image Source="/Assets/customer.png"/>
                         </MenuItem.Icon>
 
-                    </MenuItem>
-                    <MenuItem x:Name="searchCustomer_menu"
+                        <!--Customers sub menus-->
+
+                        <MenuItem x:Name="add_customer_menu" Header="Add Customer"
+                              Template="{StaticResource Item_Template}" Click="add_customer_menu_Click">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/plus.png"/>
+                            </MenuItem.Icon>
+
+                        </MenuItem>
+                        <MenuItem x:Name="searchCustomer_menu"
                         Header="Search/ Update"
                               Template="{StaticResource Item_Template}"
                               Click="searchCustomer_menu_Click">
-                        <MenuItem.Icon>
-                            <Image Source="/Assets/search.png"/>
-                        </MenuItem.Icon>
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/search.png"/>
+                            </MenuItem.Icon>
 
-                    </MenuItem>
+                        </MenuItem>
                         <MenuItem x:Name="showAllCustomers_menu"
                         Header="Show All"
                               Template="{StaticResource Item_Template}"
@@ -250,40 +255,40 @@
                         </MenuItem>
                     </MenuItem>
 
-                <!--Main Menu - Employee-->
+                    <!--Main Menu - Employee-->
 
-                <MenuItem Header="Employees"
+                    <MenuItem Header="Employees"
                           Template="{StaticResource Menu_SubMenu_Template}">
-                    <MenuItem.Icon>
-                        <Image Source="/Assets/employee.png"/>
-                    </MenuItem.Icon>
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/employee.png"/>
+                        </MenuItem.Icon>
 
-                    <!--Employees sub menus-->
+                        <!--Employees sub menus-->
 
-                    <MenuItem x:Name="addEmployeeBtn"
+                        <MenuItem x:Name="addEmployeeBtn"
                         Header="Add Employee"
                               Template="{StaticResource Item_Template}"
                               Click="addEmployeeBtn_Click">
-                        <MenuItem.Icon>
-                            <Image Source="/Assets/plus.png"/>
-                        </MenuItem.Icon>
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/plus.png"/>
+                            </MenuItem.Icon>
 
-                    </MenuItem>
-                    <MenuItem Header="Search Employee"
+                        </MenuItem>
+                        <MenuItem Header="Search Employee"
                               Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <Image Source="/Assets/search.png"/>
-                        </MenuItem.Icon>
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/search.png"/>
+                            </MenuItem.Icon>
 
-                    </MenuItem>
-                    <MenuItem Header="Update Employee"
+                        </MenuItem>
+                        <MenuItem Header="Update Employee"
                               Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <Image Source="/Assets/update.png"/>
-                        </MenuItem.Icon>
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/update.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
                     </MenuItem>
-                </MenuItem>
-                
+
                     <!--Main Menu - Contacts-->
                     <MenuItem x:Name="contactsBtn"
                         Header="Contacts"
@@ -292,7 +297,7 @@
                         <MenuItem.Icon>
                             <Image Source="/Assets/phone.png"/>
                         </MenuItem.Icon>
-                        
+
                     </MenuItem>
 
                     <MenuItem x:Name="LogoutBtn"  
@@ -300,31 +305,28 @@
                           Template="{StaticResource Menu_Template}" 
                           Click="LogoutBtn_Click"
                           >
-                    <MenuItem.Icon>
-                        <Image Source="/Assets/Logout.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-            </Menu>
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/Logout.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </Menu>
 
-        </StackPanel>
-        <StackPanel/>
-        <Grid x:Name="main_window_panel" Grid.Column="1"
+            </StackPanel>
+            <StackPanel/>
+            <Grid x:Name="main_window_panel" Grid.Column="1"
                     Grid.Row="1"  Width="Auto" HorizontalAlignment="Stretch"
               Margin="2">
-           
-            <TextBlock x:Name="window_textBox" Text="This is the main window"
+
+                <TextBlock x:Name="window_textBox" Text="This is the main window"
                        FontSize="20"
                        FontFamily="Poppins"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0"                      
                 />
-       
+
+            </Grid>
+
+
         </Grid>
-
-
-        <!--Maximize Minimize app-->
-
-
-    </Grid>
     </ScrollViewer>
 </Window>
