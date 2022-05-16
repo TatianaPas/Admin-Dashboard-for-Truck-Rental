@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NewDesignTrial.Models.DB;
+using NewDesignTrial.Models;
 
 namespace NewDesignTrial.View
 {
@@ -41,6 +42,59 @@ namespace NewDesignTrial.View
             roleTextBox.Text = emp.Role;
             usernameTextBox.Text = emp.Username;
             passwordTextBox.Text = emp.Password;
+        }
+
+        private void updateDetailsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            TruckPerson tp = emp.Employee;
+
+            if (addressTextBox.Text.Length <= 3)
+            {
+                MessageBox.Show("Please enter Employee's Address ");
+                return;
+            }
+            else
+            {
+                tp.Address = addressTextBox.Text;
+            }
+
+            if (telephoneTextBox.Text.Length <= 6)
+            {
+                MessageBox.Show("Please enter Employee's Telephone Number ");
+                return;
+            }
+            else
+            {
+                tp.Telephone = telephoneTextBox.Text;
+            }
+
+           // if (passwordTextBox.Text.Length < 8)
+           // {
+            //    MessageBox.Show("Password must be at least 8 characters long ");
+             //   return;
+           // }
+            //else
+            //{
+                emp.Password = passwordTextBox.Text;
+           // }
+            
+            tp.Name = nameTextBox.Text;
+            emp.Role = roleTextBox.Text;
+            emp.Username= usernameTextBox.Text;
+            emp.OfficeAddress = officeAddressTextBox.Text;
+            emp.PhoneExtensionNumber = phoneExtensionTextBox.Text;
+            try
+            {
+                DAO.updatePersonalDetails(emp, tp);
+                MessageBox.Show("Your personal details updated succesfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            
         }
     }
 }

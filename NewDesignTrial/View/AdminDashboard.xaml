@@ -17,11 +17,9 @@
         Icon="/Assets/logo_new1.png"
         >
     <Window.Resources>
-        <Style TargetType="ScrollBar">
-            <Setter Property="Background" Value="#2d4c66"/>
-        </Style>
+        
     </Window.Resources>
-    <ScrollViewer  CanContentScroll="True" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" Background="#FFB1D0E0" >
+    <ScrollViewer  CanContentScroll="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" >
 
         <Grid >
             <Grid.Background>

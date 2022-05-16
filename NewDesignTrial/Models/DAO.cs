@@ -107,5 +107,15 @@ namespace NewDesignTrial.Models
                 ctx.SaveChanges();
             }
         }
+
+        public static void updatePersonalDetails(TruckEmployee emp, TruckPerson tp)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                ctx.Entry(emp).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                ctx.Entry(tp).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                ctx.SaveChanges();
+            }
+        }
     }
 }

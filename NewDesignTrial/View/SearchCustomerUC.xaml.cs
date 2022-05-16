@@ -216,5 +216,11 @@ namespace NewDesignTrial.View
 
 
         }
+
+        private void searchComboBox_DropDownOpened(object sender, EventArgs e)
+        {
+            customerGridInfo.Visibility = Visibility.Hidden;
+            inputTextBox.Text = "";
+        }
     }
 }

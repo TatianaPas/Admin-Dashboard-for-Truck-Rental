@@ -35,7 +35,7 @@
                   MinHeight="35" 
                   Height="35"
                   Margin="5"
-                  Padding="10">
+                  Padding="10" DropDownOpened="searchComboBox_DropDownOpened">
             <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
                           Content="ID" 
                           Cursor="Hand" 

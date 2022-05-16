@@ -56,13 +56,13 @@
                 Text="Telephone" Margin="0,111,356,0" VerticalAlignment="Top"/>
 
             <TextBox x:Name="nameTextBox" 
-                Style="{StaticResource inputTextBox}"
+                Style="{StaticResource readOnlyTextBox}"
                 IsReadOnly="True" Margin="176,0,5,0" VerticalAlignment="Top"/>
             <TextBox x:Name="addressTextBox" 
-                Style="{StaticResource inputTextBox}"
+                Style="{StaticResource readOnlyTextBox}"
                 IsReadOnly="True" Margin="176,52,5,0" VerticalAlignment="Top"/>
             <TextBox x:Name="telephoneTextBox" 
-                Style="{StaticResource inputTextBox}"
+                Style="{StaticResource readOnlyTextBox}"
                 IsReadOnly="True" Margin="176,104,5,0" VerticalAlignment="Top"/>
             <Button
                 x:Name="clearBtn"

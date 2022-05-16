@@ -76,7 +76,7 @@
                 Grid.Column="2" 
                 x:Name="updateDetailsBtn"
                 Style="{StaticResource submitButton}"
-                Content="Update">
+                Content="Update" Click="updateDetailsBtn_Click">
         </Button>
     </Grid>
 </UserControl>
