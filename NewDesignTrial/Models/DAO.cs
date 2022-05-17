@@ -18,8 +18,17 @@ namespace NewDesignTrial.Models
                 ctx.SaveChanges();
             }
         }
+        public static void addTruck(IndividualTruck it)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                ctx.IndividualTrucks.Add(it);
+                ctx.SaveChanges();
+            }
+        }
 
-        public static void addEmployee(TruckEmployee te)
+
+            public static void addEmployee(TruckEmployee te)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
             {
