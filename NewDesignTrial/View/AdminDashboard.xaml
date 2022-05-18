@@ -16,9 +16,7 @@
         ResizeMode="CanResizeWithGrip" 
         Icon="/Assets/logo_new1.png"
         >
-    <Window.Resources>
-        
-    </Window.Resources>
+   
     <ScrollViewer  CanContentScroll="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" >
 
         <Grid >
@@ -226,8 +224,10 @@
 
                         <!--Customers sub menus-->
 
-                        <MenuItem x:Name="add_customer_menu" Header="Add Customer"
-                              Template="{StaticResource Item_Template}" Click="add_customer_menu_Click">
+                        <MenuItem x:Name="add_customer_menu" 
+                                  Header="Add Customer"
+                              Template="{StaticResource Item_Template}" 
+                                  Click="add_customer_menu_Click">
                             <MenuItem.Icon>
                                 <Image Source="/Assets/plus.png"/>
                             </MenuItem.Icon>
@@ -272,19 +272,25 @@
                             </MenuItem.Icon>
 
                         </MenuItem>
-                        <MenuItem Header="Search Employee"
+                        <MenuItem Header="Search/Update"
+                                  x:Name="searchEmployeemenu"
+                                  Click="searchEmployeemenu_Click"
                               Template="{StaticResource Item_Template}">
                             <MenuItem.Icon>
                                 <Image Source="/Assets/search.png"/>
                             </MenuItem.Icon>
 
                         </MenuItem>
-                        <MenuItem Header="Update Employee"
+                        
+                        <MenuItem Header="Show All" 
+                                  Name="showAllEmployees"
+                                  Click="showAllEmployees_Click"
                               Template="{StaticResource Item_Template}">
                             <MenuItem.Icon>
-                                <Image Source="/Assets/update.png"/>
+                                <Image Source="/Assets/search.png"/>
                             </MenuItem.Icon>
                         </MenuItem>
+              
                     </MenuItem>
 
                     <!--Main Menu - Contacts-->
@@ -321,7 +327,6 @@
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" FontWeight="DemiBold" Margin="0,20,0,0"                      
                 />
-
             </Grid>
 
 

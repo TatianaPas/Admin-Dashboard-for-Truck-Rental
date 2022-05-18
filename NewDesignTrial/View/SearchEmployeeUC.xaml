@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="NewDesignTrial.View.SearchCustomerUC"
+﻿<UserControl x:Class="NewDesignTrial.View.SearchEmployeeUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:NewDesignTrial.View"
+             xmlns:local="clr-namespace:Assignment_Project_RentalManagement.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="625">
     <Grid  Margin="5,5,5,5">
@@ -35,33 +35,35 @@
                   MinHeight="35" 
                   Height="35"
                   Margin="5"
-                  Padding="10" DropDownOpened="searchComboBox_DropDownOpened">
+                  Padding="10">
             <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
                           Content="ID" 
                           Cursor="Hand" 
                           IsSelected="True"/>
             <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
-                          Content="License Number" 
+                          Content="Full Name" 
                           Cursor="Hand"/>
         </ComboBox>
         <TextBox Name="inputTextBox" 
                  Style="{StaticResource inputTextBox}" 
                  Grid.Row="0" 
-                 Grid.Column="2" TextChanged="inputTextBox_TextChanged" 
+                 Grid.Column="2"  
                  />
         <Button Grid.Row="0" 
                 Grid.Column="3"               
-                x:Name="showCustomerBtn"                       
+                x:Name="showEmployeeBtn"                       
                 Style="{StaticResource submitButton}"
-                        Content="Show" 
-                Click="showCustomerBtn_Click" Margin="5,5,5,5" IsTabStop="False">
+                Content="Show" 
+                Margin="5,5,5,5" 
+                IsTabStop="False">
         </Button>
-        <Grid x:Name="customerGridInfo"
+        <Grid x:Name="employeeGridInfo"
             Grid.Row="1"
               Grid.RowSpan="8"
               Grid.Column="1"
               Grid.ColumnSpan="3"
-              Visibility="Hidden">
+              Visibility="Hidden"
+              >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="2*"/>
@@ -76,9 +78,10 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-        
+
 
             <TextBlock Style="{StaticResource text}" 
                        Grid.Row="0"
@@ -99,17 +102,25 @@
             <TextBlock Style="{StaticResource text}" 
                        Grid.Row="4"
                        Grid.Column="0"
-                Text="Age" />
+                Text="Office Address" />
             <TextBlock Style="{StaticResource text}" 
                        Grid.Row="5"
                        Grid.Column="0"
-                Text="License Number"  />
+                Text="Phone Extension"  />
             <TextBlock Style="{StaticResource text}" 
                        Grid.Row="6"
                        Grid.Column="0"
-                Text="License Expiry Date"/>
-            
-            
+                Text="Role"/>
+            <TextBlock Style="{StaticResource text}" 
+                       Grid.Row="7"
+                       Grid.Column="0"
+                Text="Username"/>
+            <TextBlock Style="{StaticResource text}" 
+                       Grid.Row="8"
+                       Grid.Column="0"
+                Text="Password"/>
+
+
             <TextBox x:Name="idTextBox" 
                      IsReadOnly="True"
                 Style="{StaticResource readOnlyTextBox}" 
@@ -128,24 +139,33 @@
                      Grid.Row="3"
                      Grid.Column="1"
                 Style="{StaticResource inputTextBox}"/>
-            <TextBox x:Name="ageTextBox" 
+            <TextBox x:Name="officeAddressTextBox" 
                      Grid.Row="4"
                      Grid.Column="1"
                 Style="{StaticResource inputTextBox}"  />
-            <TextBox x:Name="licenseNumberTextBox" 
+            <TextBox x:Name="phoneExtensionTextBox" 
                      Grid.Row="5"
                      Grid.Column="1"
                 Style="{StaticResource inputTextBox}"  />
-            <DatePicker Name="licenseExpiryDateDP" 
-                    Style="{StaticResource inputDatePicker}" 
-                    Grid.Row="6" 
-                    Grid.Column="1"/>
-        <Button x:Name="updateCustomerDetails"
-                Grid.Row="7"
+            <TextBox x:Name="roleTextBox" 
+                     Grid.Row="6"
+                     Grid.Column="1"
+                Style="{StaticResource inputTextBox}"  />
+            <TextBox x:Name="usernametextBox" 
+                     Grid.Row="7"
+                     Grid.Column="1"
+                Style="{StaticResource inputTextBox}"  />
+            <TextBox x:Name="passwordTextBox" 
+                     Grid.Row="8"
+                     Grid.Column="1"
+                Style="{StaticResource inputTextBox}"  />
+            
+            <Button x:Name="updateEmployeeDetails"
+                Grid.Row="9"
                      Grid.Column="1"
                 Style="{StaticResource submitButton}"
                 Content="Update Details" 
-                    Click="updateCustomerDetails_Click"/>
+                    />
 
 
         </Grid>

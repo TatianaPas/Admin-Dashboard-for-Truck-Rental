@@ -130,6 +130,19 @@ namespace NewDesignTrial.View
             main_window_panel.Children.Clear();
             main_window_panel.Children.Add(new showCustomersUC());
         }
+
+        private void showAllEmployees_Click(object sender, RoutedEventArgs e)
+        {
+            
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new EmployeesUC());
+        }
+
+        private void searchEmployeemenu_Click(object sender, RoutedEventArgs e)
+        {
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new SearchEmployeeUC());
+        }
     }
 }
 

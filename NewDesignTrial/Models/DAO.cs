@@ -70,7 +70,8 @@ namespace NewDesignTrial.Models
                         OfficeAddress = te.OfficeAddress,
                         PhoneExtensionNumber = te.PhoneExtensionNumber,
                         Username = te.Username,
-                        Password = te.Password
+                        Password = te.Password,
+                        Role=te.Role,
                     }).ToList();
             }
         }
