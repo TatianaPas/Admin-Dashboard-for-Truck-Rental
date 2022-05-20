@@ -34,7 +34,33 @@
               Grid.Row="1">
 
             <DataGrid x:Name="gridCustomers" 
-                Grid.Column="0" FontFamily="Poppins" FontSize="12" GridLinesVisibility="Horizontal" Padding="3,3,3,3">
+                Grid.Column="0" 
+                      FontFamily="Poppins" 
+                      FontSize="12" 
+                      ClipboardCopyMode="None" 
+                      BorderBrush="{x:Null}"                     
+                      CanUserAddRows="False"
+                      AlternatingRowBackground="#81D4FA"
+                      CanUserDeleteRows="False" 
+                      MinRowHeight="30" 
+                      MinColumnWidth="40" Margin="0,0,0,-152" 
+                      BorderThickness="0,0,0,0" GridLinesVisibility="None"                    
+                      >
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#1A374D" />
+                        <Setter Property="Foreground" Value="WhiteSmoke" />
+                        <Setter Property="Height" Value="35" />
+                    </Style>
+                </DataGrid.Resources>
+
+                <DataGrid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#DFF6FF" Offset="0.0"/>
+                        <GradientStop Color="#B1D0E0" Offset="0.4"/>
+                        <GradientStop Color="#EFFFFD" Offset="1"/>
+                    </LinearGradientBrush>
+                </DataGrid.Background>
             </DataGrid>
 
         </Grid>

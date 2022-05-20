@@ -32,6 +32,15 @@ namespace NewDesignTrial.View
         private void allCusotmersWindow_Loaded(object sender, RoutedEventArgs e)
         {
             gridCustomers.ItemsSource = DAO.getCustomers();
+            gridCustomers.Columns[0].Header = " ID";
+            gridCustomers.Columns[1].Header = "Name";
+            gridCustomers.Columns[2].Header = "Address";
+            gridCustomers.Columns[3].Header = "Phone";
+            gridCustomers.Columns[4].Header = "Licence No";
+            gridCustomers.Columns[5].Header = "Age";
+            gridCustomers.Columns[6].Header = "Licence Expiry";
+
+
         }
     }   
 }

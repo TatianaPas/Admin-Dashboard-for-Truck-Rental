@@ -89,7 +89,7 @@ namespace NewDesignTrial.Models
                         LicenseNumber = te.LicenseNumber,
                         Age = te.Age,
                         LicenseExpiryDate = te.LicenseExpiryDate
-
+                        
                     }).ToList();
             }
         }
