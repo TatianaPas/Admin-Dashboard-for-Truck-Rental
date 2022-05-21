@@ -66,12 +66,12 @@ namespace NewDesignTrial.Models
                         EmployeeId = te.EmployeeId,
                         Name = te.Employee.Name,
                         Address = te.Employee.Address,
+                        Role = te.Role,
                         Telephone = te.Employee.Telephone,
                         OfficeAddress = te.OfficeAddress,
                         PhoneExtensionNumber = te.PhoneExtensionNumber,
                         Username = te.Username,
-                        Password = te.Password,
-                        Role=te.Role,
+                        Password = te.Password,                      
                     }).ToList();
             }
         }
@@ -88,7 +88,7 @@ namespace NewDesignTrial.Models
                         Telephone = te.Customer.Telephone,
                         LicenseNumber = te.LicenseNumber,
                         Age = te.Age,
-                        LicenseExpiryDate = te.LicenseExpiryDate
+                        LicenseExpiryDate = te.LicenseExpiryDate.ToString("dd/MM/yyyy"),
                         
                     }).ToList();
             }

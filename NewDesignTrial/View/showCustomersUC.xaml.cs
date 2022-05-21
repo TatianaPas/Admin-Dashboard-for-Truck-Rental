@@ -39,8 +39,12 @@ namespace NewDesignTrial.View
             gridCustomers.Columns[4].Header = "Licence No";
             gridCustomers.Columns[5].Header = "Age";
             gridCustomers.Columns[6].Header = "Licence Expiry";
+            
+            
 
 
         }
+
+       
     }   
 }

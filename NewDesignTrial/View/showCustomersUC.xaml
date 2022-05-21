@@ -7,14 +7,15 @@
              xmlns:local="clr-namespace:NewDesignTrial.View"
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="625" Loaded="allCusotmersWindow_Loaded">
+    
 
-        <Grid  Margin="5,5,5,5">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="0.25*"/>
-            </Grid.ColumnDefinitions>
+    <Grid  Margin="5,5,5,5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.25*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -26,7 +27,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-              
+
         <Grid Name="custmersGrid"
             Grid.ColumnSpan="4" 
               Margin="5,5,5,5" 
@@ -40,27 +41,33 @@
                       ClipboardCopyMode="None" 
                       BorderBrush="{x:Null}"                     
                       CanUserAddRows="False"
-                      AlternatingRowBackground="#81D4FA"
+                      AlternatingRowBackground="#1984c5"
+                      RowBackground="#115f9a"
+                      Foreground="WhiteSmoke"                                                                 
                       CanUserDeleteRows="False" 
-                      MinRowHeight="30" 
+                      MinRowHeight="35" 
                       MinColumnWidth="40" Margin="0,0,0,-152" 
-                      BorderThickness="0,0,0,0" GridLinesVisibility="None"                    
+                      BorderThickness="5,1,10,1" GridLinesVisibility="None" CanUserReorderColumns="False" Background="{x:Null}"                    
                       >
+
                 <DataGrid.Resources>
                     <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#1A374D" />
                         <Setter Property="Foreground" Value="WhiteSmoke" />
                         <Setter Property="Height" Value="35" />
                     </Style>
+                    <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource {x:Type DataGridCell}}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                    <Grid Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" />
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
                 </DataGrid.Resources>
-
-                <DataGrid.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="#DFF6FF" Offset="0.0"/>
-                        <GradientStop Color="#B1D0E0" Offset="0.4"/>
-                        <GradientStop Color="#EFFFFD" Offset="1"/>
-                    </LinearGradientBrush>
-                </DataGrid.Background>
             </DataGrid>
 
         </Grid>
