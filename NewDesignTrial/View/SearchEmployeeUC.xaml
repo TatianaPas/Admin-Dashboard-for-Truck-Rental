@@ -35,7 +35,7 @@
                   MinHeight="35" 
                   Height="35"
                   Margin="5"
-                  Padding="10">
+                  Padding="10" DropDownOpened="searchComboBox_DropDownOpened">
             <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
                           Content="ID" 
                           Cursor="Hand" 
@@ -47,7 +47,7 @@
         <TextBox Name="inputTextBox" 
                  Style="{StaticResource inputTextBox}" 
                  Grid.Row="0" 
-                 Grid.Column="2"  
+                 Grid.Column="2" TextChanged="inputTextBox_TextChanged"  
                  />
         <Button Grid.Row="0" 
                 Grid.Column="3"               
@@ -55,7 +55,7 @@
                 Style="{StaticResource submitButton}"
                 Content="Show" 
                 Margin="5,5,5,5" 
-                IsTabStop="False">
+                IsTabStop="False" Click="showEmployeeBtn_Click">
         </Button>
         <Grid x:Name="employeeGridInfo"
             Grid.Row="1"

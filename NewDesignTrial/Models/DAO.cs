@@ -101,6 +101,20 @@ namespace NewDesignTrial.Models
 
         }
 
+        public static TruckEmployee findEmployeeById(int id)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+                return ctx.TruckEmployees.Include(p => p.Employee).Where(emp => emp.EmployeeId == id).FirstOrDefault();
+
+        }
+
+        public static TruckEmployee findEmployeeByName(string name)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+                return ctx.TruckEmployees.Include(p => p.Employee).Where(emp => emp.Employee.Name == name).FirstOrDefault();
+
+        }
+
         public static TruckCustomer findCustomerByLicenseNumber(string license)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
