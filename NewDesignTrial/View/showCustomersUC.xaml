@@ -36,38 +36,8 @@
 
             <DataGrid x:Name="gridCustomers" 
                 Grid.Column="0" 
-                      FontFamily="Poppins" 
-                      FontSize="12" 
-                      ClipboardCopyMode="None" 
-                      BorderBrush="{x:Null}"                     
-                      CanUserAddRows="False"
-                      AlternatingRowBackground="#1984c5"
-                      RowBackground="#115f9a"
-                      Foreground="WhiteSmoke"                                                                 
-                      CanUserDeleteRows="False" 
-                      MinRowHeight="35" 
-                      MinColumnWidth="40" Margin="0,0,0,-152" 
-                      BorderThickness="5,1,10,1" GridLinesVisibility="None" CanUserReorderColumns="False" Background="{x:Null}"                    
-                      >
+                      Style="{StaticResource dataGridStyle}">
 
-                <DataGrid.Resources>
-                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="Background" Value="#1A374D" />
-                        <Setter Property="Foreground" Value="WhiteSmoke" />
-                        <Setter Property="Height" Value="35" />
-                    </Style>
-                    <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource {x:Type DataGridCell}}">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type DataGridCell}">
-                                    <Grid Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center" />
-                                    </Grid>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </DataGrid.Resources>
             </DataGrid>
 
         </Grid>

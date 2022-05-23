@@ -32,12 +32,12 @@ namespace NewDesignTrial.View
             gridEmployees.Columns[0].Header = " ID";
             gridEmployees.Columns[1].Header = "Name";
             gridEmployees.Columns[2].Header = "Address";
-            gridEmployees.Columns[3].Header = "Role";
-            gridEmployees.Columns[4].Header = "Phone";
-            gridEmployees.Columns[5].Header = "Office";
-            gridEmployees.Columns[6].Header = "Ph.extension";
-            gridEmployees.Columns[7].Header = "Username";
-            gridEmployees.Columns[8].Header = "Password";
+            gridEmployees.Columns[3].Header = "Phone";
+            gridEmployees.Columns[4].Header = "Office";
+            gridEmployees.Columns[5].Header = "Ph.extension ";
+            gridEmployees.Columns[6].Header = " Username";
+            gridEmployees.Columns[7].Header = "Password";
+            gridEmployees.Columns[8].Header = "Role";
             
 
         }

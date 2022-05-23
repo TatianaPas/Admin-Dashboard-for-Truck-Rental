@@ -133,7 +133,7 @@
             </Grid.RowDefinitions>
             <Border Grid.RowSpan="3"
             CornerRadius="2"
-            Background="#6998AB" />
+            Background="#1A374D" />
             <RepeatButton Grid.Row="0"
                   Style="{StaticResource ScrollBarLineButton}"
                   Height="18"
@@ -204,7 +204,7 @@
             </Grid.ColumnDefinitions>
             <Border Grid.ColumnSpan="3"
             CornerRadius="2"
-            Background="#F0F0F0" />
+            Background="#1A374D" />
             <RepeatButton Grid.Column="0"
                   Style="{StaticResource ScrollBarLineButton}"
                   Width="18"

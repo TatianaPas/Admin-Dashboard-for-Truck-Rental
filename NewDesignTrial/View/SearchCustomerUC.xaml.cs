@@ -206,15 +206,6 @@ namespace NewDesignTrial.View
                 MessageBox.Show(ex.Message);
             }
 
-
-
-
-
-
-
-
-
-
         }
 
         private void searchComboBox_DropDownOpened(object sender, EventArgs e)

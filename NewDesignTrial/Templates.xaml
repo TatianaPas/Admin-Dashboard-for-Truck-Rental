@@ -484,6 +484,64 @@
     </Style>
 
 
-    
+    <!--Data Grid Template -->
+    <Style x:Key="dataGridStyle" TargetType="DataGrid">
+        <Setter Property="FontFamily" Value="Poppins"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="CanUserDeleteRows" Value="False"/>
+        <Setter Property="AlternatingRowBackground" Value="#1984c5"/>
+        <Setter Property="RowBackground" Value="#115f9a"/>
+        <Setter Property="Foreground" Value="WhiteSmoke"/>
+        <Setter Property="MinRowHeight" Value="35"/>
+        <Setter Property="MinColumnWidth" Value="35"/>
+        <Setter Property="GridLinesVisibility" Value="None"/>
+        <Setter Property="Foreground" Value="WhiteSmoke"/>
+        <Setter Property="Background" Value="Transparent"/>
+
+    </Style>
+
+
+     <Style TargetType="DataGridCell">
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Template">
+            <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                    <Border Padding="{TemplateBinding Padding}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}" 
+                            SnapsToDevicePixels="True">
+                    <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Border>
+                    </ControlTemplate>
+             </Setter.Value>
+            </Setter>
+      </Style>
+        
+
+        
+            <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                <Setter Property="Background" Value="#1A374D" />
+                <Setter Property="Foreground" Value="WhiteSmoke" />
+                <Setter Property="Height" Value="35" />
+            </Style>
+
+
+    <Style x:Key="checkBoxStyle" TargetType="CheckBox">
+        <Setter Property="FontFamily" Value="Poppins"/>
+        <Setter Property="IsChecked" Value="False"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="Background" Value="#FFF5F7F9"/>
+        <Setter Property="MinHeight" Value="35"/>
+        <Setter Property="MinWidth" Value="35"/>
+    </Style>
+        
+
+
+       
+
+
 
 </ResourceDictionary>

@@ -165,6 +165,7 @@
                      Grid.Column="1"
                 Style="{StaticResource submitButton}"
                 Content="Update Details" 
+                    Click="updateEmployeeDetails_Click"
                     />
 
 

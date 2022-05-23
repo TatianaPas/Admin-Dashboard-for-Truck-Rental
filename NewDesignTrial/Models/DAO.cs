@@ -132,6 +132,16 @@ namespace NewDesignTrial.Models
             }
         }
 
+        public static void updateEmployee(TruckEmployee te, TruckPerson tp)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                ctx.Entry(te).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                ctx.Entry(tp).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                ctx.SaveChanges();
+            }
+        }
+
         public static void updatePersonalDetails(TruckEmployee emp, TruckPerson tp)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())

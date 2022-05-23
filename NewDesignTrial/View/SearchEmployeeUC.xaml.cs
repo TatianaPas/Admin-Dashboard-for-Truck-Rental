@@ -106,5 +106,115 @@ namespace NewDesignTrial.View
         {
             employeeGridInfo.Visibility = Visibility.Hidden;
         }
+
+        private void updateEmployeeDetails_Click(object sender, RoutedEventArgs e)
+        { 
+            string phoneExtension ="";
+            string phone = "";
+            string office = "";
+            string username = "";
+            string password = "";
+            string role = "";
+            string address = "";
+        
+            int id = int.Parse(idTextBox.Text);
+
+            if(addressTextBox.Text.Length<=3)
+            {
+                MessageBox.Show("Please enter Employee's Address ");
+                return;
+            }
+            else
+            {
+                address = addressTextBox.Text;
+            }
+            
+            if (telephoneTextBox.Text.Length <= 6)
+            {
+                MessageBox.Show("Please enter Employee's Telephone Number ");
+                return;
+            }
+            else
+            {
+                phone = telephoneTextBox.Text;
+            }
+            if (officeAddressTextBox.Text.Length <= 4)
+            {
+                MessageBox.Show("Please enter Office Address ");
+                return;
+            }
+            else
+            {
+                office = officeAddressTextBox.Text;
+            }
+            if (phoneExtensionTextBox.Text.Length < 1)
+            {
+                MessageBox.Show("Please enter Employee's Phone Extension ");
+                return;
+            }
+            else
+            {
+                phoneExtension = phoneExtensionTextBox.Text;
+            }
+
+            if (roleTextBox.Text != "admin" && roleTextBox.Text != "staff")
+            {
+                MessageBox.Show("The role can be staff or admin");
+                return;
+            }
+            else if (roleTextBox.Text == "admin")
+            {
+                role = "admin";
+            }
+            else
+            {
+                role = "staff";
+            }
+
+            if (usernametextBox.Text.Length < 7)
+            {
+                MessageBox.Show("Username muts be at least 7 characters long ");
+                return;
+            }
+            else
+            {
+                username = usernametextBox.Text;
+            }
+
+
+
+            if (passwordTextBox.Text.Length < 8)
+            {
+                MessageBox.Show("Password must be at least 8 characters long ");
+                return;
+            }
+            else
+            {
+                password = passwordTextBox.Text;
+            }
+
+           
+         
+            TruckEmployee te = DAO.findEmployeeById(id);
+            te.OfficeAddress = office;
+            te.PhoneExtensionNumber= phoneExtension;
+            te.Username = username;
+            te.Password = password;
+            te.Role = role;
+
+            TruckPerson tp = te.Employee;
+            tp.Address = address;
+            tp.Telephone = phone;
+
+            try
+            {
+                DAO.updateEmployee(te, tp);
+                MessageBox.Show("Employee updated succesfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
