@@ -8,7 +8,7 @@
              d:DesignHeight="900" d:DesignWidth="625"
              MinHeight="700">
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" >
-        <Grid  Margin="5,5,5,5">
+        <Grid Name="autoGrid" Margin="5,5,5,5">
         
             
         <Grid.ColumnDefinitions>
@@ -112,11 +112,13 @@
         <TextBox Name="modelTextBox" 
                  Style="{StaticResource inputTextBox}" 
                  Grid.Column="2"
-                 Grid.Row="0"/>
+                 Grid.Row="0"
+                 Uid="Model"/>
         <TextBox Name="manufacturerTextBox" 
                  Style="{StaticResource inputTextBox}" 
                  Grid.Row="1" 
-                 Grid.Column="2"/>
+                 Grid.Column="2"
+                 Uid="Manufacturer"/>
         <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
                   Name="sizeComboBox" 
                   Grid.Row="2" 
@@ -139,19 +141,23 @@
         <TextBox Name="numberOfSeatsTextBox" 
                  Style="{StaticResource inputTextBox}" 
                  Grid.Row="3" 
-                 Grid.Column="2" />
+                 Grid.Column="2" 
+                 Uid="Number of Seats"/>
         <TextBox Name="numberOfDoorsTextBox" 
                  Style="{StaticResource inputTextBox}" 
                  Grid.Row="4" 
-                 Grid.Column="2" />
+                 Grid.Column="2" 
+                 Uid="Number of Doors"/>
         <TextBox Name="colorTextBox" 
                  Style="{StaticResource inputTextBox}" 
                  Grid.Row="5" 
-                 Grid.Column="2" />
+                 Grid.Column="2" 
+                 Uid="Color"/>
         <TextBox Name="regoTextBox" 
                  Style="{StaticResource inputTextBox}" 
                  Grid.Row="6" 
-                 Grid.Column="2" />
+                 Grid.Column="2" 
+                 Uid="Registration"/>
         <DatePicker Name="WOFExpiryDatePicker" 
                     Style="{StaticResource inputDatePicker}" 
                     Grid.Row="7" 
@@ -167,7 +173,8 @@
         <TextBox Name="yearOfManufactureTextBox" 
                  Style="{StaticResource inputTextBox}" 
                  Grid.Row="10" 
-                 Grid.Column="2" />
+                 Grid.Column="2"
+                 Uid="Year of Manufacture"/>
         <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
                   Name="statusComboBox" 
                   Grid.Row="11" 
@@ -222,11 +229,13 @@
         <TextBox Name="rentalPriceTextBox" 
                  Style="{StaticResource inputTextBox}" 
                  Grid.Row="14" 
-                 Grid.Column="2" />
+                 Grid.Column="2" 
+                 Uid="Rent Price"/>
         <TextBox Name="depositPriceTextBox" 
                  Style="{StaticResource inputTextBox}" 
                  Grid.Row="15" 
-                 Grid.Column="2" />
+                 Grid.Column="2" 
+                 Uid="Deposit"/>
             <CheckBox x:Name="airConCheckBox" 
                       Style="{StaticResource checkBoxStyle}"
                       Content="Air conditioning" 

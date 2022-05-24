@@ -151,5 +151,32 @@ namespace NewDesignTrial.Models
                 ctx.SaveChanges();
             }
         }
+
+        public static TruckFeature findFeature(int id)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.TruckFeatures.Where(tf => tf.FeatureId == id).FirstOrDefault();
+          }               
+        }
+
+        public static IndividualTruck findTruck(int id)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.IndividualTrucks.Where(it => it.TruckId == id).FirstOrDefault();
+            }
+        }
+
+        public static void addFeature(int id, TruckFeature tf)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                IndividualTruck it = findTruck(id);
+                it.Features.Add(tf);
+                ctx.SaveChanges();
+            }
+                
+        }
     }
 }
