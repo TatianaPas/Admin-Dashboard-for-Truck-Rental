@@ -155,7 +155,16 @@
                         <MenuItem.Icon>
                             <Image Source="/Assets/records.png"/>
                         </MenuItem.Icon>
-                        <!--Customers sub menus-->
+                        <!--rentals sub menus-->
+                        <MenuItem Header="Rent Truck"
+                              x:Name="rentTruck_menu"
+                                  Click="rentTruck_menu_Click"
+                              Template="{StaticResource Item_Template}">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/search.png"/>
+                            </MenuItem.Icon>
+
+                        </MenuItem>
 
 
                         <MenuItem Header="Records by Date"
@@ -196,9 +205,19 @@
                             </MenuItem.Icon>
 
                         </MenuItem>
-                        <MenuItem Header="Search Truck"
-                              x:Name="search_truck_menu"
-                              Template="{StaticResource Item_Template}">
+                        <MenuItem Header="All Available Trucks"
+                              x:Name="show_truck_menu"
+                              Template="{StaticResource Item_Template}"
+                                  Click="show_truck_menu_Click">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/search.png"/>
+                            </MenuItem.Icon>
+
+                        </MenuItem>
+                        <MenuItem Header="Show All Trucks"
+                              x:Name="show_alltruck_menu"
+                              Template="{StaticResource Item_Template}"
+                                  Click="show_alltruck_menu_Click">
                             <MenuItem.Icon>
                                 <Image Source="/Assets/search.png"/>
                             </MenuItem.Icon>

@@ -143,6 +143,24 @@ namespace NewDesignTrial.View
             main_window_panel.Children.Clear();
             main_window_panel.Children.Add(new SearchEmployeeUC());
         }
+
+        private void show_truck_menu_Click(object sender, RoutedEventArgs e)
+        {
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new ShowAvailableTrucks());
+        }
+
+        private void show_alltruck_menu_Click(object sender, RoutedEventArgs e)
+        {
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new showAllTrucks());
+        }
+
+        private void rentTruck_menu_Click(object sender, RoutedEventArgs e)
+        {
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new RentTruck());
+        }
     }
 }
 

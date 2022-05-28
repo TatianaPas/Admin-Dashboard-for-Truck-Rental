@@ -1,0 +1,111 @@
+﻿<UserControl x:Name="rentTruckWindow" x:Class="NewDesignTrial.View.RentTruck"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NewDesignTrial.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="625" Loaded="rentTruckWindow_Loaded">
+    <Grid>
+        <Grid  Margin="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="0.2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Style="{StaticResource text}" 
+                   Text="Customer Name" 
+                   Grid.Column="1"/>
+            <TextBlock Style="{StaticResource text}" 
+                   Text="Customter License" Grid.Row="1" 
+                   Grid.Column="1"/>
+            <TextBlock Style="{StaticResource text}" 
+                   Text="Truck Registration" 
+                   Grid.Row="2" 
+                   Grid.Column="1"/>
+            <TextBlock Style="{StaticResource text}" 
+                   Text="Date Rented" 
+                   Grid.Row="3" 
+                   Grid.Column="1"/>
+            <TextBlock Style="{StaticResource text}" 
+                   Text="Date DueBack" 
+                   Grid.Row="4" 
+                   Grid.Column="1" />
+            <TextBlock Style="{StaticResource text}" 
+                   Text="Deposit"
+                   Grid.Row="5"
+                   Grid.Column="1" />
+            <TextBlock Style="{StaticResource text}" 
+                   Text="Total Price"
+                   Grid.Row="6"
+                   Grid.Column="1" />
+
+            <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
+                  Name="nameComboBox" 
+                  Grid.Row="0" 
+                  Grid.Column="2"
+                  MinHeight="35" 
+                  Height="35"
+                  Margin="5"
+                  Padding="10" 
+                  DropDownClosed="nameComboBox_DropDownClosed"/>
+
+            <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
+                  Name="licenseComboBox" 
+                  Grid.Row="1" 
+                  Grid.Column="2"
+                  MinHeight="35" 
+                  Height="35"
+                  Margin="5"
+                  Padding="10"/>
+            
+            <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
+                  Name="registrationComboBox" 
+                  Grid.Row="2" 
+                  Grid.Column="2"
+                  MinHeight="35" 
+                  Height="35"
+                  Margin="5"
+                  Padding="10" DropDownClosed="registrationComboBox_DropDownClosed"/>
+            <DatePicker Name="rentDayDatePicker" 
+                        
+                    Style="{StaticResource inputDatePicker}" 
+                    Grid.Row="3" 
+                    Grid.Column="2" SelectedDateChanged="rentDayDatePicker_SelectedDateChanged"/>
+            <DatePicker Name="dueBackDatePicker" 
+                    Style="{StaticResource inputDatePicker}" 
+                    Grid.Row="4" 
+                    Grid.Column="2" SelectedDateChanged="dueBackDatePicker_SelectedDateChanged"/>
+            <TextBox Name="DepositTextBox" 
+                 Style="{StaticResource inputTextBox}" 
+                 Grid.Row="5" 
+                 Grid.Column="2" />
+            <TextBox Name="TotalPriceTextBox" 
+                 Style="{StaticResource inputTextBox}" 
+                 Grid.Row="6" 
+                 Grid.Column="2" />
+
+
+            <Button Grid.Row="7" 
+                Grid.Column="2" 
+                x:Name="rentTruckBtn"
+                    Click="rentTruckBtn_Click_1"
+                Style="{StaticResource submitButton}"
+                Content="Rent">
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>
