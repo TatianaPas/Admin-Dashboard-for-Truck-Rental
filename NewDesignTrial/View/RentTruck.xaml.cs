@@ -119,8 +119,7 @@ namespace NewDesignTrial.View
 
             try
             {
-                DAO.rentTruck(tr);
-                
+                DAO.rentTruck(tr, truckId);               
                 MessageBox.Show("Truck rented succesfully");
                
             }

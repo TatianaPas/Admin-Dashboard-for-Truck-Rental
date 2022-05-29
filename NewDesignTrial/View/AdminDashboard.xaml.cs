@@ -161,6 +161,12 @@ namespace NewDesignTrial.View
             main_window_panel.Children.Clear();
             main_window_panel.Children.Add(new RentTruck());
         }
+
+        private void returnTruck_menu_Click(object sender, RoutedEventArgs e)
+        {
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new ReturnTruck());
+        }
     }
 }
 

@@ -165,6 +165,16 @@
                             </MenuItem.Icon>
 
                         </MenuItem>
+                        <MenuItem Header="Return Truck"
+                              x:Name="returnTruck_menu"
+                                  Click="returnTruck_menu_Click"
+                              Template="{StaticResource Item_Template}">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/search.png"/>
+                            </MenuItem.Icon>
+
+                        </MenuItem>
+                        
 
 
                         <MenuItem Header="Records by Date"

@@ -168,11 +168,47 @@ namespace NewDesignTrial.Models
             }
         }
 
+        public static List<TrucksModelFeatures> getRentedTrucks()
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.IndividualTrucks.Include(i => i.TruckModel).Where(st => st.Status == "rented").Select(
+                    it => new TrucksModelFeatures()
+                    {
+                        TruckId = it.TruckId,
+                        RegistrationNumber = it.RegistrationNumber,
+                        Model = it.TruckModel.Model,
+                        Size = it.TruckModel.Size,
+                        WofexpiryDate = it.WofexpiryDate.ToString("dd/MM/yyyy"),
+                        RegistrationExpiryDate = it.RegistrationExpiryDate.ToString("dd/MM/yyyy"),
+                        ManufactureYear = it.ManufactureYear,
+                        FuelType = it.FuelType,
+                        Transmission = it.Transmission,
+                        DailyRentalPrice = string.Format("{0:F2}", it.DailyRentalPrice),
+                        AdvanceDepositRequired = string.Format("{0:F2}", it.AdvanceDepositRequired),
+                        Status = it.Status,
+                    }).ToList();
+            }
+        }
+
         public static IndividualTruck searchTruckByRego (string rego)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
             {
                 return ctx.IndividualTrucks.Where(it => it.RegistrationNumber==rego).FirstOrDefault();
+            }
+        }
+
+        private static void changeTruckStatus(int truckId)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                IndividualTruck it = ctx.IndividualTrucks.Where(it => it.TruckId == truckId).FirstOrDefault();
+                if (it != null)
+                {
+                    it.Status = "rented";
+                    ctx.SaveChanges();
+                }
             }
         }
 
@@ -267,11 +303,13 @@ namespace NewDesignTrial.Models
 
         // Rentals
 
-        public static void rentTruck(TruckRental tr)
+        public static void rentTruck(TruckRental tr, int id)
         {
+            id = tr.TruckId;
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
             {
-                ctx.TruckRentals.Add(tr);               
+                ctx.TruckRentals.Add(tr);
+                changeTruckStatus(id);
                 ctx.SaveChanges();
             }
         }

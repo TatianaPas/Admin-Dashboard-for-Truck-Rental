@@ -1,0 +1,88 @@
+﻿<UserControl x:Name="retunrTruckWindow" x:Class="NewDesignTrial.View.ReturnTruck"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NewDesignTrial.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="625" Loaded="retunrTruckWindow_Loaded">
+    <Grid>
+        <Grid  Margin="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="0.2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <TextBlock Style="{StaticResource text}" 
+                   Text="Truck Registration" 
+                   Grid.Row="0" 
+                   Grid.Column="1"/>
+            <TextBlock Style="{StaticResource text}" 
+                   Text="Date Rented" 
+                   Grid.Row="1" 
+                   Grid.Column="1"/>
+            <TextBlock Style="{StaticResource text}" 
+                   Text="Date DueBack" 
+                   Grid.Row="2" 
+                   Grid.Column="1" />
+            <TextBlock Style="{StaticResource text}" 
+                   Text="Date Returned" 
+                   Grid.Row="3" 
+                   Grid.Column="1" />
+            <TextBlock Style="{StaticResource text}" 
+                   Text="Money" 
+                   Grid.Row="4" 
+                   Grid.Column="1" />
+
+
+            <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
+                  Name="registrationComboBox" 
+                  Grid.Row="0" 
+                  Grid.Column="2"
+                  MinHeight="35" 
+                  Height="35"
+                  Margin="5"
+                  Padding="10" DropDownClosed="registrationComboBox_DropDownClosed"/>
+            <DatePicker Name="rentDayDatePicker"        
+                    Style="{StaticResource inputDatePicker}" 
+                    Grid.Row="1" 
+                    Grid.Column="2" 
+                        IsEnabled="False"/>
+            <DatePicker Name="dueBackDatePicker" 
+                    Style="{StaticResource inputDatePicker}" 
+                    Grid.Row="2" 
+                    Grid.Column="2"
+                        IsEnabled="False"/>
+            <DatePicker Name="returnedDatePicker" 
+                    Style="{StaticResource inputDatePicker}" 
+                    Grid.Row="3" 
+                    Grid.Column="2" SelectedDateChanged="returnedDatePicker_SelectedDateChanged" />
+            <TextBox Name="paymentTextBox" 
+                 Style="{StaticResource inputTextBox}" 
+                 Grid.Row="4" 
+                 Grid.Column="2"/>
+
+
+            <Button Grid.Row="5" 
+                Grid.Column="2" 
+                x:Name="returnTruckBtn"
+                Style="{StaticResource submitButton}"
+                Content="Return Truck">
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>
