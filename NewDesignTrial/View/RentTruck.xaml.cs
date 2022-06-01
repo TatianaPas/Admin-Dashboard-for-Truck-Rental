@@ -36,14 +36,6 @@ namespace NewDesignTrial.View
             registrationComboBox.SelectedValuePath = "RegistrationNumber";
         }
 
-
-        private void rentTruckBtn_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        
-
         private void nameComboBox_DropDownClosed(object sender, EventArgs e)
         {
             string customerName = nameComboBox.Text;
@@ -61,7 +53,7 @@ namespace NewDesignTrial.View
         private void registrationComboBox_DropDownClosed(object sender, EventArgs e)
         {
             string registration = registrationComboBox.Text;
-            string deposit = string.Format("{0:F2}", DAO.searchTruckByRego(registration).AdvanceDepositRequired);
+            string deposit = string.Format("{0:F2}", DAO.findTruckByRego(registration).AdvanceDepositRequired);
             DepositTextBox.Text = deposit;
         }
 
@@ -84,7 +76,7 @@ namespace NewDesignTrial.View
             else
             {
                 string registration = registrationComboBox.Text;
-                double price = (double)DAO.searchTruckByRego(registration).DailyRentalPrice;
+                double price = (double)DAO.findTruckByRego(registration).DailyRentalPrice;
                 DateTime rentDate = DateTime.Parse(rentDayDatePicker.SelectedDate.ToString());
                 DateTime rentDue = DateTime.Parse(dueBackDatePicker.SelectedDate.ToString());
                 int days = (int)(rentDue - rentDate).TotalDays;
@@ -103,7 +95,7 @@ namespace NewDesignTrial.View
             string registration = registrationComboBox.Text;
             string license = licenseComboBox.Text;
 
-            int truckId = DAO.searchTruckByRego(registration).TruckId;
+            int truckId = DAO.findTruckByRego(registration).TruckId;
             int CustomerID = DAO.findCustomerByLicenseNumber(license).CustomerId;
             DateTime rentDate = DateTime.Parse(rentDayDatePicker.SelectedDate.ToString());
             DateTime rentDue = DateTime.Parse(dueBackDatePicker.SelectedDate.ToString());

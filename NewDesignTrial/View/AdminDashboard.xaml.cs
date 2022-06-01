@@ -86,11 +86,7 @@ namespace NewDesignTrial.View
             
         }
 
-        private void add_truck_menu_Click(object sender, RoutedEventArgs e)
-        {
-            main_window_panel.Children.Clear();
-            main_window_panel.Children.Add(new AddTruckUC());
-        }   
+        
 
         private void add_customer_menu_Click(object sender, RoutedEventArgs e)
         {
@@ -166,6 +162,30 @@ namespace NewDesignTrial.View
         {
             main_window_panel.Children.Clear();
             main_window_panel.Children.Add(new ReturnTruck());
+        }
+
+        private void new_truck_menu_Click(object sender, RoutedEventArgs e)
+        {
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new AddTruckUC());
+        }
+
+        private void reorder_truck_menu_Click(object sender, RoutedEventArgs e)
+        {
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new ReorderTruck());
+        }
+
+        private void update_truck_menu_Click(object sender, RoutedEventArgs e)
+        {
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new SearchTruck());
+        }
+
+        private void features_truck_menu_Click(object sender, RoutedEventArgs e)
+        {
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new CarFeatures());
         }
     }
 }

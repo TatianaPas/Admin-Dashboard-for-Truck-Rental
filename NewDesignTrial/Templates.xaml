@@ -489,16 +489,20 @@
         <Setter Property="FontFamily" Value="Poppins"/>
         <Setter Property="FontSize" Value="12"/>
         <Setter Property="BorderBrush" Value="{x:Null}"/>
-        <Setter Property="CanUserAddRows" Value="False"/>
-        <Setter Property="CanUserDeleteRows" Value="False"/>
-        <Setter Property="AlternatingRowBackground" Value="#1984c5"/>
-        <Setter Property="RowBackground" Value="#115f9a"/>
+
+        <!-- <Setter Property="CanUserAddRows" Value="False"/> -->
+        <!-- <Setter Property="CanUserDeleteRows" Value="False"/> -->
+        <Setter Property="AlternatingRowBackground" Value="#2d77a0"/>
+        <Setter Property="RowBackground" Value="#2d4c66"/>
         <Setter Property="Foreground" Value="WhiteSmoke"/>
         <Setter Property="MinRowHeight" Value="35"/>
         <Setter Property="MinColumnWidth" Value="35"/>
         <Setter Property="GridLinesVisibility" Value="None"/>
         <Setter Property="Foreground" Value="WhiteSmoke"/>
         <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
 
     </Style>
 

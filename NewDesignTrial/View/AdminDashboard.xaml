@@ -155,7 +155,18 @@
                         <MenuItem.Icon>
                             <Image Source="/Assets/records.png"/>
                         </MenuItem.Icon>
+                        
                         <!--rentals sub menus-->
+                        <MenuItem Header="All Available Trucks"
+                              x:Name="show_truck_menu"
+                              Template="{StaticResource Item_Template}"
+                                  Click="show_truck_menu_Click">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/search.png"/>
+                            </MenuItem.Icon>
+
+                        </MenuItem>
+                        
                         <MenuItem Header="Rent Truck"
                               x:Name="rentTruck_menu"
                                   Click="rentTruck_menu_Click"
@@ -175,8 +186,6 @@
 
                         </MenuItem>
                         
-
-
                         <MenuItem Header="Records by Date"
                               x:Name="records_by_date_menu"
                               Click="records_by_date_menu_Click"
@@ -195,7 +204,8 @@
                             </MenuItem.Icon>
 
                         </MenuItem>
-                    </MenuItem>
+                        </MenuItem>
+          
 
                     <!--Main Menu - Trucks-->
                     <MenuItem Header="Trucks"
@@ -204,26 +214,28 @@
                             <Image Source="/Assets/truck.png"/>
                         </MenuItem.Icon>
 
-                        <!--Customers sub menus-->
+                        <!--Truck sub menus-->
 
-                        <MenuItem Header="Add  New Truck"
+                        <MenuItem Header="Add New Truck"
                               x:Name="add_truck_menu"
-                              Click="add_truck_menu_Click"
+                                  Click="new_truck_menu_Click"
                               Template="{StaticResource Item_Template}">
                             <MenuItem.Icon>
                                 <Image Source="/Assets/plus.png"/>
                             </MenuItem.Icon>
-
                         </MenuItem>
-                        <MenuItem Header="All Available Trucks"
-                              x:Name="show_truck_menu"
-                              Template="{StaticResource Item_Template}"
-                                  Click="show_truck_menu_Click">
-                            <MenuItem.Icon>
-                                <Image Source="/Assets/search.png"/>
-                            </MenuItem.Icon>
 
-                        </MenuItem>
+                        <MenuItem Header="Reorder Truck"
+                              x:Name="reorder_truck_menu"
+                                  Click="reorder_truck_menu_Click"
+                              Template="{StaticResource Item_Template}">
+                                <MenuItem.Icon>
+                                    <Image Source="/Assets/plus.png"/>
+                                </MenuItem.Icon>
+
+                            </MenuItem>
+                             
+                        
                         <MenuItem Header="Show All Trucks"
                               x:Name="show_alltruck_menu"
                               Template="{StaticResource Item_Template}"
@@ -233,11 +245,21 @@
                             </MenuItem.Icon>
 
                         </MenuItem>
-                        <MenuItem Header="Update Truck"
+                        <MenuItem Header="Search/ Update Truck"
                               x:Name="update_truck_menu"
+                                  Click="update_truck_menu_Click"
                               Template="{StaticResource Item_Template}">
                             <MenuItem.Icon>
                                 <Image Source="/Assets/update.png"/>
+                            </MenuItem.Icon>
+
+                        </MenuItem>
+                        <MenuItem Header="Truck Features"
+                                  Click="features_truck_menu_Click"
+                              x:Name="features_truck_menu"
+                              Template="{StaticResource Item_Template}">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/records.png"/>
                             </MenuItem.Icon>
 
                         </MenuItem>

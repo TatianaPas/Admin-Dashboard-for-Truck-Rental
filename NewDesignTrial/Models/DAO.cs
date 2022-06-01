@@ -11,8 +11,9 @@ namespace NewDesignTrial.Models
     internal class DAO
     {
 
-        //Customers
+    //---------->Customers
 
+    //----------> And new customer
         public static void addCustomer(TruckCustomer cust)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -22,6 +23,7 @@ namespace NewDesignTrial.Models
             }
         }
 
+    //----------> Get customer details including personal details
         public static List<TruckCustomerWithName> getCustomers()
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -40,7 +42,7 @@ namespace NewDesignTrial.Models
                     }).ToList();
             }
         }
-
+    //----------> Find customer with personal details by his full name
         public static List<TruckCustomerWithName> findCustomersByName(string name)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -59,7 +61,7 @@ namespace NewDesignTrial.Models
             }
         }
 
-
+     //----------> Find customer by his id
         public static TruckCustomer findCustomerById(int id)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -67,6 +69,7 @@ namespace NewDesignTrial.Models
 
         }
 
+    //----------> Find customer by his Driving License number
         public static TruckCustomer findCustomerByLicenseNumber(string license)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -74,6 +77,7 @@ namespace NewDesignTrial.Models
 
         }
 
+     //----------> Update Customer details
         public static void updateCustomer(TruckCustomer cust, TruckPerson tp)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -85,71 +89,86 @@ namespace NewDesignTrial.Models
         }
 
 
-        //Trucks
-        public static void addTruck(IndividualTruck it)
+    //----------> Trucks
+
+    //----------> Add a new truck including a new model
+        public static void addTruck(IndividualTruck truck,List<TruckFeature> features)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                ctx.IndividualTrucks.Add(truck);
+                ctx.SaveChanges();
+                int id = truck.TruckId;
+
+                if(features != null)
+                {
+                    foreach (var feature in features)
+                    {
+                        truck.Features.Add(feature);
+                    }
+                }
+                ctx.SaveChanges();
+            }
+        }
+
+    //----------> Add a new truck with existing model ( reorder same model)
+        public static void reorderTruck(IndividualTruck it, List<TruckFeature> features)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
             {
                 ctx.IndividualTrucks.Add(it);
+                ctx.Entry(it.TruckModel).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                ctx.SaveChanges();
+                int id = it.TruckId;
+
+                if (features != null)
+                {
+                    foreach (var feature in features)
+                    {
+                        it.Features.Add(feature);
+                    }
+                }
                 ctx.SaveChanges();
             }
         }
 
-        public static TruckFeature findFeature(int id)
+    //----------> Find truck by ID
+        public static IndividualTruck findTruckById(int id)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
             {
-                return ctx.TruckFeatures.Where(tf => tf.FeatureId == id).FirstOrDefault();
+                return ctx.IndividualTrucks.Include(i => i.TruckModel).Where(it => it.TruckId == id).FirstOrDefault();
             }
         }
 
-        public static IndividualTruck findTruck(int id)
+    //----------> Find truck by registration number
+        public static IndividualTruck findTruckByRego(string rego)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
             {
-                return ctx.IndividualTrucks.Where(it => it.TruckId == id).FirstOrDefault();
+                return ctx.IndividualTrucks.Include(i => i.TruckModel).Where(it => it.RegistrationNumber == rego).FirstOrDefault();
             }
         }
-
-        public static void addFeature(int id, TruckFeature tf)
+    //----------> Update Truck details
+        public static void updateTruck(IndividualTruck truck, TruckModel model)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
             {
-                IndividualTruck it = findTruck(id);
-                it.Features.Add(tf);
+                ctx.Entry(truck).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                ctx.Entry(model).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
                 ctx.SaveChanges();
             }
-
         }
 
+       
+
+
+        //----------> Find all trucks
         public static List<TrucksModelFeatures> getAllTrucks()
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
             {
                 return ctx.IndividualTrucks.Include(i => i.TruckModel).Select(
-                    it => new TrucksModelFeatures()
-                    {
-                        TruckId = it.TruckId,
-                        RegistrationNumber = it.RegistrationNumber,
-                        Model = it.TruckModel.Model,
-                        Size = it.TruckModel.Size,
-                        WofexpiryDate=it.WofexpiryDate.ToString("dd/MM/yyyy"),
-                        RegistrationExpiryDate = it.RegistrationExpiryDate.ToString("dd/MM/yyyy"),
-                        ManufactureYear=it.ManufactureYear,
-                        FuelType=it.FuelType,
-                        Transmission=it.Transmission,
-                        DailyRentalPrice =string.Format("{0:F2}",it.DailyRentalPrice),
-                        AdvanceDepositRequired=string.Format("{0:F2}",it.AdvanceDepositRequired),
-                        Status=it.Status,
-                    }).ToList();
-            }
-        }
-
-        public static List<TrucksModelFeatures> getAvailableTrucks()
-        {
-            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
-            {
-                return ctx.IndividualTrucks.Include(i => i.TruckModel).Where(st=>st.Status=="available for rent").Select(
                     it => new TrucksModelFeatures()
                     {
                         TruckId = it.TruckId,
@@ -168,6 +187,32 @@ namespace NewDesignTrial.Models
             }
         }
 
+     //----------> Find only available for rent trucks
+
+        public static List<TrucksModelFeatures> getAvailableTrucks()
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.IndividualTrucks.Include(i => i.TruckModel).Where(st => st.Status == "available for rent").Select(
+                    it => new TrucksModelFeatures()
+                    {
+                        TruckId = it.TruckId,
+                        RegistrationNumber = it.RegistrationNumber,
+                        Model = it.TruckModel.Model,
+                        Size = it.TruckModel.Size,
+                        WofexpiryDate = it.WofexpiryDate.ToString("dd/MM/yyyy"),
+                        RegistrationExpiryDate = it.RegistrationExpiryDate.ToString("dd/MM/yyyy"),
+                        ManufactureYear = it.ManufactureYear,
+                        FuelType = it.FuelType,
+                        Transmission = it.Transmission,
+                        DailyRentalPrice = string.Format("{0:F2}", it.DailyRentalPrice),
+                        AdvanceDepositRequired = string.Format("{0:F2}", it.AdvanceDepositRequired),
+                        Status = it.Status,
+                    }).ToList();
+            }
+        }
+
+    //----------> Find all rented out trucks
         public static List<TrucksModelFeatures> getRentedTrucks()
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -191,13 +236,7 @@ namespace NewDesignTrial.Models
             }
         }
 
-        public static IndividualTruck searchTruckByRego (string rego)
-        {
-            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
-            {
-                return ctx.IndividualTrucks.Where(it => it.RegistrationNumber==rego).FirstOrDefault();
-            }
-        }
+     //----------> Change truck status ( used for truck renting)
 
         private static void changeTruckStatus(int truckId)
         {
@@ -211,10 +250,76 @@ namespace NewDesignTrial.Models
                 }
             }
         }
+     //----------> Truck Models
 
+     //----------> Get all truck models
+        public static List<TruckModel> getModels()
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.TruckModels.ToList();
+            }
+        }
 
+    //----------> Search Truck model by model name
+        public static TruckModel searchModelByName(string name)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.TruckModels.Where(tm => tm.Model == name).FirstOrDefault();
+            }
+        }
 
-        //Employees
+       
+
+        //----------> Truck Features
+        //----------> Find Feature by ID
+        public static TruckFeature findFeatureById(int id)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.TruckFeatures.Where(tf => tf.FeatureId == id).FirstOrDefault();
+            }
+        }
+
+        //----------> Find Feature by name
+        public static TruckFeature findFeatureByName(string feature)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.TruckFeatures.Where(tf => tf.Description == feature).FirstOrDefault();
+            }
+        }
+        //----------> Get list of features of the specific truck by truck ID
+        public static List<TruckFeature> getTruckFeaturesById(int id)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.TruckFeatures.Where(i => i.Trucks.Any(i => i.TruckId == id)).ToList();
+            }
+        }
+
+    //----------> Get all features
+        public static List<TruckFeature> getAllFeatures()
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.TruckFeatures.ToList();
+            }
+        }
+
+        //----------> Add new feature to the feature list
+        public static void addFeature(TruckFeature feature)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                ctx.TruckFeatures.Add(feature);
+                ctx.SaveChanges();
+            }
+        }
+
+        //---------->Employees
+        //----------> Add a new employee
         public static void addEmployee(TruckEmployee te)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -224,6 +329,7 @@ namespace NewDesignTrial.Models
             }
         }
 
+    //----------> Login validation ( used on the main window)
         public static TruckEmployee loginValidation(string username, string password)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -232,7 +338,7 @@ namespace NewDesignTrial.Models
             }
         }
 
-      
+    //---------->  Search contact details of any person in the system
 
         public static TruckPerson searchContact(int id)
         {
@@ -241,7 +347,7 @@ namespace NewDesignTrial.Models
                 return ctx.TruckPeople.Where(p => p.PersonId == id).FirstOrDefault();
             }
         }
-
+    //----------> Get all employees including their personal details
         public static List<TruckEmployeeWithName> getEmployees()
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -261,8 +367,8 @@ namespace NewDesignTrial.Models
                     }).ToList();
             }
         }
-        
 
+    //----------> Find employee by his ID
         public static TruckEmployee findEmployeeById(int id)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -270,6 +376,7 @@ namespace NewDesignTrial.Models
 
         }
 
+    //----------> Find employee by his full name
         public static TruckEmployee findEmployeeByName(string name)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -277,7 +384,7 @@ namespace NewDesignTrial.Models
 
         }
 
-        
+    //----------> Update employee details
 
         public static void updateEmployee(TruckEmployee te, TruckPerson tp)
         {
@@ -288,6 +395,8 @@ namespace NewDesignTrial.Models
                 ctx.SaveChanges();
             }
         }
+
+    //----------> Logged in employee can update some of his details
 
         public static void updatePersonalDetails(TruckEmployee emp, TruckPerson tp)
         {
@@ -301,7 +410,8 @@ namespace NewDesignTrial.Models
 
 
 
-        // Rentals
+     //----------> Rentals
+     //----------> Rent truck 
 
         public static void rentTruck(TruckRental tr, int id)
         {

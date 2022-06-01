@@ -1,0 +1,324 @@
+﻿<UserControl x:Class="NewDesignTrial.View.SearchTruck"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NewDesignTrial.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="900" d:DesignWidth="625">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition Width="0.75*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.25*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Search menu -->
+            <TextBlock Style="{StaticResource text}" 
+                   Text="Registartion Number:" 
+                   Grid.Column="0"/>
+
+            <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
+                  Name="registrationComboBox" 
+                  Grid.Row="0" 
+                  Grid.Column="1"
+                      Grid.ColumnSpan="2"
+                  MinHeight="35" 
+                  Height="35"
+                  Margin="5"
+                  Padding="10" DropDownClosed="registrationComboBox_DropDownClosed" />
+
+            <Button Grid.Row="0" 
+                Grid.Column="3"  
+                x:Name="showTruckBtn"                       
+                Style="{StaticResource submitButton}"
+                        Content="Show" Margin="5,5,5,5" 
+                    IsTabStop="False" Click="showTruckBtn_Click">
+            </Button>
+
+            <!--Car Details menu-->
+           
+
+            <Grid Name="autoGrid" 
+                  Grid.Row="2"
+              Grid.RowSpan="8"
+              Grid.Column="1"
+              Grid.ColumnSpan="3" Margin="0,10,0,10"
+                  Visibility="Collapsed">
+
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+
+
+                </Grid.RowDefinitions>
+
+                <TextBlock Style="{StaticResource text}" 
+                   Text="Model" 
+                   Grid.Column="1"/>
+                <TextBlock Style="{StaticResource text}" 
+                   Text="Manufacturer" Grid.Row="1" 
+                   Grid.Column="1"/>
+                <TextBlock Style="{StaticResource text}" 
+                   Text="Size" 
+                   Grid.Row="2" 
+                   Grid.Column="1"/>
+                <TextBlock Style="{StaticResource text}" 
+                   Text="Number of Seats" 
+                   Grid.Row="3" 
+                   Grid.Column="1"/>
+                <TextBlock Style="{StaticResource text}" 
+                   Text="Number of Doors" 
+                   Grid.Row="4" 
+                   Grid.Column="1" />
+                <TextBlock Style="{StaticResource text}" 
+                   Text="Color"
+                   Grid.Row="5"
+                   Grid.Column="1" />
+                <TextBlock Style="{StaticResource text}" 
+                   Text="WOF Expiry Date"
+                   Grid.Row="6"
+                   Grid.Column="1" />
+                <TextBlock Style="{StaticResource text}" 
+                   Text="REGO expiry Date"
+                   Grid.Row="7"
+                   Grid.Column="1"/>
+                <TextBlock Style="{StaticResource text}" 
+                   Text="Date Imported"
+                   Grid.Row="8"
+                   Grid.Column="1"/>
+                <TextBlock Style="{StaticResource text}" 
+                   Text="Year of Manufacture"
+                   Grid.Row="9"
+                   Grid.Column="1"/>
+                <TextBlock Style="{StaticResource text}" 
+                   Text="Status"
+                   Grid.Row="10"
+                   Grid.Column="1"/>
+                <TextBlock Style="{StaticResource text}" 
+                   Text="Fuel Type"
+                   Grid.Row="11"
+                   Grid.Column="1"/>
+                <TextBlock Style="{StaticResource text}" 
+                   Text="Transmisson"
+                   Grid.Row="12"
+                   Grid.Column="1"/>
+                <TextBlock Style="{StaticResource text}" 
+                   Text="Rental Price"
+                   Grid.Row="13"
+                   Grid.Column="1"/>
+                <TextBlock Style="{StaticResource text}" 
+                   Text="Advance Deposit"
+                   Grid.Row="14"
+                   Grid.Column="1"/>
+                <TextBlock Style="{StaticResource text}" 
+                   Text="Extra Features"
+                           Name="extraFeaturesLabel"
+                           Visibility="Collapsed"
+                   Grid.Row="15"
+                   Grid.Column="1"/>
+
+
+                <TextBox Name="modelTextBox" 
+                 Style="{StaticResource readOnlyTextBox}" 
+                 Grid.Column="2"
+                 Grid.Row="0"
+                 IsEnabled="False"/>
+                <TextBox Name="manufacturerTextBox" 
+                 Style="{StaticResource readOnlyTextBox}" 
+                 Grid.Row="1" 
+                 Grid.Column="2"
+                 IsEnabled="False"/>
+                <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
+                  Name="sizeComboBox" 
+                  Grid.Row="2" 
+                  IsEnabled="False"
+                  Grid.Column="2"
+                  MinHeight="35" 
+                  Height="35"
+                  Margin="5"
+                  Padding="10">
+                    <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
+                          Content="Standard" 
+                          Cursor="Hand" 
+                          IsSelected="True"/>
+                    <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
+                          Content="Medium" 
+                          Cursor="Hand"/>
+                    <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
+                          Content="Large" 
+                          Cursor="Hand"/>
+                </ComboBox>
+                <TextBox Name="numberOfSeatsTextBox" 
+                 Style="{StaticResource readOnlyTextBox}" 
+                 Grid.Row="3" 
+                 Grid.Column="2" 
+                 IsEnabled="False"/>
+                <TextBox Name="numberOfDoorsTextBox" 
+                 Style="{StaticResource readOnlyTextBox}" 
+                 Grid.Row="4" 
+                 Grid.Column="2" 
+                 IsEnabled="False"/>
+                <TextBox Name="colorTextBox" 
+                 Style="{StaticResource readOnlyTextBox}" 
+                 Grid.Row="5" 
+                 Grid.Column="2" 
+                 IsEnabled="False"/>
+                <DatePicker Name="WOFExpiryDatePicker" 
+                    Style="{StaticResource inputDatePicker}" 
+                    Grid.Row="6" 
+                    Grid.Column="2"/>
+                <DatePicker Name="REGOExpiryDatePicker" 
+                    Style="{StaticResource inputDatePicker}" 
+                    Grid.Row="7" 
+                    Grid.Column="2"/>
+                <DatePicker Name="dateImportedDatePicker" 
+                    Style="{StaticResource inputDatePicker}" 
+                    Grid.Row="8" 
+                    IsEnabled="False"
+                    Grid.Column="2"/>
+                <TextBox Name="yearOfManufactureTextBox" 
+                 Style="{StaticResource readOnlyTextBox}" 
+                 Grid.Row="9" 
+                 Grid.Column="2"
+                 IsEnabled="False"/>
+                <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
+                  Name="statusComboBox" 
+                  Grid.Row="10" 
+                  Grid.Column="2"
+                  MinHeight="35" 
+                  Height="35"
+                  Margin="5"
+                  Padding="10">
+                    <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
+                          Content="available for rent" 
+                          Cursor="Hand" 
+                          IsSelected="True"/>
+                    <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
+                          Content="rented" 
+                          Cursor="Hand"/>
+                    <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
+                          Content="under repair" 
+                          Cursor="Hand"/>
+                </ComboBox>
+                <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
+                  Name="fuelTypeComboBox" 
+                  Grid.Row="11" 
+                  IsEnabled="False"
+                  Grid.Column="2"
+                  MinHeight="35" 
+                  Height="35"
+                  Margin="5"
+                  Padding="10">
+                    <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
+                          Content="Petrol" 
+                          Cursor="Hand" 
+                          IsSelected="True"/>
+                    <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
+                          Content="Diesel" 
+                          Cursor="Hand"/>
+                </ComboBox>
+                <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
+                  Name="transmissionComboBox" 
+                  Grid.Row="12" 
+                  IsEnabled="False"
+                  Grid.Column="2"
+                  MinHeight="35" 
+                  Height="35"
+                  Margin="5"
+                  Padding="10">
+                    <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
+                          Content="Manual" 
+                          Cursor="Hand" 
+                          IsSelected="True"/>
+                    <ComboBoxItem Style="{StaticResource combobox ItemInput}" 
+                          Content="Automatic" 
+                          Cursor="Hand"/>
+                </ComboBox>
+                <TextBox Name="rentalPriceTextBox" 
+                 Style="{StaticResource inputTextBox}" 
+                 Grid.Row="13" 
+                 Grid.Column="2" 
+                 Uid="Rent Price"/>
+                <TextBox Name="depositPriceTextBox" 
+                 Style="{StaticResource inputTextBox}" 
+                 Grid.Row="14" 
+                 Grid.Column="2" />
+                <DataGrid x:Name="featureList"
+                          ScrollViewer.CanContentScroll="True" 
+                          ScrollViewer.VerticalScrollBarVisibility="Auto"
+                          ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                          Style="{StaticResource dataGridStyle}"
+                    Grid.Row="15" 
+                          Visibility="Collapsed"
+                    Grid.Column="3"
+                          ColumnWidth="*"
+                          MinWidth="250"
+                    HorizontalAlignment="Stretch"
+                    AutoGenerateColumns="False"
+                          >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Features" 
+                                            MinWidth="250"
+                                            Binding = "{Binding Description}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Button Grid.Row="21" 
+                Grid.Column="2" 
+                x:Name="updateTruckBtn"
+                Style="{StaticResource submitButton}"
+                        Click="updateTruckBtn_Click"
+                Content="Update Truck"                    
+                >
+                </Button>
+            </Grid>
+           
+        </Grid>
+    </ScrollViewer>
+</UserControl>

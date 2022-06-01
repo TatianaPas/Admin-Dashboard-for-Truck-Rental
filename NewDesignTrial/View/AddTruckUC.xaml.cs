@@ -31,16 +31,7 @@ namespace NewDesignTrial.View
         }
 
         private void addTruckBtn_Click(object sender, RoutedEventArgs e)
-        {
-            string output = Utility.Utility.validEmptyInput(autoGrid);
-            if (output != null)
-            {
-                MessageBox.Show(output);
-            }
-            else
-            {
-
-
+        {      
                 string model = modelTextBox.Text;
                 string manufacturer = manufacturerTextBox.Text;
                 string size = sizeComboBox.Text;
@@ -80,54 +71,54 @@ namespace NewDesignTrial.View
                 it.TruckModel = tm;
 
 
-                using (DAD_TatianaContext ctx = new DAD_TatianaContext())
-                {
+                    TruckFeature one = DAO.findFeatureById(1);                
+                    TruckFeature two = DAO.findFeatureById(2);
+                    TruckFeature three = DAO.findFeatureById(3);
+                    TruckFeature four = DAO.findFeatureById(4);
 
-                    ctx.IndividualTrucks.Add(it);
-                    MessageBox.Show("truck");
-
-
-                    TruckFeature one = ctx.TruckFeatures.Where(it => it.FeatureId == 1).FirstOrDefault();
-                    TruckFeature two = ctx.TruckFeatures.Where(it => it.FeatureId == 2).FirstOrDefault();
-                    TruckFeature three = ctx.TruckFeatures.Where(it => it.FeatureId == 3).FirstOrDefault();
-                    TruckFeature four = ctx.TruckFeatures.Where(it => it.FeatureId == 4).FirstOrDefault();
+                    List<TruckFeature> Featurelist = new List<TruckFeature>();
 
 
                     if ((bool)airConCheckBox.IsChecked)
                     {
                         if (one != null)
                         {
-                            it.Features.Add(one);
-                            MessageBox.Show("one");
+                            Featurelist.Add(one);
                         }
                     }
                     else if ((bool)rearDoorCheckBox.IsChecked)
                     {
                         if (two != null)
                         {
-                            it.Features.Add(two);
-                            MessageBox.Show("two");
+                            Featurelist.Add(two);
                         }
                     }
                     else if ((bool)alarmCheckBox.IsChecked)
                     {
                         if (three != null)
                         {
-                            it.Features.Add(three);
-                            MessageBox.Show("three");
+                            Featurelist.Add(three);
                         }
                     }
                     if ((bool)keylessCheckBox.IsChecked)
                     {
                         if (four != null)
                         {
-                            it.Features.Add(four);
-                            MessageBox.Show("four");
+                            Featurelist.Add(four);
                         }
                     }
-                    ctx.SaveChanges();
+
+                try
+                {
+                    DAO.addTruck(it, Featurelist);
+                    MessageBox.Show("New Truck added successfully");
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
             }
         }
     }
-}
+
