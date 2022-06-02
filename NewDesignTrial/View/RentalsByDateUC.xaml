@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="NewDesignTrial.View.RentalsByDateUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NewDesignTrial.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="625">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition Width="0.75*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.25*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Search menu -->
+            <TextBlock Style="{StaticResource text}" 
+                   Text="Start Date:" 
+                   Grid.Column="1"/>
+            <DatePicker Name="startDatePicker" 
+                    Style="{StaticResource inputDatePicker}" 
+                    Grid.Row="0" 
+                    Grid.Column="2"/>
+            <TextBlock Style="{StaticResource text}" 
+                       Grid.Row="1" 
+                   Text="End Date: " 
+                   Grid.Column="1"/>
+            <DatePicker Name="endDatePicker" 
+                        Grid.Row="1" 
+                    Style="{StaticResource inputDatePicker}" 
+
+                    Grid.Column="2"/>
+
+            <Button Grid.Row="1" 
+                Grid.Column="3"  
+                x:Name="showRentalsBtn"                       
+                Style="{StaticResource submitButton}"
+                Content="Show" 
+                Margin="5,5,5,5" 
+                IsTabStop="False" Click="showRentalsBtn_Click">
+            </Button>
+            <DataGrid x:Name="truckRentalsDataGrid"
+                  Grid.Row="2"
+                  Grid.RowSpan="5"
+                 Grid.Column="1"
+                  Grid.ColumnSpan="3"
+                  Style="{StaticResource dataGridStyle}"/>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

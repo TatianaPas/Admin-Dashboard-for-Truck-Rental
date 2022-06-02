@@ -25,15 +25,47 @@ namespace NewDesignTrial.View
         public RentalsByCustomerUC()
         {
             InitializeComponent();
+            licenseComboBox.ItemsSource = DAO.getCustomers();
+            licenseComboBox.DisplayMemberPath = "LicenseNumber";
+            licenseComboBox.SelectedValuePath = "LicenseNumber";
+
+
         }
 
-        private void showTruckBtn_Click(object sender, RoutedEventArgs e)
+        private void showRentalsBtn_Click(object sender, RoutedEventArgs e)
         {
-            int id = int.Parse(idTextBox.Text);
-            IndividualTruck truck = DAO.findTruckById(id);
-            features.ItemsSource=DAO.getTruckFeaturesById(id);
+            string license = licenseComboBox.Text;
+            TruckCustomer customer = DAO.findCustomerByLicenseNumber(license);
+            if (customer != null)
+            {
+                int id = customer.CustomerId;
 
+                try
+                {
+                    List<TruckRentalsWithCustomerName> rentals = DAO.getRentalsByCustomer(id);
+                    if (rentals.Count() > 0)
+                    {
+                        truckRentalsDataGrid.ItemsSource = rentals;
+                        truckRentalsDataGrid.Columns[0].Header = " Rent ID ";
+                        truckRentalsDataGrid.Columns[1].Header = " Truck";
+                        truckRentalsDataGrid.Columns[2].Header = "Customer";
+                        truckRentalsDataGrid.Columns[3].Header = "Rent Date";
+                        truckRentalsDataGrid.Columns[4].Header = "Return Due";
+                        truckRentalsDataGrid.Columns[5].Header = "Returned";
+                        truckRentalsDataGrid.Columns[6].Header = "Total Price";
+                    }
+                    else
+                    {
+                        MessageBox.Show("No records found");
+                        return;
+                    }
 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }

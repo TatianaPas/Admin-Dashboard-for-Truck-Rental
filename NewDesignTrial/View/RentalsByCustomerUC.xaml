@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:NewDesignTrial.View"
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="625">
-    <Grid>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" >
+        <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.25*"/>
             <ColumnDefinition Width="0.75*"/>
@@ -24,33 +25,37 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!--Search menu -->
         <TextBlock Style="{StaticResource text}" 
-                   Text="id Number:" 
-                   Grid.Column="0"/>
-        <TextBox Name="idTextBox" 
-                 Style="{StaticResource inputTextBox}" 
-                 Grid.Row="0" 
-                 Grid.Column="1"/>
+                   Text="Customer License:" 
+                   Grid.Column="1"/>
+            <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
+                  Name="licenseComboBox" 
+                  Grid.Row="0" 
+                  Grid.Column="2"
+                  MinHeight="35" 
+                  Height="35"
+                  Margin="5"
+                  Padding="10"
+                  IsEditable="False" 
+                  IsTextSearchEnabled="True"/>
 
-        <Button Grid.Row="0" 
-                Grid.Column="2"  
-                    Grid.ColumnSpan="2"
-                x:Name="showTruckBtn"                       
+            <Button Grid.Row="0" 
+                Grid.Column="3"  
+                x:Name="showRentalsBtn"                       
                 Style="{StaticResource submitButton}"
-                        Content="Show" Margin="5,5,5,5" 
-                    IsTabStop="False" Click="showTruckBtn_Click">
+                Content="Show" 
+                Margin="5,5,5,5" 
+                IsTabStop="False" Click="showRentalsBtn_Click">
         </Button>
-        <DataGrid x:Name="features"
+        <DataGrid x:Name="truckRentalsDataGrid"
                   Grid.Row="2"
                   Grid.RowSpan="5"
                  Grid.Column="1"
-                  Grid.ColumnSpan="3"/>
+                  Grid.ColumnSpan="3"
+                  Style="{StaticResource dataGridStyle}"/>
     </Grid>
+        </ScrollViewer>
 </UserControl>

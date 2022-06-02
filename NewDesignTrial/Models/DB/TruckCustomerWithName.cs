@@ -17,6 +17,6 @@ namespace NewDesignTrial.Models.DB
         public string Telephone { get; set; } = null!;
         public string LicenseNumber { get; set; } = null!;
         public int Age { get; set; }
-        public String LicenseExpiryDate { get; set; }
+        public string LicenseExpiryDate { get; set; }
     }
 }

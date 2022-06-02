@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:NewDesignTrial.View"
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="625">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" >
     <Grid x:Name="AllTrucks"  Margin="5,5,5,5" Loaded="AllTrucks_Loaded">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -38,4 +39,5 @@
         </Grid>
 
     </Grid>
+        </ScrollViewer>
 </UserControl>

@@ -77,13 +77,15 @@ namespace NewDesignTrial.View
 
         private void records_by_date_menu_Click(object sender, RoutedEventArgs e)
         {
-            
-           
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new RentalsByDateUC());
+
         }
 
         private void records_by_customer_menu_Click(object sender, RoutedEventArgs e)
         {
-            
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new RentalsByCustomerUC());
         }
 
         

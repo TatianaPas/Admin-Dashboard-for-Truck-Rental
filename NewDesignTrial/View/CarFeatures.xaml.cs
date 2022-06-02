@@ -71,13 +71,15 @@ namespace NewDesignTrial.View
         {
             string rego = registrationComboBox.Text;
             IndividualTruck truck=DAO.findTruckByRego(rego);
+            int id = truck.TruckId;
             TruckModel model = truck.TruckModel;
             string feature = featureComboBox.Text;
+            List<TruckFeature> Featurelist = truck.Features.ToList();
             TruckFeature truckFeature = DAO.findFeatureByName(feature);
-            truck.Features.Add(truckFeature);
+            Featurelist.Append(truckFeature);
             try
             {
-                DAO.updateTruck(truck, model);
+                DAO.addFeatureToTruck(id, truckFeature);
                 MessageBox.Show("Truck features updated sucessfully");
             }
             catch (Exception ex)

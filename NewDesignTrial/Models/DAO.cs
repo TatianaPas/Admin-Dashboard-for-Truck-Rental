@@ -272,8 +272,8 @@ namespace NewDesignTrial.Models
 
        
 
-        //----------> Truck Features
-        //----------> Find Feature by ID
+    //----------> Truck Features
+    //----------> Find Feature by ID
         public static TruckFeature findFeatureById(int id)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -282,7 +282,7 @@ namespace NewDesignTrial.Models
             }
         }
 
-        //----------> Find Feature by name
+    //----------> Find Feature by name
         public static TruckFeature findFeatureByName(string feature)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -290,7 +290,7 @@ namespace NewDesignTrial.Models
                 return ctx.TruckFeatures.Where(tf => tf.Description == feature).FirstOrDefault();
             }
         }
-        //----------> Get list of features of the specific truck by truck ID
+    //----------> Get list of features of the specific truck by truck ID
         public static List<TruckFeature> getTruckFeaturesById(int id)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -308,7 +308,7 @@ namespace NewDesignTrial.Models
             }
         }
 
-        //----------> Add new feature to the feature list
+    //----------> Add new feature to the feature list
         public static void addFeature(TruckFeature feature)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -318,8 +318,19 @@ namespace NewDesignTrial.Models
             }
         }
 
-        //---------->Employees
-        //----------> Add a new employee
+    //----------> Add new feature to the truck
+        public static void addFeatureToTruck (int id,TruckFeature feature)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                var individualTruck = ctx.IndividualTrucks.Find(id);
+                individualTruck.Features.Add(feature);
+                ctx.SaveChanges();
+            }
+        }
+
+    //---------->Employees
+    //----------> Add a new employee
         public static void addEmployee(TruckEmployee te)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -410,8 +421,8 @@ namespace NewDesignTrial.Models
 
 
 
-     //----------> Rentals
-     //----------> Rent truck 
+    //----------> Rentals
+    //----------> Rent truck 
 
         public static void rentTruck(TruckRental tr, int id)
         {
@@ -421,6 +432,64 @@ namespace NewDesignTrial.Models
                 ctx.TruckRentals.Add(tr);
                 changeTruckStatus(id);
                 ctx.SaveChanges();
+            }
+        }
+        //----------> Rental records by customer
+        public static List<TruckRentalsWithCustomerName> getRentalsByCustomer(int id)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+
+            {
+                return ctx.TruckRentals.Where(i=>i.CustomerId ==id).Select(
+                    record => new TruckRentalsWithCustomerName()
+                    {
+                        RentalId = record.RentalId,
+                        RegistrationNumber = record.Truck.RegistrationNumber,
+                        Name = record.Customer.Customer.Name,
+                        RentDate = record.RentDate.ToString("dd/MM/yyyy"),                      
+                        ReturnDueDate = record.ReturnDueDate.ToString("dd/MM/yyyy"),
+                        ReturnDate = record.ReturnDate.ToString("dd/MM/yyyy"),
+                        TotalPrice = record.TotalPrice,
+                    }).ToList();
+            }
+        }
+
+        //----------> All Rental records
+        public static List<TruckRentalsWithCustomerName> getRentals()
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.TruckRentals.Include(p => p.Customer).Select(
+                    record => new TruckRentalsWithCustomerName()
+                    {
+                        RentalId = record.RentalId,
+                        RegistrationNumber = record.Truck.RegistrationNumber,
+                        Name = record.Customer.Customer.Name,
+                        RentDate = record.RentDate.ToString("dd/MM/yyyy"),
+                        ReturnDueDate = record.ReturnDueDate.ToString("dd/MM/yyyy"),
+                        ReturnDate = record.ReturnDate.ToString("dd/MM/yyyy"),
+                        TotalPrice = record.TotalPrice,
+                    }).ToList();
+            }
+        }
+
+        //----------> Rental records between 2 dates
+        public static List<TruckRentalsWithCustomerName> getRentalsBetweenDates(DateTime start, DateTime finish)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+
+            {
+                return ctx.TruckRentals.Where(i =>i.ReturnDate>=start && i.ReturnDate<=finish).Select(
+                    record => new TruckRentalsWithCustomerName()
+                    {
+                        RentalId = record.RentalId,
+                        RegistrationNumber = record.Truck.RegistrationNumber,
+                        Name = record.Customer.Customer.Name,
+                        RentDate = record.RentDate.ToString("dd/MM/yyyy"),
+                        ReturnDueDate = record.ReturnDueDate.ToString("dd/MM/yyyy"),
+                        ReturnDate = record.ReturnDate.ToString("dd/MM/yyyy"),
+                        TotalPrice = record.TotalPrice,
+                    }).ToList();
             }
         }
 
