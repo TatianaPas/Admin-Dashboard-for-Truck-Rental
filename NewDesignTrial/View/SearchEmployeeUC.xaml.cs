@@ -26,7 +26,7 @@ namespace NewDesignTrial.View
         {
             InitializeComponent();
         }
-
+// show button clicked
         private void showEmployeeBtn_Click(object sender, RoutedEventArgs e)
         {
             string input = inputTextBox.Text;
@@ -95,18 +95,18 @@ namespace NewDesignTrial.View
                 }
             }
         }
-
+// hide data if search criteria changed
         private void searchComboBox_DropDownOpened(object sender, EventArgs e)
         {
             employeeGridInfo.Visibility = Visibility.Hidden;
             inputTextBox.Text = "";
         }
-
+// hide data if search criteria changed
         private void inputTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             employeeGridInfo.Visibility = Visibility.Hidden;
         }
-
+// update button clicked
         private void updateEmployeeDetails_Click(object sender, RoutedEventArgs e)
         { 
             string phoneExtension ="";
@@ -194,7 +194,7 @@ namespace NewDesignTrial.View
             }
 
            
-         
+ // find object of Employee and Person        
             TruckEmployee te = DAO.findEmployeeById(id);
             te.OfficeAddress = office;
             te.PhoneExtensionNumber= phoneExtension;
@@ -205,7 +205,7 @@ namespace NewDesignTrial.View
             TruckPerson tp = te.Employee;
             tp.Address = address;
             tp.Telephone = phone;
-
+// update data
             try
             {
                 DAO.updateEmployee(te, tp);

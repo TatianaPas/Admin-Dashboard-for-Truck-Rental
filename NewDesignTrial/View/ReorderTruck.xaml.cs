@@ -24,13 +24,14 @@ namespace NewDesignTrial.View
     {
         public ReorderTruck()
         {
+// set data in the model combobox
             InitializeComponent();
             modelComboBox.ItemsSource = DAO.getModels();
             modelComboBox.DisplayMemberPath = "Model";
             //linked value to the combobox
             modelComboBox.SelectedValuePath = "Model";
         }
-
+// add truck button clicked
         private void addTruckBtn_Click(object sender, RoutedEventArgs e)
         {
             string color = colorTextBox.Text;
@@ -45,7 +46,7 @@ namespace NewDesignTrial.View
             decimal rentPrice = decimal.Parse(rentalPriceTextBox.Text);
             decimal deposit = decimal.Parse(depositPriceTextBox.Text);
             string model = modelComboBox.Text;
-
+// object of model and truck
             TruckModel tm = DAO.searchModelByName(model);
             IndividualTruck it = new IndividualTruck();
             it.Colour = color;
@@ -61,12 +62,12 @@ namespace NewDesignTrial.View
             it.AdvanceDepositRequired = deposit;
             it.TruckModel = tm;
 
-
+// truck features
             TruckFeature one = DAO.findFeatureById(1);
             TruckFeature two = DAO.findFeatureById(2);
             TruckFeature three = DAO.findFeatureById(3);
             TruckFeature four = DAO.findFeatureById(4);
-
+// create list of selected features
             List<TruckFeature> Featurelist = new List<TruckFeature>();
 
             if ((bool)airConCheckBox.IsChecked)
@@ -100,6 +101,7 @@ namespace NewDesignTrial.View
 
             try
             {
+// add truck to database with list of features
                 DAO.reorderTruck(it,Featurelist);
                 MessageBox.Show("New Truck added successfully");
             }

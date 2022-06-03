@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Assignment_Project_RentalManagement.View"
+             xmlns:local="clr-namespace:NewDesignTrial.View"
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="625" Loaded="allEmployees_Loaded">
     <Grid  Margin="5,5,5,5">

@@ -44,7 +44,7 @@
                    Grid.Row="3" 
                    Grid.Column="1" />
             <TextBlock Style="{StaticResource text}" 
-                   Text="Money" 
+                   Text="Total Price"             
                    Grid.Row="4" 
                    Grid.Column="1" />
 
@@ -71,9 +71,10 @@
                     Style="{StaticResource inputDatePicker}" 
                     Grid.Row="3" 
                     Grid.Column="2" SelectedDateChanged="returnedDatePicker_SelectedDateChanged" />
-            <TextBox Name="paymentTextBox" 
-                 Style="{StaticResource inputTextBox}" 
+            <TextBox Name="totalTextBox" 
+                 Style="{StaticResource readOnlyTextBox}" 
                  Grid.Row="4" 
+                     IsEnabled="False"
                  Grid.Column="2"/>
 
 
@@ -81,7 +82,7 @@
                 Grid.Column="2" 
                 x:Name="returnTruckBtn"
                 Style="{StaticResource submitButton}"
-                Content="Return Truck">
+                Content="Return Truck" Click="returnTruckBtn_Click">
             </Button>
         </Grid>
     </Grid>

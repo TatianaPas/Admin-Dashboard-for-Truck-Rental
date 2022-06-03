@@ -38,7 +38,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-
+<!--Top panel-->
             <Border Grid.ColumnSpan="2"
                  MouseDown="GridMouseDown"
                 >
@@ -63,7 +63,7 @@
                            HorizontalAlignment="left"
                            Margin="20,0,0,0"/>
 
-
+<!--Minimise/ Maximise buttons-->
                     <StackPanel HorizontalAlignment="Right"
                             Orientation="Horizontal"
                             Margin="0,0,10,0">
@@ -88,10 +88,7 @@
 
             </Border>
 
-
-
-            <!--Maximize Minimize app-->
-            <!--Menu Panel-->
+<!--Menu Panel-->
 
             <StackPanel
                     Width="230"
@@ -109,10 +106,7 @@
                 <Grid Height="150"
                   VerticalAlignment="Top"
                   Margin="0,30,0,0">
-
-
                     <StackPanel Orientation="Vertical">
-
                         <Image
                         Width="65" 
                        Source="/Assets/logo_new1.png"
@@ -138,7 +132,7 @@
 
                 </Grid>
 
-                <!--Main Menu-->
+ <!--Main Menu-->
 
                 <Menu Height="430"
                   Background="Transparent"
@@ -149,14 +143,14 @@
                         </ItemsPanelTemplate>
                     </Menu.ItemsPanel>
 
-                    <!--Main Menu - Rental Records-->
+<!--Main Menu - Rental Records-->
                     <MenuItem x:Name="rentals_menu" Header="Rentals"
-                          Template="{StaticResource Menu_SubMenu_Template}" Click="rentals_menu_Click">
+                          Template="{StaticResource Menu_SubMenu_Template}">
                         <MenuItem.Icon>
                             <Image Source="/Assets/records.png"/>
                         </MenuItem.Icon>
                         
-                        <!--rentals sub menus-->
+<!--rentals sub menus-->
                         <MenuItem Header="All Available Trucks"
                               x:Name="show_truck_menu"
                               Template="{StaticResource Item_Template}"
@@ -207,14 +201,15 @@
                         </MenuItem>
           
 
-                    <!--Main Menu - Trucks-->
-                    <MenuItem Header="Trucks"
+<!--Main Menu - Trucks-->
+                    <MenuItem Header="Trucks" 
+                              x:Name="trucksMenu"
                           Template="{StaticResource Menu_SubMenu_Template}">
                         <MenuItem.Icon>
                             <Image Source="/Assets/truck.png"/>
                         </MenuItem.Icon>
 
-                        <!--Truck sub menus-->
+<!--Truck sub menus-->
 
                         <MenuItem Header="Add New Truck"
                               x:Name="add_truck_menu"
@@ -254,6 +249,16 @@
                             </MenuItem.Icon>
 
                         </MenuItem>
+                        <MenuItem Header="Search Truck"
+                              x:Name="search_truck_menu_staff"
+                                  Click="search_truck_menu_Click"
+                              Template="{StaticResource Item_Template}">
+                            <MenuItem.Icon>
+                                <Image Source="/Assets/update.png"/>
+                            </MenuItem.Icon>
+
+                        </MenuItem>
+<!--truck features menu-->
                         <MenuItem Header="Truck Features"
                                   Click="features_truck_menu_Click"
                               x:Name="features_truck_menu"
@@ -266,14 +271,14 @@
                     </MenuItem>
 
 
-                    <!--Main Menu - Customers-->
+<!--Main Menu - Customers-->
                     <MenuItem Header="Customers"
                           Template="{StaticResource Menu_SubMenu_Template}">
                         <MenuItem.Icon>
                             <Image Source="/Assets/customer.png"/>
                         </MenuItem.Icon>
 
-                        <!--Customers sub menus-->
+<!--Customers sub menus-->
 
                         <MenuItem x:Name="add_customer_menu" 
                                   Header="Add Customer"
@@ -303,16 +308,16 @@
 
                         </MenuItem>
                     </MenuItem>
-
-                    <!--Main Menu - Employee-->
+<!--Main Menu - Employee-->
 
                     <MenuItem Header="Employees"
+                              x:Name="employeesMenu"
                           Template="{StaticResource Menu_SubMenu_Template}">
                         <MenuItem.Icon>
                             <Image Source="/Assets/employee.png"/>
                         </MenuItem.Icon>
 
-                        <!--Employees sub menus-->
+<!--Employees sub menus-->
 
                         <MenuItem x:Name="addEmployeeBtn"
                         Header="Add Employee"
@@ -344,7 +349,7 @@
               
                     </MenuItem>
 
-                    <!--Main Menu - Contacts-->
+<!--Main Menu - Contacts-->
                     <MenuItem x:Name="contactsBtn"
                         Header="Contacts"
                               Click="contactsBtn_Click"
@@ -354,7 +359,7 @@
                         </MenuItem.Icon>
 
                     </MenuItem>
-
+<!--Main Menu - LogOut-->
                     <MenuItem x:Name="LogoutBtn"  
                           Header="Log Out"
                           Template="{StaticResource Menu_Template}" 
@@ -371,8 +376,9 @@
             <Grid x:Name="main_window_panel" Grid.Column="1"
                     Grid.Row="1"  Width="Auto" HorizontalAlignment="Stretch"
               Margin="2">
+              
 
-                <TextBlock x:Name="window_textBox" Text="This is the main window"
+                <TextBlock x:Name="window_textBox" Text="Welcome to Auckland Movers rental system"
                        FontSize="20"
                        FontFamily="Poppins"
                        HorizontalAlignment="Center"

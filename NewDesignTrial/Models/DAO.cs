@@ -244,15 +244,24 @@ namespace NewDesignTrial.Models
             {
                 IndividualTruck it = ctx.IndividualTrucks.Where(it => it.TruckId == truckId).FirstOrDefault();
                 if (it != null)
-                {
-                    it.Status = "rented";
+                {if(it.Status=="available for rent")
+                    {
+                        it.Status = "rented";
+                    }
+                    else
+                    {
+                        it.Status = "available for rent";
+                    }
+                    
                     ctx.SaveChanges();
                 }
             }
         }
-     //----------> Truck Models
+       
 
-     //----------> Get all truck models
+        //----------> Truck Models
+
+        //----------> Get all truck models
         public static List<TruckModel> getModels()
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -434,7 +443,7 @@ namespace NewDesignTrial.Models
                 ctx.SaveChanges();
             }
         }
-        //----------> Rental records by customer
+     //----------> Rental records by customer
         public static List<TruckRentalsWithCustomerName> getRentalsByCustomer(int id)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -449,12 +458,12 @@ namespace NewDesignTrial.Models
                         RentDate = record.RentDate.ToString("dd/MM/yyyy"),                      
                         ReturnDueDate = record.ReturnDueDate.ToString("dd/MM/yyyy"),
                         ReturnDate = record.ReturnDate.ToString("dd/MM/yyyy"),
-                        TotalPrice = record.TotalPrice,
+                        TotalPrice = string.Format("{0:F2}", record.TotalPrice),
                     }).ToList();
             }
         }
 
-        //----------> All Rental records
+     //----------> All Rental records
         public static List<TruckRentalsWithCustomerName> getRentals()
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
@@ -468,18 +477,18 @@ namespace NewDesignTrial.Models
                         RentDate = record.RentDate.ToString("dd/MM/yyyy"),
                         ReturnDueDate = record.ReturnDueDate.ToString("dd/MM/yyyy"),
                         ReturnDate = record.ReturnDate.ToString("dd/MM/yyyy"),
-                        TotalPrice = record.TotalPrice,
+                        TotalPrice = string.Format("{0:F2}", record.TotalPrice),
                     }).ToList();
             }
         }
 
-        //----------> Rental records between 2 dates
+    //----------> Rental records between 2 dates
         public static List<TruckRentalsWithCustomerName> getRentalsBetweenDates(DateTime start, DateTime finish)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
 
             {
-                return ctx.TruckRentals.Where(i =>i.ReturnDate>=start && i.ReturnDate<=finish).Select(
+                return ctx.TruckRentals.Where(i =>i.RentDate>=start && i.RentDate<=finish).Select(
                     record => new TruckRentalsWithCustomerName()
                     {
                         RentalId = record.RentalId,
@@ -488,10 +497,33 @@ namespace NewDesignTrial.Models
                         RentDate = record.RentDate.ToString("dd/MM/yyyy"),
                         ReturnDueDate = record.ReturnDueDate.ToString("dd/MM/yyyy"),
                         ReturnDate = record.ReturnDate.ToString("dd/MM/yyyy"),
-                        TotalPrice = record.TotalPrice,
+                        TotalPrice = string.Format("{0:F2}", record.TotalPrice),
                     }).ToList();
             }
         }
+
+    //----------> Find rental record by truck
+        public static TruckRental findRentalRecordByTruckRego(string rego)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+                return ctx.TruckRentals.Include(p => p.Truck).Where(truck => truck.Truck.RegistrationNumber == rego).FirstOrDefault();
+
+        }
+
+    //----------> return truck
+        public static void returnTruck (TruckRental record)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {              
+                ctx.Entry(record).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                int id = record.TruckId;
+                changeTruckStatus(id);
+                ctx.SaveChanges();
+            }
+                
+
+        }
+
 
     }
 }

@@ -24,6 +24,7 @@ namespace NewDesignTrial.View
     {
         public RentalsByCustomerUC()
         {
+// set data in combobox license numbers of customers
             InitializeComponent();
             licenseComboBox.ItemsSource = DAO.getCustomers();
             licenseComboBox.DisplayMemberPath = "LicenseNumber";
@@ -31,7 +32,7 @@ namespace NewDesignTrial.View
 
 
         }
-
+// show rentals button clicked
         private void showRentalsBtn_Click(object sender, RoutedEventArgs e)
         {
             string license = licenseComboBox.Text;
@@ -42,6 +43,7 @@ namespace NewDesignTrial.View
 
                 try
                 {
+// set data in datagrid
                     List<TruckRentalsWithCustomerName> rentals = DAO.getRentalsByCustomer(id);
                     if (rentals.Count() > 0)
                     {

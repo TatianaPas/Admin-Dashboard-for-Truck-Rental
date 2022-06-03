@@ -29,9 +29,12 @@ namespace NewDesignTrial.View
         {
             InitializeComponent();
         }
-
+// Add Truck button clicked 
+// No data validation added.
         private void addTruckBtn_Click(object sender, RoutedEventArgs e)
-        {      
+        {
+            try
+            {
                 string model = modelTextBox.Text;
                 string manufacturer = manufacturerTextBox.Text;
                 string size = sizeComboBox.Text;
@@ -49,13 +52,14 @@ namespace NewDesignTrial.View
                 decimal rentPrice = decimal.Parse(rentalPriceTextBox.Text);
                 decimal deposit = decimal.Parse(depositPriceTextBox.Text);
 
+// create object of Truck Model
                 TruckModel tm = new TruckModel();
                 tm.Model = model;
                 tm.Manufacturer = manufacturer;
                 tm.Size = size;
                 tm.Seats = seats;
                 tm.Doors = doors;
-
+// create object of Individual Truck
                 IndividualTruck it = new IndividualTruck();
                 it.Colour = color;
                 it.RegistrationNumber = rego;
@@ -70,12 +74,13 @@ namespace NewDesignTrial.View
                 it.AdvanceDepositRequired = deposit;
                 it.TruckModel = tm;
 
-
+//Get main features
                     TruckFeature one = DAO.findFeatureById(1);                
                     TruckFeature two = DAO.findFeatureById(2);
                     TruckFeature three = DAO.findFeatureById(3);
                     TruckFeature four = DAO.findFeatureById(4);
 
+// create list of features
                     List<TruckFeature> Featurelist = new List<TruckFeature>();
 
 
@@ -107,9 +112,8 @@ namespace NewDesignTrial.View
                             Featurelist.Add(four);
                         }
                     }
+// add truck including list of features
 
-                try
-                {
                     DAO.addTruck(it, Featurelist);
                     MessageBox.Show("New Truck added successfully");
                 }

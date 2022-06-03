@@ -27,7 +27,7 @@ namespace NewDesignTrial.View
         {
             InitializeComponent();
         }
-
+// show custome rbutton clicked
         private void showCustomerBtn_Click(object sender, RoutedEventArgs e)
         {
             string input = inputTextBox.Text;
@@ -96,12 +96,12 @@ namespace NewDesignTrial.View
 
             }
         }
-
+// hide data if search criteria being changed
         private void inputTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             customerGridInfo.Visibility = Visibility.Hidden;
         }
-
+// update button clicked
         private void updateCustomerDetails_Click(object sender, RoutedEventArgs e)
         {
             int id= int.Parse(idTextBox.Text);
@@ -142,7 +142,7 @@ namespace NewDesignTrial.View
                 licenseNumber = licenseNumberTextBox.Text;
             }
 
-            //check if age entered as number
+//check if age entered as number
 
             string checkAge = ageTextBox.Text;
             int value;
@@ -172,7 +172,7 @@ namespace NewDesignTrial.View
 
                 licenseExpiryDate = licenseExpiryDateDP.Text;
 
-                //check if license is not expired
+//check if license is not expired
 
                 DateTime date1 = DateTime.Parse(licenseExpiryDate);
                 DateTime date2 = DateTime.Today;
@@ -207,7 +207,7 @@ namespace NewDesignTrial.View
             }
 
         }
-
+// if search criteria changed, hide data and empty input text box
         private void searchComboBox_DropDownOpened(object sender, EventArgs e)
         {
             customerGridInfo.Visibility = Visibility.Hidden;

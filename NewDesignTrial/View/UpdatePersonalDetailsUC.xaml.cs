@@ -46,7 +46,9 @@ namespace NewDesignTrial.View
 
         private void updateDetailsBtn_Click(object sender, RoutedEventArgs e)
         {
-            TruckPerson tp = emp.Employee;
+            try
+            {
+                TruckPerson tp = emp.Employee;
 
             if (addressTextBox.Text.Length <= 3)
             {
@@ -67,24 +69,15 @@ namespace NewDesignTrial.View
             {
                 tp.Telephone = telephoneTextBox.Text;
             }
-
-           // if (passwordTextBox.Text.Length < 8)
-           // {
-            //    MessageBox.Show("Password must be at least 8 characters long ");
-             //   return;
-           // }
-            //else
-            //{
+           
                 emp.Password = passwordTextBox.Text;
-           // }
             
             tp.Name = nameTextBox.Text;
             emp.Role = roleTextBox.Text;
             emp.Username= usernameTextBox.Text;
             emp.OfficeAddress = officeAddressTextBox.Text;
             emp.PhoneExtensionNumber = phoneExtensionTextBox.Text;
-            try
-            {
+            
                 DAO.updatePersonalDetails(emp, tp);
                 MessageBox.Show("Your personal details updated succesfully");
             }

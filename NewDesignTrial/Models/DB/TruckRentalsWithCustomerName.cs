@@ -34,6 +34,6 @@ namespace NewDesignTrial.Models.DB
             }
         
         }
-        public decimal TotalPrice { get; set; }
+        public string TotalPrice { get; set; }
     }
 }

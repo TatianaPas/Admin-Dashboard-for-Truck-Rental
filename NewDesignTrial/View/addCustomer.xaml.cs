@@ -27,6 +27,8 @@ namespace NewDesignTrial.View
         {
             InitializeComponent();
         }
+//Initialise text fields
+
         private string fullName = "";
         private string address = "";
         private string telephone = "";
@@ -35,8 +37,11 @@ namespace NewDesignTrial.View
         int age = 0;
 
 
+// Add Customer button clicked
         private void addCustomerBtn_Click(object sender, RoutedEventArgs e)
         {
+            try { 
+
             if(nameTextBox.Text.Length<=3)
             {
                 MessageBox.Show("Please enter Customer Full Name ");
@@ -75,7 +80,7 @@ namespace NewDesignTrial.View
                 licenseNumber = licenseNumberTextBox.Text;
             }
 
-            //check if age entered as number
+//check if age entered as number
 
             string checkAge = ageTextBox.Text;
             int value;
@@ -103,7 +108,7 @@ namespace NewDesignTrial.View
             {
                 licenseExpiryDate = licenseExpiryDatePicker.Text;
 
-                //check if license is not expired
+//check if license is not expired
 
                 DateTime date1= DateTime.Parse(licenseExpiryDate);
                 DateTime date2 = DateTime.Today;
@@ -115,22 +120,24 @@ namespace NewDesignTrial.View
                 }
 
             }
-
+// create object of Truck Person
             TruckPerson tp= new TruckPerson();
             tp.Name = fullName;
             tp.Address = address;
             tp.Telephone = telephone;
 
+// create object of Truck Customer
             TruckCustomer tc = new TruckCustomer();
             tc.LicenseNumber = licenseNumber;
             tc.LicenseExpiryDate =DateTime.Parse(licenseExpiryDate);
             tc.Age = age;
             tc.Customer = tp;
 
-            try
-            {
+           
                 DAO.addCustomer(tc);
                 MessageBox.Show("Customer added succesfully");
+// clear data from text fields after customer is added
+
                 nameTextBox.Clear();
                 addressTextBox.Clear();
                 telephoneTextBox.Clear();
@@ -142,12 +149,6 @@ namespace NewDesignTrial.View
             {
                 MessageBox.Show(ex.Message);
             }
-
-
-
-
-
-
 
         }
     }

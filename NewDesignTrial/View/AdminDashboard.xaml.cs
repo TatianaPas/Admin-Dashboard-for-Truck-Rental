@@ -70,10 +70,7 @@ namespace NewDesignTrial.View
             form.Show();
         }
 
-        private void rentals_menu_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
+     
 
         private void records_by_date_menu_Click(object sender, RoutedEventArgs e)
         {
@@ -188,6 +185,13 @@ namespace NewDesignTrial.View
         {
             main_window_panel.Children.Clear();
             main_window_panel.Children.Add(new CarFeatures());
+        }
+
+        private void search_truck_menu_Click(object sender, RoutedEventArgs e)
+        {
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new SearchTruckEmployee());
+
         }
     }
 }

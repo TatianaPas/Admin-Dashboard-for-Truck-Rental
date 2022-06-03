@@ -26,10 +26,10 @@ namespace NewDesignTrial.View
         {
             InitializeComponent();
         }
-
+// Show button clicked
         private void showPersonBtn_Click(object sender, RoutedEventArgs e)
         {
-            //Check if ID is type of Int
+//Check if ID is type of Int
 
             string CheckId = inputTextBox.Text;
             int value;
@@ -38,7 +38,7 @@ namespace NewDesignTrial.View
                 int id = int.Parse(inputTextBox.Text);
                 try
                 {
-                    //find Contact Details in the TruckPerson database
+//find Contact Details in the TruckPerson database
                     TruckPerson tp = DAO.searchContact(id);
                     if (tp != null)
                     {
@@ -49,7 +49,7 @@ namespace NewDesignTrial.View
                     }
                     else
                     {
-                        //if information not found
+//if information not found
                         MessageBox.Show("Sorry, no information found");
                         return;
                     }
@@ -62,14 +62,14 @@ namespace NewDesignTrial.View
             }
             else
             {
-                //if entered not integer
+//if entered not integer
                 MessageBox.Show("Please enter correct ID");
                 return;
             }
         }
 
 
-        //clear fields button function, remove data from fiends, set contact details invisible
+//clear fields button function, remove data from fields, set contact details invisible
             private void clearBtn_Click(object sender, RoutedEventArgs e)
             {
                 nameTextBox.Text = "";

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NewDesignTrial.Models;
-
+using NewDesignTrial.Models.DB;
 namespace NewDesignTrial.View
 {
     /// <summary>
@@ -28,16 +28,25 @@ namespace NewDesignTrial.View
 
         private void allEmployees_Loaded(object sender, RoutedEventArgs e)
         {
-            gridEmployees.ItemsSource = DAO.getEmployees();
-            gridEmployees.Columns[0].Header = " ID";
-            gridEmployees.Columns[1].Header = "Name";
-            gridEmployees.Columns[2].Header = "Address";
-            gridEmployees.Columns[3].Header = "Phone";
-            gridEmployees.Columns[4].Header = "Office";
-            gridEmployees.Columns[5].Header = "Ph.extension ";
-            gridEmployees.Columns[6].Header = " Username";
-            gridEmployees.Columns[7].Header = "Password";
-            gridEmployees.Columns[8].Header = "Role";
+            List<TruckEmployeeWithName> features = DAO.getEmployees();
+            if(features.Count > 0)
+            {
+                gridEmployees.ItemsSource = features;
+                gridEmployees.Columns[0].Header = " ID";
+                gridEmployees.Columns[1].Header = "Name";
+                gridEmployees.Columns[2].Header = "Address";
+                gridEmployees.Columns[3].Header = "Phone";
+                gridEmployees.Columns[4].Header = "Office";
+                gridEmployees.Columns[5].Header = "Ph.extension ";
+                gridEmployees.Columns[6].Header = " Username";
+                gridEmployees.Columns[7].Header = "Password";
+                gridEmployees.Columns[8].Header = "Role";
+            }
+            else
+            {
+                MessageBox.Show("No data available");
+            }
+            
             
 
         }

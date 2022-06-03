@@ -25,13 +25,15 @@ namespace NewDesignTrial.View
         {
             InitializeComponent();
         }
-
+// show button clicked
         private void showRentalsBtn_Click(object sender, RoutedEventArgs e)
         {
-            DateTime startDate = startDatePicker.SelectedDate.Value;
-            DateTime endDate= endDatePicker.SelectedDate.Value;
+            
             try
             {
+                DateTime startDate = startDatePicker.SelectedDate.Value;
+                DateTime endDate = endDatePicker.SelectedDate.Value;
+// get list of rentals
                 List<TruckRentalsWithCustomerName> rentals=DAO.getRentalsBetweenDates(startDate, endDate);
                 if (rentals.Count() > 0)
                 {
@@ -41,7 +43,7 @@ namespace NewDesignTrial.View
                     truckRentalsDataGrid.Columns[2].Header = "Customer";
                     truckRentalsDataGrid.Columns[3].Header = "Rent Date";
                     truckRentalsDataGrid.Columns[4].Header = "Return Due";
-                    truckRentalsDataGrid.Columns[5].Header = "Returned";
+                    truckRentalsDataGrid.Columns[5].Header = "Day Returned";
                     truckRentalsDataGrid.Columns[6].Header = "Total Price";
  
                 }

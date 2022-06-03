@@ -24,6 +24,7 @@ namespace NewDesignTrial.View
     {
         public RentTruck()
         {
+// set data in customers name combobox and in truck registration combobox
             InitializeComponent();
             nameComboBox.ItemsSource = DAO.getCustomers();
             nameComboBox.DisplayMemberPath = "Name";
@@ -35,7 +36,7 @@ namespace NewDesignTrial.View
             nameComboBox.SelectedValuePath = "Name";
             registrationComboBox.SelectedValuePath = "RegistrationNumber";
         }
-
+// if customer name was choosen, combobox will display license number (in case if there more than 1 customer with same name)
         private void nameComboBox_DropDownClosed(object sender, EventArgs e)
         {
             string customerName = nameComboBox.Text;
@@ -43,18 +44,22 @@ namespace NewDesignTrial.View
             licenseComboBox.DisplayMemberPath = "LicenseNumber";
             licenseComboBox.SelectedValuePath = "LicenseNumber";
         }
-
+// set rent day to today
         private void rentTruckWindow_Loaded(object sender, RoutedEventArgs e)
         {
             rentDayDatePicker.SelectedDate = DateTime.Today;
             
         }
-
+// set data of the selected truck
         private void registrationComboBox_DropDownClosed(object sender, EventArgs e)
         {
             string registration = registrationComboBox.Text;
-            string deposit = string.Format("{0:F2}", DAO.findTruckByRego(registration).AdvanceDepositRequired);
-            DepositTextBox.Text = deposit;
+            if(registration !=null)
+            {
+                string deposit = string.Format("{0:F2}", DAO.findTruckByRego(registration).AdvanceDepositRequired);
+                DepositTextBox.Text = deposit;
+            }
+            
         }
 
         private void rentDayDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -65,7 +70,7 @@ namespace NewDesignTrial.View
                 return;
             }
         }
-
+// chek if due back day correct
         private void dueBackDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             if (dueBackDatePicker.SelectedDate < DateTime.Today && dueBackDatePicker.SelectedDate < rentDayDatePicker.SelectedDate)
@@ -89,7 +94,7 @@ namespace NewDesignTrial.View
                 TotalPriceTextBox.Text =totalPrice.ToString();
             }
         }
-
+// rent truck button pressed
         private void rentTruckBtn_Click_1(object sender, RoutedEventArgs e)
         {
             string registration = registrationComboBox.Text;
@@ -101,6 +106,7 @@ namespace NewDesignTrial.View
             DateTime rentDue = DateTime.Parse(dueBackDatePicker.SelectedDate.ToString());
             decimal totalPrice = decimal.Parse(TotalPriceTextBox.Text);
 
+// create object of truck rental
             TruckRental tr = new TruckRental();
             tr.TruckId = truckId;
             tr.CustomerId=CustomerID;

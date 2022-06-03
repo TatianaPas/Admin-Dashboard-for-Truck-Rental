@@ -40,6 +40,8 @@
                         Content="Show" 
                 Click="showPersonBtn_Click" HorizontalContentAlignment="Stretch" Margin="0,5,0,5">
         </Button>
+        
+<!--Data Grid dipslyas only if data found-->
         <Grid x:Name="contactDetailsGrid"
             Grid.Column="1" 
               Grid.ColumnSpan="3" 

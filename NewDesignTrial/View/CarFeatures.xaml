@@ -27,7 +27,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
+<!--Information about features -->
         <Grid Name="featuresGrid"
             Grid.ColumnSpan="4" 
               Margin="5,5,5,5" 
@@ -89,6 +89,8 @@
             </DataGrid>
 
         </Grid>
+            
+ <!--Add new feature to the truck-->           
         <Grid Name="NewFeatureGrid"
             Grid.ColumnSpan="4" 
               Margin="5,5,5,5" 

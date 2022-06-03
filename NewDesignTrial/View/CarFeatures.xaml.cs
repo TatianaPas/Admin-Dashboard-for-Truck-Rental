@@ -22,6 +22,7 @@ namespace NewDesignTrial.View
     /// </summary>
     public partial class CarFeatures : UserControl
     {
+        //set data in comboboxes: registration numbers and features
         public CarFeatures()
         {
             InitializeComponent();
@@ -37,14 +38,14 @@ namespace NewDesignTrial.View
 
 
         }
-
+// display all features in the data grid when window loaded
         private void FeaturesWindow_Loaded(object sender, RoutedEventArgs e)
         {
             List<TruckFeature> features = DAO.getAllFeatures(); ;
             dataGridFeatures.ItemsSource=features;
             
         }
-
+// add new feature button clicked
         private void addFeatureBtn_Click(object sender, RoutedEventArgs e)
         {
             string newFeature = featureTextBox.Text;
@@ -66,7 +67,7 @@ namespace NewDesignTrial.View
             }
 
         }
-
+// add new feature to truck
         private void saveTruckFeatureBtn_Click(object sender, RoutedEventArgs e)
         {
             string rego = registrationComboBox.Text;

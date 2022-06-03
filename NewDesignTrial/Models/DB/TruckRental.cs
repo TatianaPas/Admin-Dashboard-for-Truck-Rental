@@ -11,7 +11,23 @@ namespace NewDesignTrial.Models.DB
         public DateTime RentDate { get; set; }
         public DateTime ReturnDueDate { get; set; }
         public DateTime ReturnDate { get; set; }
-        public decimal TotalPrice { get; set; }
+        
+        decimal total;
+        public decimal TotalPrice
+        {
+            get { return total; }
+            set
+            {
+                if(value>=50 && value<=10000)
+                {
+                    total = value;
+                }
+                else
+                {
+                    throw new Exception("Please check the total price");
+                }
+            }
+        }
 
         public virtual TruckCustomer Customer { get; set; } = null!;
         public virtual IndividualTruck Truck { get; set; } = null!;

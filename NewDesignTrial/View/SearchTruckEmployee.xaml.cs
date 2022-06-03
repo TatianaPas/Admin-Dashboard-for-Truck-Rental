@@ -18,11 +18,11 @@ using NewDesignTrial.Models;
 namespace NewDesignTrial.View
 {
     /// <summary>
-    /// Interaction logic for SearchTruck.xaml
+    /// Interaction logic for SearchTruckEmployee.xaml
     /// </summary>
-    public partial class SearchTruck : UserControl
+    public partial class SearchTruckEmployee : UserControl
     {
-        public SearchTruck()
+        public SearchTruckEmployee()
         {
             InitializeComponent();
             registrationComboBox.ItemsSource = DAO.getAllTrucks();
@@ -30,7 +30,6 @@ namespace NewDesignTrial.View
             //linked value to the combobox
             registrationComboBox.SelectedValuePath = "RegistrationNumber";
         }
-
         private void showTruckBtn_Click(object sender, RoutedEventArgs e)
         {
             string truckRego = registrationComboBox.Text;
@@ -70,7 +69,11 @@ namespace NewDesignTrial.View
                         featureList.Visibility = Visibility.Visible;
                         extraFeaturesLabel.Visibility = Visibility.Visible;
                     }
-                    
+                    else
+                    {
+                        MessageBox.Show("No data found");
+                        return;
+                    }
                 }
             }
         }
@@ -78,30 +81,6 @@ namespace NewDesignTrial.View
         private void registrationComboBox_DropDownClosed(object sender, EventArgs e)
         {
             autoGrid.Visibility = Visibility.Collapsed;
-        }
-
-        private void updateTruckBtn_Click(object sender, RoutedEventArgs e)
-        {
-            string truckRego = registrationComboBox.Text;
-            IndividualTruck truck = DAO.findTruckByRego(truckRego);
-            truck.Status = statusComboBox.Text;
-            truck.WofexpiryDate = DateTime.Parse(WOFExpiryDatePicker.Text);
-            truck.RegistrationExpiryDate = DateTime.Parse(REGOExpiryDatePicker.Text);
-            truck.DailyRentalPrice = decimal.Parse(rentalPriceTextBox.Text);
-            truck.AdvanceDepositRequired = decimal.Parse(depositPriceTextBox.Text);
-            TruckModel model = truck.TruckModel;
-
-            try
-            {
-                DAO.updateTruck(truck, model);
-                MessageBox.Show("Truck details updated sucessfully");
-                autoGrid.Visibility = Visibility.Hidden;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
         }
     }
 }

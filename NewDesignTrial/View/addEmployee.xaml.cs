@@ -26,7 +26,7 @@ namespace NewDesignTrial.View
         {
             InitializeComponent();
         }
-
+// initialise text fields
         private string fullName = "";
         private string address = "";
         private string telephone = "";
@@ -36,8 +36,14 @@ namespace NewDesignTrial.View
         private string password = "";
         private string role = "";
 
+// Add Employee button clicked
         private void addEmployeeBtn_Click(object sender, RoutedEventArgs e)
         {
+
+            try
+            {
+
+
             if (nameTextBox.Text.Length <= 3)
             {
                 MessageBox.Show("Please enter Employees Full Name ");
@@ -87,35 +93,18 @@ namespace NewDesignTrial.View
                 phoneExtension = phoneExtensionTextBox.Text;
             }
 
+// data validated inside the class TruckEmployee
 
-            if (usernameTextBox.Text.Length <7)
-            {
-                MessageBox.Show("Username muts be at least 7 characters long ");
-                return;
-            }
-            else
-            {
                 username = usernameTextBox.Text;
-            }
-
-
-
-            if (passwordTextBox.Text.Length <8)
-            {
-                MessageBox.Show("Password must be at least 8 characters long ");
-                return;
-            }
-            else
-            {
                 password = passwordTextBox.Text;
-            }
+           
             role = roleComboBox.Text;
-
+// create object of Truck Person
             TruckPerson tp = new TruckPerson();
             tp.Name = fullName;
             tp.Address = address;
             tp.Telephone = telephone;
-
+// create object of truck employee
             TruckEmployee te= new TruckEmployee();
             te.OfficeAddress = officeAddress;
             te.PhoneExtensionNumber= phoneExtension;
@@ -125,10 +114,10 @@ namespace NewDesignTrial.View
             te.Employee = tp;
 
 
-            try
-            {
+
                 DAO.addEmployee(te);
                 MessageBox.Show("Employee added succesfully");
+// clear text fields after employee added
                 nameTextBox.Clear();
                 addressTextBox.Clear();
                 telephoneTextBox.Clear();

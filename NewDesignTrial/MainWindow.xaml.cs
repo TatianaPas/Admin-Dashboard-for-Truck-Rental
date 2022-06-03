@@ -31,11 +31,13 @@ namespace NewDesignTrial
         
         private void buttonMinimise_Click(object sender, RoutedEventArgs e)
         {
+            Application.Current.MainWindow = this;
             Application.Current.MainWindow.WindowState = WindowState.Minimized;
         }
 
         private void WindowStateBtnClick(object sender, RoutedEventArgs e)
         {
+            Application.Current.MainWindow = this;
             if (Application.Current.MainWindow.WindowState != WindowState.Maximized)
             {
                 Application.Current.MainWindow.WindowState = WindowState.Maximized;
@@ -86,12 +88,22 @@ namespace NewDesignTrial
                     {
                         AdminDashboard form = new AdminDashboard(emp);
                         form.helloTextBox.Text = "Welcome " + emp.Employee.Name;
+                        form.search_truck_menu_staff.Visibility = Visibility.Collapsed;
+                        form.Show();
+                        this.Hide();  
+                    }
+                    else if (emp.Role == "staff")
+                    {
+                        AdminDashboard form = new AdminDashboard(emp);
+                        form.helloTextBox.Text = "Welcome " + emp.Employee.Name;
+                        form.employeesMenu.Visibility = Visibility.Collapsed;
+                        form.update_truck_menu.Visibility = Visibility.Collapsed;
+                        form.add_truck_menu.Visibility= Visibility.Collapsed;
+                        form.reorder_truck_menu.Visibility=Visibility.Collapsed;
+                        form.show_alltruck_menu.Visibility = Visibility.Collapsed;
+                        form.features_truck_menu.Visibility = Visibility.Collapsed;
                         form.Show();
                         this.Hide();
-
-                      
-                        
-
                     }
                 }
 
