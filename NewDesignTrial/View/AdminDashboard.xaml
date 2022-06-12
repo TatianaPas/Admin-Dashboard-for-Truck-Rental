@@ -359,6 +359,16 @@
                         </MenuItem.Icon>
 
                     </MenuItem>
+                    <!--Main Menu - Contacts-->
+                    <MenuItem x:Name="reportsBtn"
+                        Header="Reports"
+                              Click="reportsBtn_Click"
+                          Template="{StaticResource Menu_SubMenu_Template}">
+                        <MenuItem.Icon>
+                            <Image Source="/Assets/records.png"/>
+                        </MenuItem.Icon>
+
+                    </MenuItem>
 <!--Main Menu - LogOut-->
                     <MenuItem x:Name="LogoutBtn"  
                           Header="Log Out"

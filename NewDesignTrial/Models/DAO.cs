@@ -524,6 +524,16 @@ namespace NewDesignTrial.Models
 
         }
 
+        //reports
+
+        public static List<TruckPerson> getPeople()
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.TruckPeople.FromSqlRaw("getAllPeople").ToList(); 
+            }
+
+        }
 
     }
 }

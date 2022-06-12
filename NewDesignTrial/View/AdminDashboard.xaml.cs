@@ -193,6 +193,12 @@ namespace NewDesignTrial.View
             main_window_panel.Children.Add(new SearchTruckEmployee());
 
         }
+
+        private void reportsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            main_window_panel.Children.Clear();
+            main_window_panel.Children.Add(new reportsUC());
+        }
     }
 }
 
