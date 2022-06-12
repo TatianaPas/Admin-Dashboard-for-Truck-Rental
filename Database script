@@ -1,0 +1,239 @@
+
+
+USE [GSQ2_Test_Test]
+GO
+/****** Object:  Table [dbo].[IndividualTruck]    Script Date: 10/30/2018 11:58:58 
+AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[IndividualTruck](
+[TruckID] [int] IDENTITY(1,1) NOT NULL,
+[Colour] [varchar](50) NOT NULL,
+[RegistrationNumber] [varchar](50) NOT NULL,
+[WOFExpiryDate] [date] NOT NULL,
+[RegistrationExpiryDate] [date] NOT NULL,
+[DateImported] [date] NOT NULL,
+[ManufactureYear] [int] NOT NULL,
+[Status] [varchar](20) NOT NULL,
+[FuelType] [varchar](20) NOT NULL,
+[Transmission] [varchar](20) NOT NULL,
+[DailyRentalPrice] [money] NOT NULL,
+[AdvanceDepositRequired] [money] NOT NULL,
+[TruckModelID] [int] NOT NULL,
+ CONSTRAINT [PK_IndividualTruck] PRIMARY KEY CLUSTERED 
+(
+[TruckID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, 
+ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Truck_Feature_Association]    Script Date: 10/30/2018
+11:58:58 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Truck_Feature_Association](
+[TruckID] [int] NOT NULL,
+[FeatureID] [int] NOT NULL,
+ CONSTRAINT [PK_Truck_Feature_Association] PRIMARY KEY CLUSTERED 
+(
+[TruckID] ASC,
+[FeatureID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, 
+ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TruckCustomer]    Script Date: 10/30/2018 11:58:58 AM
+******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TruckCustomer](
+[CustomerID] [int] NOT NULL,
+[LicenseNumber] [varchar](50) NOT NULL,
+[Age] [int] NOT NULL,
+[LicenseExpiryDate] [date] NOT NULL,
+ CONSTRAINT [PK_TruckCustomer] PRIMARY KEY CLUSTERED 
+(
+[CustomerID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, 
+ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TruckEmployee]    Script Date: 10/30/2018 11:58:59 AM
+******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TruckEmployee](
+[EmployeeID] [int] NOT NULL,
+[OfficeAddress] [varchar](150) NOT NULL,
+[PhoneExtensionNumber] [varchar](50) NOT NULL,
+[Username] [varchar](50) NOT NULL,
+[Password] [varchar](50) NOT NULL,
+[Role] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_TruckEmployee] PRIMARY KEY CLUSTERED 
+(
+[EmployeeID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, 
+ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TruckFeature]    Script Date: 10/30/2018 11:58:59 AM 
+******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TruckFeature](
+[FeatureID] [int] IDENTITY(1,1) NOT NULL,
+[Description] [varchar](200) NULL,
+ CONSTRAINT [PK_TruckFeature] PRIMARY KEY CLUSTERED 
+(
+[FeatureID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, 
+ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TruckModel]    Script Date: 10/30/2018 11:58:59 AM 
+******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TruckModel](
+[ModelID] [int] IDENTITY(1,1) NOT NULL,
+[Model] [varchar](50) NOT NULL,
+[Manufacturer] [varchar](50) NOT NULL,
+[Size] [varchar](20) NOT NULL,
+[Seats] [int] NOT NULL,
+[Doors] [int] NOT NULL,
+ CONSTRAINT [PK_TruckModel] PRIMARY KEY CLUSTERED 
+(
+[ModelID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, 
+ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TruckPerson]    Script Date: 10/30/2018 11:58:59 AM 
+******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TruckPerson](
+[PersonID] [int] IDENTITY(1,1) NOT NULL,
+[Name] [varchar](50) NOT NULL,
+[Address] [varchar](250) NOT NULL,
+[Telephone] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_TruckPerson] PRIMARY KEY CLUSTERED 
+(
+[PersonID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, 
+ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TruckRental]    Script Date: 10/30/2018 11:58:59 AM 
+******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TruckRental](
+[RentalID] [int] IDENTITY(1,1) NOT NULL,
+[TruckID] [int] NOT NULL,
+[CustomerID] [int] NOT NULL,
+[RentDate] [date] NOT NULL,
+[ReturnDueDate] [date] NOT NULL,
+[ReturnDate] [date] NOT NULL,
+[TotalPrice] [money] NOT NULL,
+ CONSTRAINT [PK_TruckRental] PRIMARY KEY CLUSTERED 
+(
+[RentalID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, 
+ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[TruckFeature] ON 
+INSERT [dbo].[TruckFeature] ([FeatureID], [Description]) VALUES (1, N'Air 
+conditioning')
+INSERT [dbo].[TruckFeature] ([FeatureID], [Description]) VALUES (2, N'Rear door for
+loading')
+INSERT [dbo].[TruckFeature] ([FeatureID], [Description]) VALUES (3, N'alarm system 
+')
+INSERT [dbo].[TruckFeature] ([FeatureID], [Description]) VALUES (4, N'Keyless 
+door')
+SET IDENTITY_INSERT [dbo].[TruckFeature] OFF
+ALTER TABLE [dbo].[IndividualTruck]  WITH CHECK ADD  CONSTRAINT 
+[FK_IndividualTruck_TruckModel] FOREIGN KEY([TruckModelID])
+REFERENCES [dbo].[TruckModel] ([ModelID])
+GO
+ALTER TABLE [dbo].[IndividualTruck] CHECK CONSTRAINT 
+[FK_IndividualTruck_TruckModel]
+GO
+ALTER TABLE [dbo].[Truck_Feature_Association]  WITH CHECK ADD  CONSTRAINT 
+[FK_Truck_Feature_Association_IndividualTruck] FOREIGN KEY([TruckID])
+REFERENCES [dbo].[IndividualTruck] ([TruckID])
+GO
+ALTER TABLE [dbo].[Truck_Feature_Association] CHECK CONSTRAINT 
+[FK_Truck_Feature_Association_IndividualTruck]
+GO
+ALTER TABLE [dbo].[Truck_Feature_Association]  WITH CHECK ADD  CONSTRAINT 
+[FK_Truck_Feature_Association_TruckFeature] FOREIGN KEY([FeatureID])
+REFERENCES [dbo].[TruckFeature] ([FeatureID])
+GO
+ALTER TABLE [dbo].[Truck_Feature_Association] CHECK CONSTRAINT 
+[FK_Truck_Feature_Association_TruckFeature]
+GO
+ALTER TABLE [dbo].[TruckCustomer]  WITH CHECK ADD  CONSTRAINT 
+[FK_TruckCustomer_TruckPerson] FOREIGN KEY([CustomerID])
+REFERENCES [dbo].[TruckPerson] ([PersonID])
+GO
+ALTER TABLE [dbo].[TruckCustomer] CHECK CONSTRAINT [FK_TruckCustomer_TruckPerson]
+GO
+ALTER TABLE [dbo].[TruckEmployee]  WITH CHECK ADD  CONSTRAINT 
+[FK_TruckEmployee_TruckPerson] FOREIGN KEY([EmployeeID])
+REFERENCES [dbo].[TruckPerson] ([PersonID])
+GO
+ALTER TABLE [dbo].[TruckEmployee] CHECK CONSTRAINT [FK_TruckEmployee_TruckPerson]
+GO
+ALTER TABLE [dbo].[TruckRental]  WITH CHECK ADD  CONSTRAINT 
+[FK_TruckRental_IndividualTruck] FOREIGN KEY([TruckID])
+REFERENCES [dbo].[IndividualTruck] ([TruckID])
+GO
+ALTER TABLE [dbo].[TruckRental] CHECK CONSTRAINT [FK_TruckRental_IndividualTruck]
+GO
+ALTER TABLE [dbo].[TruckRental]  WITH CHECK ADD  CONSTRAINT 
+[FK_TruckRental_TruckCustomer] FOREIGN KEY([CustomerID])
+REFERENCES [dbo].[TruckCustomer] ([CustomerID])
+GO
+ALTER TABLE [dbo].[TruckRental] CHECK CONSTRAINT [FK_TruckRental_TruckCustomer]
+GO
+ALTER TABLE [dbo].[IndividualTruck]  WITH CHECK ADD  CONSTRAINT 
+[CK_IndividualTruck] CHECK  (([Status]='rented' OR [Status]='available for rent' OR
+[Status]='under repair'))
+GO
+ALTER TABLE [dbo].[IndividualTruck] CHECK CONSTRAINT [CK_IndividualTruck]
+GO
+ALTER TABLE [dbo].[IndividualTruck]  WITH CHECK ADD  CONSTRAINT 
+[CK_IndividualTruck_FuelType] CHECK  (([FuelType]='Petrol' OR [FuelType]='Diesel'))
+GO
+ALTER TABLE [dbo].[IndividualTruck] CHECK CONSTRAINT [CK_IndividualTruck_FuelType]
+GO
+ALTER TABLE [dbo].[IndividualTruck]  WITH CHECK ADD  CONSTRAINT 
+[CK_IndividualTruck_Transmission] CHECK  (([Transmission]='Manual' OR 
+[Transmission]='Automatic'))
+GO
+ALTER TABLE [dbo].[IndividualTruck] CHECK CONSTRAINT 
+[CK_IndividualTruck_Transmission]
+GO
+ALTER TABLE [dbo].[TruckModel]  WITH CHECK ADD  CONSTRAINT [CK_TruckModel_Size] 
+CHECK  (([Size]='standard' OR [Size]='medium' OR [Size]='large'))
+GO
+ALTER TABLE [dbo].[TruckModel] CHECK CONSTRAINT [CK_TruckModel_Size]
+GO
