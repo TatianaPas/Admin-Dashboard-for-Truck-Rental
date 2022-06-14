@@ -524,7 +524,9 @@ namespace NewDesignTrial.Models
 
         }
 
-        //reports
+    //----------> Stored Prcidures
+
+    //----------> list of trucks
 
         public static List<TruckPerson> getPeople()
         {
@@ -534,6 +536,9 @@ namespace NewDesignTrial.Models
             }
 
         }
+    //----------> update truck
+
+
 
     }
 }

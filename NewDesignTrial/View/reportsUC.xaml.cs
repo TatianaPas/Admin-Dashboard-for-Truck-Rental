@@ -30,5 +30,11 @@ namespace NewDesignTrial.View
         {
             gridPeople.ItemsSource = DAO.getPeople();
         }
+
+        private void showRentals_Click(object sender, RoutedEventArgs e)
+        {
+            string rego = regoTextBox.Text;
+
+        }
     }
 }
