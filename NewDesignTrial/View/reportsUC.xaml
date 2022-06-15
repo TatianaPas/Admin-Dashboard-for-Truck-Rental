@@ -5,11 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NewDesignTrial.View"
              mc:Ignorable="d" 
-             d:DesignHeight="480" d:DesignWidth="625">
+             d:DesignHeight="520" d:DesignWidth="625">
     <Grid  Margin="5,5,5,5">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.25*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="0.25*"/>
         </Grid.ColumnDefinitions>
@@ -18,48 +19,134 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.25*"/>
         </Grid.RowDefinitions>
+        
         <TextBlock Style="{StaticResource text}" 
-                   Text="Registartion Number:" 
-                   Grid.Column="0"
-                   Grid.Row="1"/>
-        <TextBox Name="regoTextBox"
-                 Style="{StaticResource inputTextBox}" 
-                 Grid.Column="1"
-                 Grid.Row="1"/>
-        <Button Grid.Row="0" 
-                Grid.Column="2"  
-                x:Name="showPeopleBtn"                       
-                Style="{StaticResource submitButton}"
-                        Content="Show People" Margin="5,5,5,5" 
-                    IsTabStop="False" Click="showPeopleBtn_Click" >
-        </Button>
-        <Button Grid.Row="1" 
-                Grid.Column="2"  
-                x:Name="showRentals"                       
-                Style="{StaticResource submitButton}"
-                        Content="Show Rentals"
-                        Margin="5,5,5,5" 
-                        IsTabStop="False" Click="showRentals_Click" >
-        </Button>
+                   Text="-----------------Top 5 rented trucks/ Least 5 rented truck models-----------------" 
+                   Grid.Column="1"
+                   Grid.ColumnSpan="3"/>
+        
 
-        <Grid Name="peoplesGrid"
-            Grid.ColumnSpan="4" 
+        <Button 
+            Grid.Row="1" 
+            Grid.Column="1"  
+            x:Name="topFiveTrucksBtn"                       
+            Style="{StaticResource submitButton}"
+            Content="Top 5 rented trucks"
+            Margin="5,5,5,5" 
+            IsTabStop="False" Click="topFiveTrucksBtn_Click">
+        </Button>
+        <Button 
+            Grid.Row="2" 
+            Grid.Column="1"  
+            x:Name="leastFiveModelsBtn"                       
+            Style="{StaticResource submitButton}"
+            Content="Least 5 rented models"
+            Margin="5,5,5,5" 
+            IsTabStop="False" Click="leastFiveModelsBtn_Click">
+        </Button>
+        <Grid Name="trucksGrid"
+              Grid.Column="3"
               Margin="5,5,5,5" 
-              Grid.RowSpan="5" 
-              Grid.Row="2">
+              Grid.RowSpan="3" 
+              Grid.Row="1">
 
-            <DataGrid x:Name="gridPeople" 
+            <DataGrid x:Name="gridTrucks" 
                 Grid.Column="0" 
                       Style="{StaticResource dataGridStyle}" >
             </DataGrid>
 
         </Grid>
+        <TextBlock Style="{StaticResource text}" 
+                   Text="-----------------Truck model total sales between dates-----------------" 
+                   Grid.Column="1"
+                   Grid.ColumnSpan="3"
+                   Grid.Row="4"/>
+        
+        <TextBlock Style="{StaticResource text}" 
+                   Text="Truck Model"
+                   Grid.Row="5"
+                   Grid.Column="0"/>
+
+        <TextBlock Style="{StaticResource text}" 
+                   Text="Start Date"
+                   Grid.Row="6"
+                   Grid.Column="0"/>
+        <TextBlock Style="{StaticResource text}" 
+                   Text="End Date"
+                   Grid.Row="7"
+                   Grid.Column="0"/>
+
+        <DatePicker Name="startDatePicker" 
+                    Style="{StaticResource inputDatePicker}" 
+                    Grid.Row="6" 
+                    Grid.Column="1"/>
+
+        <DatePicker Name="endDatePicker" 
+                    Style="{StaticResource inputDatePicker}" 
+                    Grid.Row="7" 
+                    Grid.Column="1"/>
+        <Button 
+            Grid.Row="6" 
+            Grid.Column="3"  
+            x:Name="saleBetweenDates"                       
+            Style="{StaticResource submitButton}"
+            Content="Show Total"
+            Margin="5,5,5,5" 
+            IsTabStop="False" Click="saleBetweenDates_Click">
+        </Button>
+        <TextBox Name="salesTextBox" 
+                 Style="{StaticResource inputTextBox}" 
+                 Grid.Column="3"
+                 Grid.Row="7"/>
+
+        <TextBlock Style="{StaticResource text}" 
+                   Text="-----------------Total Sales by Customer-----------------" 
+                   Grid.Column="1"
+                   Grid.ColumnSpan="3"
+                   Grid.Row="8"/>
+
+        <TextBlock Style="{StaticResource text}" 
+                   Text="Driving License"
+                   Grid.Row="8"
+                   Grid.Column="0"/>
+
+        <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
+                  Name="modelComboBox" 
+                  Grid.Row="5" 
+                  Grid.Column="1"
+                  MinHeight="35" 
+                  Height="35"
+                  Margin="5"
+                  Padding="10"
+                  IsEditable="False" 
+                  IsTextSearchEnabled="True"/>
+
+
+        <Button 
+            Grid.Row="9" 
+            Grid.Column="3"  
+            x:Name="rentalSaleForMonthBtn"                       
+            Style="{StaticResource submitButton}"
+            Content="Total rent for month"
+            Margin="5,5,5,5" 
+            IsTabStop="False">
+        </Button>
+        <TextBox Name="totalTextBox" 
+                 Style="{StaticResource inputTextBox}" 
+                 Grid.Column="3"
+                 Grid.Row="10"/>
+
+       
 
     </Grid>
 </UserControl>

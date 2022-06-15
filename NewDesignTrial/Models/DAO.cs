@@ -524,7 +524,7 @@ namespace NewDesignTrial.Models
 
         }
 
-    //----------> Stored Prcidures
+    //----------> Stored Procidures
 
     //----------> list of trucks
 
@@ -534,11 +534,43 @@ namespace NewDesignTrial.Models
             {
                 return ctx.TruckPeople.FromSqlRaw("getAllPeople").ToList(); 
             }
-
         }
-    //----------> update truck
 
+    //----------> top 5 rented trucks
+        public static List<TopFiveTrucks> getTopFiveTrucks()
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.TopFiveTrucks.FromSqlRaw("topFiveTrucks").ToList();
+            }
+        }
 
+    //----------> least 5 rented truck models
+        public static List<LeastFiveRentedModels> getLeastFiveRentedTruckModels()
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.LeastFiveRentedModels.FromSqlRaw("leastFiveRentedTruckModels").ToList();
+            }
+        }
+
+      //----------> get Truck Models from PB database to display in the combobox
+        public static List<TruckModel> getTruckModelsPB()
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.TruckModels.FromSqlRaw("getTruckModels").ToList();
+            }
+        }
+
+        //----------> get total price for the selected truck model between 2 dates
+        public static Total getTotalPriceForSelectedTruckModel( string model, DateTime start, DateTime end)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return (Total)ctx.Total.FromSqlRaw("getTotalRentForTruckModel @p0,@startDate,@endDate", model, start, end).AsEnumerable();
+            }
+        }
 
     }
 }

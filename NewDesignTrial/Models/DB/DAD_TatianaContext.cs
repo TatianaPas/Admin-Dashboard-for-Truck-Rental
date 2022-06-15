@@ -15,6 +15,9 @@ namespace NewDesignTrial.Models.DB
             : base(options)
         {
         }
+        public virtual DbSet<Total> Total { get; set; } = null!;
+        public virtual DbSet<LeastFiveRentedModels> LeastFiveRentedModels { get; set; } = null!;
+        public virtual DbSet<TopFiveTrucks> TopFiveTrucks { get; set; } = null!;
         public virtual DbSet<TruckRentalsWithCustomerName> TruckRentalsWithCustomerNmae { get; set; } = null!;
         public virtual DbSet<TruckCustomerWithName> TruckCustomerWithNames { get; set; } = null!;
         public virtual DbSet<TrucksModelFeatures> TrucksModelFeatures { get; set; } = null!;

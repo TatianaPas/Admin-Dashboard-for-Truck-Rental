@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NewDesignTrial.Models;
+using NewDesignTrial.Models.DB;
 
 namespace NewDesignTrial.View
 {
@@ -24,16 +25,61 @@ namespace NewDesignTrial.View
         public reportsUC()
         {
             InitializeComponent();
+
+     // add selection of truck models into combobox to search rentals between specific dates
+            modelComboBox.ItemsSource = DAO.getTruckModelsPB();
+            modelComboBox.DisplayMemberPath = "Model";
+            modelComboBox.SelectedValuePath = "Model";
         }
 
-        private void showPeopleBtn_Click(object sender, RoutedEventArgs e)
+        private void topFiveTrucksBtn_Click(object sender, RoutedEventArgs e)
         {
-            gridPeople.ItemsSource = DAO.getPeople();
+            try
+            {
+                gridTrucks.ItemsSource = DAO.getTopFiveTrucks();
+                gridTrucks.Columns[0].Header = " Truck ID ";
+                gridTrucks.Columns[1].Header = " Registration";
+                gridTrucks.Columns[2].Header = " Total rent";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
-        private void showRentals_Click(object sender, RoutedEventArgs e)
+        private void leastFiveModelsBtn_Click(object sender, RoutedEventArgs e)
         {
-            string rego = regoTextBox.Text;
+            try
+            {
+                gridTrucks.ItemsSource = DAO.getLeastFiveRentedTruckModels();
+                gridTrucks.Columns[0].Header = " Model ID ";
+                gridTrucks.Columns[1].Header = " Model";
+                gridTrucks.Columns[2].Header = " Total rent";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void saleBetweenDates_Click(object sender, RoutedEventArgs e)
+        {
+            string model = modelComboBox.Text;
+            DateTime startDate = DateTime.Parse(startDatePicker.SelectedDate.ToString());
+            DateTime endDate = DateTime.Parse(endDatePicker.SelectedDate.ToString());
+            try
+            {
+                Total total= DAO.getTotalPriceForSelectedTruckModel(model,startDate,endDate);
+                salesTextBox.Text = total.TotalPrice.ToString();
+               
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
     }
