@@ -9,7 +9,7 @@ namespace NewDesignTrial.Models.DB
     public class Total
     {
         [Key]
-        public int Id { get; set; }
+        public int ModelID { get; set; }
         public decimal TotalPrice { get; set; } = 0;    
     }
 }

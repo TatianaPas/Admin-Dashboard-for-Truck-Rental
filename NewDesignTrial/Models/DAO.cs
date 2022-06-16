@@ -564,11 +564,11 @@ namespace NewDesignTrial.Models
         }
 
         //----------> get total price for the selected truck model between 2 dates
-        public static Total getTotalPriceForSelectedTruckModel( string model, DateTime start, DateTime end)
+        public static List<Total> getTotalPriceForSelectedTruckModel( string model, DateTime start, DateTime end)
         {
             using (DAD_TatianaContext ctx = new DAD_TatianaContext())
-            {
-                return (Total)ctx.Total.FromSqlRaw("getTotalRentForTruckModel @p0,@startDate,@endDate", model, start, end).AsEnumerable();
+            {               
+                return ctx.Total.FromSqlRaw("EXECUTE dbo.getTotalRentForTruckModel {0},{1},{2}", model, start, end).ToList();
             }
         }
 

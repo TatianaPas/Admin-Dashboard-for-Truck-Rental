@@ -96,7 +96,7 @@
                     Grid.Row="7" 
                     Grid.Column="1"/>
         <Button 
-            Grid.Row="6" 
+            Grid.Row="5" 
             Grid.Column="3"  
             x:Name="saleBetweenDates"                       
             Style="{StaticResource submitButton}"
@@ -104,10 +104,25 @@
             Margin="5,5,5,5" 
             IsTabStop="False" Click="saleBetweenDates_Click">
         </Button>
-        <TextBox Name="salesTextBox" 
-                 Style="{StaticResource inputTextBox}" 
-                 Grid.Column="3"
-                 Grid.Row="7"/>
+        <Grid Name="totalGrid"
+              Grid.Column="3"
+              Margin="5,5,5,5" 
+              Grid.RowSpan="2" 
+              Grid.Row="6">
+
+            <DataGrid x:Name="gridTotal" 
+                Grid.Column="0" 
+               Style="{StaticResource dataGridStyle}"
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Total Rent" 
+                                            MinWidth="250"
+                                            Binding = "{Binding TotalPrice}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+        
 
         <TextBlock Style="{StaticResource text}" 
                    Text="-----------------Total Sales by Customer-----------------" 

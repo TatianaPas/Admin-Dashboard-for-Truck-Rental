@@ -66,14 +66,11 @@ namespace NewDesignTrial.View
         private void saleBetweenDates_Click(object sender, RoutedEventArgs e)
         {
             string model = modelComboBox.Text;
-            DateTime startDate = DateTime.Parse(startDatePicker.SelectedDate.ToString());
-            DateTime endDate = DateTime.Parse(endDatePicker.SelectedDate.ToString());
+            DateTime startDate = startDatePicker.SelectedDate.Value;
+            DateTime endDate = endDatePicker.SelectedDate.Value;
             try
             {
-                Total total= DAO.getTotalPriceForSelectedTruckModel(model,startDate,endDate);
-                salesTextBox.Text = total.TotalPrice.ToString();
-               
-
+                gridTotal.ItemsSource= DAO.getTotalPriceForSelectedTruckModel(model, startDate, endDate);               
 
             }
             catch (Exception ex)
