@@ -102,6 +102,7 @@ namespace NewDesignTrial
                         form.reorder_truck_menu.Visibility=Visibility.Collapsed;
                         form.show_alltruck_menu.Visibility = Visibility.Collapsed;
                         form.features_truck_menu.Visibility = Visibility.Collapsed;
+                        form.reportsBtn.Visibility = Visibility.Collapsed;
                         form.Show();
                         this.Hide();
                     }

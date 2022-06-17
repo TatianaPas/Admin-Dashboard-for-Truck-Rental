@@ -571,6 +571,32 @@ namespace NewDesignTrial.Models
                 return ctx.Total.FromSqlRaw("EXECUTE dbo.getTotalRentForTruckModel {0},{1},{2}", model, start, end).ToList();
             }
         }
+        //----------> get Customers PB database to display in the combobox
+        public static List<TruckCustomer> getTruckCustomersPB()
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.TruckCustomers.FromSqlRaw("getCustomers").ToList();
+            }
+        }
+
+        //----------> get total sale for customer by license numbr
+        public static List<Total> getTotalCustomerRentByLicense(string license)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.Total.FromSqlRaw("getCustomerTotalRent {0}",license).ToList();
+            }
+        }
+
+        //----------> get total sale by selected month and year
+        public static List<Total> getTotalMonthlyRent(int month, int year)
+        {
+            using (DAD_TatianaContext ctx = new DAD_TatianaContext())
+            {
+                return ctx.Total.FromSqlRaw("getSalesByMonth {0}, {1}", month, year).ToList();
+            }
+        }
 
     }
 }

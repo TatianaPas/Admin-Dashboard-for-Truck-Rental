@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NewDesignTrial.View"
              mc:Ignorable="d" 
-             d:DesignHeight="520" d:DesignWidth="625">
+             d:DesignHeight="700" d:DesignWidth="625">
     <Grid  Margin="5,5,5,5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*"/>
@@ -19,7 +19,10 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -85,6 +88,16 @@
                    Text="End Date"
                    Grid.Row="7"
                    Grid.Column="0"/>
+        <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
+                  Name="modelComboBox" 
+                  Grid.Row="5" 
+                  Grid.Column="1"
+                  MinHeight="35" 
+                  Height="35"
+                  Margin="5"
+                  Padding="10"
+                  IsEditable="False" 
+                  IsTextSearchEnabled="True"/>
 
         <DatePicker Name="startDatePicker" 
                     Style="{StaticResource inputDatePicker}" 
@@ -132,12 +145,11 @@
 
         <TextBlock Style="{StaticResource text}" 
                    Text="Driving License"
-                   Grid.Row="8"
+                   Grid.Row="9"
                    Grid.Column="0"/>
-
         <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
-                  Name="modelComboBox" 
-                  Grid.Row="5" 
+                  Name="licenseComboBox" 
+                  Grid.Row="9" 
                   Grid.Column="1"
                   MinHeight="35" 
                   Height="35"
@@ -146,22 +158,101 @@
                   IsEditable="False" 
                   IsTextSearchEnabled="True"/>
 
-
         <Button 
             Grid.Row="9" 
             Grid.Column="3"  
-            x:Name="rentalSaleForMonthBtn"                       
+            x:Name="rentalSaleForCustomerBtn"                       
             Style="{StaticResource submitButton}"
-            Content="Total rent for month"
+            Content="Show Customer Total"
             Margin="5,5,5,5" 
-            IsTabStop="False">
+            IsTabStop="False" Click="rentalSaleForCustomerBtn_Click">
         </Button>
-        <TextBox Name="totalTextBox" 
-                 Style="{StaticResource inputTextBox}" 
-                 Grid.Column="3"
-                 Grid.Row="10"/>
-
        
+        <Grid Name="totalCusotmerGrid"
+              Grid.Column="3"
+              Margin="5,5,5,5" 
+              Grid.RowSpan="2" 
+              Grid.Row="10">
+
+            <DataGrid x:Name="gridCustomerTotal" 
+                Grid.Column="0" 
+               Style="{StaticResource dataGridStyle}"
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Total Customer Rent" 
+                                            MinWidth="250"
+                                            Binding = "{Binding TotalPrice}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+        <TextBlock Style="{StaticResource text}" 
+                   Text="-----------------Total Sales for selected month and year-----------------" 
+                   Grid.Column="1"
+                   Grid.ColumnSpan="3"
+                   Grid.Row="11"/>
+        <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
+                  Name="monthComboBox" 
+                  Grid.Row="12" 
+                  Grid.Column="1"
+                  MinHeight="35" 
+                  Height="35"
+                  Margin="5"
+                  Padding="10"
+                  IsEditable="False" 
+                  IsTextSearchEnabled="True">
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="5"/>
+            <ComboBoxItem Content="6"/>
+            <ComboBoxItem Content="7"/>
+            <ComboBoxItem Content="8"/>
+            <ComboBoxItem Content="9"/>
+            <ComboBoxItem Content="10"/>
+            <ComboBoxItem Content="11"/>
+            <ComboBoxItem Content="12"/>
+        </ComboBox>
+        <TextBox Name="yearTextBox" 
+                 Style="{StaticResource inputTextBox}" 
+                 Grid.Row="13" 
+                 Grid.Column="1"/>
+        <TextBlock Style="{StaticResource text}" 
+                   Text="Select Month"
+                   Grid.Row="12"
+                   Grid.Column="0"/>
+        <TextBlock Style="{StaticResource text}" 
+                   Text="Enter Year YYYY"
+                   Grid.Row="13"
+                   Grid.Column="0"/>
+        <Button 
+            Grid.Row="12" 
+            Grid.Column="3"  
+            x:Name="rentalfForSelectedMonthBtn"                       
+            Style="{StaticResource submitButton}"
+            Content="Show Monthly Total"
+            Margin="5,5,5,5" 
+            IsTabStop="False" Click="rentalfForSelectedMonthBtn_Click">
+        </Button>
+        <Grid Name="totalRentalsGrid"
+              Grid.Column="3"
+              Margin="5,5,5,5" 
+              Grid.RowSpan="2" 
+              Grid.Row="13">
+
+            <DataGrid x:Name="gridRentalsTotal" 
+                Grid.Column="0" 
+               Style="{StaticResource dataGridStyle}"
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Total Monthly Rent" 
+                                            MinWidth="250"
+                                            Binding = "{Binding TotalPrice}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
 
     </Grid>
 </UserControl>

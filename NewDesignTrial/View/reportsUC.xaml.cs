@@ -30,6 +30,11 @@ namespace NewDesignTrial.View
             modelComboBox.ItemsSource = DAO.getTruckModelsPB();
             modelComboBox.DisplayMemberPath = "Model";
             modelComboBox.SelectedValuePath = "Model";
+
+    // add selection of clients driving license into combobox to search rentals by customer
+            licenseComboBox.ItemsSource = DAO.getTruckCustomersPB();
+            licenseComboBox.DisplayMemberPath = "LicenseNumber";
+            licenseComboBox.SelectedValuePath = "LicenseNumber";
         }
 
         private void topFiveTrucksBtn_Click(object sender, RoutedEventArgs e)
@@ -65,11 +70,12 @@ namespace NewDesignTrial.View
 
         private void saleBetweenDates_Click(object sender, RoutedEventArgs e)
         {
-            string model = modelComboBox.Text;
-            DateTime startDate = startDatePicker.SelectedDate.Value;
-            DateTime endDate = endDatePicker.SelectedDate.Value;
+            
             try
             {
+                string model = modelComboBox.Text;
+                DateTime startDate = startDatePicker.SelectedDate.Value;
+                DateTime endDate = endDatePicker.SelectedDate.Value;
                 gridTotal.ItemsSource= DAO.getTotalPriceForSelectedTruckModel(model, startDate, endDate);               
 
             }
@@ -78,6 +84,36 @@ namespace NewDesignTrial.View
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void rentalSaleForCustomerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string license = licenseComboBox.Text;
+            try
+            {
+                gridCustomerTotal.ItemsSource = DAO.getTotalCustomerRentByLicense(license);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void rentalfForSelectedMonthBtn_Click(object sender, RoutedEventArgs e)
+        {
+            
+            try
+            {
+                int month = int.Parse(monthComboBox.Text);
+                int year = int.Parse(yearTextBox.Text);
+                gridRentalsTotal.ItemsSource = DAO.getTotalMonthlyRent(month, year);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

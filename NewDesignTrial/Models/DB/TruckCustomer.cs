@@ -26,7 +26,7 @@ namespace NewDesignTrial.Models.DB
                 }
                 else
                 {
-                    throw new Exception("License expired. Please provide new license.");
+                   // throw new Exception("License expired. Please provide new license.");
                 }
             }
         }
