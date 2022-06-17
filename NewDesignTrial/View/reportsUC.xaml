@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NewDesignTrial.View"
              mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="625">
+             d:DesignHeight="720" d:DesignWidth="625">
     <Grid  Margin="5,5,5,5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*"/>
@@ -15,6 +15,7 @@
             <ColumnDefinition Width="0.25*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -190,10 +191,10 @@
                    Text="-----------------Total Sales for selected month and year-----------------" 
                    Grid.Column="1"
                    Grid.ColumnSpan="3"
-                   Grid.Row="11"/>
+                   Grid.Row="12"/>
         <ComboBox Template="{DynamicResource ComboBoxTemplate1}" 
                   Name="monthComboBox" 
-                  Grid.Row="12" 
+                  Grid.Row="13" 
                   Grid.Column="1"
                   MinHeight="35" 
                   Height="35"
@@ -216,18 +217,18 @@
         </ComboBox>
         <TextBox Name="yearTextBox" 
                  Style="{StaticResource inputTextBox}" 
-                 Grid.Row="13" 
+                 Grid.Row="14" 
                  Grid.Column="1"/>
         <TextBlock Style="{StaticResource text}" 
                    Text="Select Month"
-                   Grid.Row="12"
+                   Grid.Row="13"
                    Grid.Column="0"/>
         <TextBlock Style="{StaticResource text}" 
                    Text="Enter Year YYYY"
-                   Grid.Row="13"
+                   Grid.Row="14"
                    Grid.Column="0"/>
         <Button 
-            Grid.Row="12" 
+            Grid.Row="13" 
             Grid.Column="3"  
             x:Name="rentalfForSelectedMonthBtn"                       
             Style="{StaticResource submitButton}"
@@ -239,7 +240,7 @@
               Grid.Column="3"
               Margin="5,5,5,5" 
               Grid.RowSpan="2" 
-              Grid.Row="13">
+              Grid.Row="14">
 
             <DataGrid x:Name="gridRentalsTotal" 
                 Grid.Column="0" 
