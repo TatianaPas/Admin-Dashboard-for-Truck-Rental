@@ -1,0 +1,125 @@
+USE [DAD_Tatiana]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Tatiana
+-- Create date: 
+-- Description:	
+-- =============================================
+ALTER PROCEDURE [dbo].[getCustomerTotalRent] 
+	@p1 varchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT [TruckCustomer-PB].CustomerID AS ID, SUM([TruckRental-PB].TotalPrice) as TotalPrice
+	from [TruckRental-PB]
+	INNER JOIN [TruckCustomer-PB] on [TruckRental-PB].CustomerID=[TruckCustomer-PB].CustomerID 
+	where [TruckCustomer-PB].LicenseNumber=@p1 
+	group by [TruckCustomer-PB].CustomerID
+END
+
+USE [DAD_Tatiana]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Tatiana
+-- Create date: 
+-- Description:	
+-- =============================================
+ALTER PROCEDURE [dbo].[getSalesByMonth] 
+	@p1 int, 
+	@p2 int
+AS
+BEGIN
+	SET NOCOUNT ON;
+	DECLARE @ID AS int
+SET @ID = 1
+
+	SELECT @ID as ID,SUM([TruckRental-PB].TotalPrice) as TotalPrice
+	from [TruckRental-PB]
+	where MONTH([TruckRental-PB].RentDate)=@p1 AND
+	YEAR([TruckRental-PB].RentDate)=@p2
+END
+
+
+USE [DAD_Tatiana]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[getTotalRentForTruckModel] 
+
+	@p0  varchar(50),
+	@start date,
+	@end date
+AS
+BEGIN
+	SET NOCOUNT ON;
+	
+	SELECT [TruckModel-PB].ModelID as ID, SUM([TruckRental-PB].TotalPrice) as TotalPrice
+	from [TruckRental-PB]
+	INNER JOIN [IndividualTruck-PB] on [TruckRental-PB].TruckID=[IndividualTruck-PB].TruckID 
+	INNER JOIN [TruckModel-PB] on [IndividualTruck-PB].TruckModelID=[TruckModel-PB].ModelID
+	where [TruckModel-PB].Model=@p0 AND	
+	[TruckRental-PB].RentDate >= convert(DATE,@start) AND
+	[TruckRental-PB].RentDate<=convert(DATE,@end)
+	group by [TruckModel-PB].ModelID
+END
+
+USE [DAD_Tatiana]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Tatiana
+-- Create date: 
+-- Description:	
+-- =============================================
+ALTER PROCEDURE [dbo].[leastFiveRentedTruckModels] 
+
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT TOP(5) [TruckModel-PB].ModelID, [TruckModel-PB].Model,SUM([TruckRental-PB].TotalPrice) AS Total
+	from [TruckRental-PB] 
+	INNER JOIN [IndividualTruck-PB] on [TruckRental-PB].TruckID=[IndividualTruck-PB].TruckID 
+	INNER JOIN [TruckModel-PB] on [IndividualTruck-PB].TruckModelID=[TruckModel-PB].ModelID
+	group by[TruckModel-PB].ModelID, [TruckModel-PB].Model
+	order by SUM([TruckRental-PB].TotalPrice) ASC
+END
+
+USE [DAD_Tatiana]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Tatiana
+-- Create date: 
+-- Description:	
+-- =============================================
+ALTER PROCEDURE [dbo].[topFiveTrucks] 
+	-- Add the parameters for the stored procedure here
+
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+	SELECT TOP(5) [TruckRental-PB].TruckID AS ID,[IndividualTruck-PB].RegistrationNumber AS Registration, SUM([TruckRental-PB].TotalPrice) AS Total
+	from [TruckRental-PB] INNER JOIN
+	[IndividualTruck-PB] on [TruckRental-PB].TruckID=[IndividualTruck-PB].TruckID
+	group by [TruckRental-PB].TruckID, [IndividualTruck-PB].RegistrationNumber
+	order by SUM([TruckRental-PB].TotalPrice) DESC
+END
+
