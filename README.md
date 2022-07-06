@@ -25,8 +25,14 @@ add employee
 
 ![image](https://user-images.githubusercontent.com/81549043/171829055-9ecaebd9-a418-4296-9120-dcfb4eecae37.png)
 
-search customer by id/ license number
-![image](https://user-images.githubusercontent.com/81549043/171829114-29d52125-886c-4bd3-ba92-260acaeadcc1.png) ![image](https://user-images.githubusercontent.com/81549043/171829194-021b6080-755f-4e25-85b2-c5f54fac7e03.png)
+search customer by id number
+![image](https://user-images.githubusercontent.com/81549043/171829114-29d52125-886c-4bd3-ba92-260acaeadcc1.png)
+search customer by full name
+
+![image](https://user-images.githubusercontent.com/81549043/171829194-021b6080-755f-4e25-85b2-c5f54fac7e03.png)
+
+show all customers 
+
 ![image](https://user-images.githubusercontent.com/81549043/171829254-0544cd2b-cd4d-4eb5-acd0-7109e6a2c6e6.png)
 ![image](https://user-images.githubusercontent.com/81549043/171829353-e584b3fe-7706-45bc-95f0-f7fed6e44878.png)
 
