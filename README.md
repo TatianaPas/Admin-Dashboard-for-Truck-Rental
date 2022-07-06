@@ -37,7 +37,7 @@ show all customers
 
 ![image](https://user-images.githubusercontent.com/81549043/171829254-0544cd2b-cd4d-4eb5-acd0-7109e6a2c6e6.png)
 
-update customer details
+search/ update customer details
 
 ![image](https://user-images.githubusercontent.com/81549043/171829353-e584b3fe-7706-45bc-95f0-f7fed6e44878.png)
 
@@ -45,7 +45,11 @@ search contact details
 
 ![image](https://user-images.githubusercontent.com/81549043/171830172-cbc00498-70de-4c7d-9ddb-4cbb4b89251d.png)
 
+add new truck
+
 ![image](https://user-images.githubusercontent.com/81549043/171829465-fc358230-a109-47fa-ad6b-ac756bea9c8e.png) 
+
+search/ update truck
 
 ![image](https://user-images.githubusercontent.com/81549043/171829580-5f3b31a2-e0a9-43f3-9cc6-6d11b89aca0b.png)
 
