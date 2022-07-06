@@ -17,6 +17,8 @@ Rent/ Return/ search between dates/ search by customer/ show available trucks
 login validation for user and admin
 ![image](https://user-images.githubusercontent.com/81549043/171828868-e7d9d8c1-981a-4c4d-9828-ccd4a5539905.png)
 
+add new customer
+
 ![image](https://user-images.githubusercontent.com/81549043/171828987-6c79e302-da3d-486a-9b27-c3b61a46f8d1.png) ![image](https://user-images.githubusercontent.com/81549043/171829055-9ecaebd9-a418-4296-9120-dcfb4eecae37.png)
 ![image](https://user-images.githubusercontent.com/81549043/171829114-29d52125-886c-4bd3-ba92-260acaeadcc1.png) ![image](https://user-images.githubusercontent.com/81549043/171829194-021b6080-755f-4e25-85b2-c5f54fac7e03.png)
 ![image](https://user-images.githubusercontent.com/81549043/171829254-0544cd2b-cd4d-4eb5-acd0-7109e6a2c6e6.png)
